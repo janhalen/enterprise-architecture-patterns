@@ -1,0 +1,12 @@
+title: System Design Docs
+theme: just-the-docs
+remote_theme: just-the-docs/just-the-docs
+
+just_the_docs:
+  collections:
+    proposals:
+      name: Proposals
+      nav_fold: true
+    decisions:
+      name: Decisions
+      nav_fold: true
