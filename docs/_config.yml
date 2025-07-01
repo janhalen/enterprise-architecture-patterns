@@ -2,7 +2,7 @@ title: System Design Docs
 remote_theme: just-the-docs/just-the-docs
 
 plugins:
-  - jekyll-remote-theme
+  - jekyll-remote-theme
 
 just_the_docs:
   collections:
