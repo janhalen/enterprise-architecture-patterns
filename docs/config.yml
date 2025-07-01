@@ -1,6 +1,5 @@
 title: System Design Docs
 theme: just-the-docs
-remote_theme: just-the-docs/just-the-docs
 
 just_the_docs:
   collections:
@@ -10,3 +9,8 @@ just_the_docs:
     decisions:
       name: Decisions
       nav_fold: true
+
+mermaid:
+  # Version of mermaid library
+  # Pick an available version from https://cdn.jsdelivr.net/npm/mermaid/
+  version: "9.1.3"
