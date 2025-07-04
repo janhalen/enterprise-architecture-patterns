@@ -50,9 +50,9 @@ flowchart
     CKAN -->|OIDC| Authentik
     Authentik -->|SAML| Legacy_IdP
     subgraph " "
-        CKAN["**OpenData**<br>CKAN Platform OIDC plugin"]
-        Authentik["**OS2 Adgang**<br>Authentik OIDC Brooker og proxy"]
-        Legacy_IdP["**Fælleskommunal Adgangsstyring**<br>SAML IdP OIO"]
+        CKAN[OpenData<br>CKAN Platform OIDC plugin]
+        Authentik[OS2 Adgang<br>Authentik OIDC Brooker og proxy]
+        Legacy_IdP[Fælleskommunal Adgangsstyring<br>SAML IdP OIO]
     end
     
 ```
