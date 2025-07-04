@@ -32,10 +32,10 @@ Løsningen er designet til at vokse med organisationens behov. Den understøtter
 
 ---
 
-## Hvorfor OIDC frem for SAML?
+## Hvorfor OpenID Connect (OIDC) frem for SAML?
 
 ### 1. Fremtidssikret og cloud-klar
-OIDC er den moderne standard, som understøttes bredt af cloud-udbydere og SaaS-platforme. Det sikrer, at vores adgangsstyring er kompatibel med fremtidens teknologier og krav.
+OIDC er den moderne standard, som understøttes bredt af cloud-udbydere og SaaS-platforme. Det sikrer, at adgangsstyringen er kompatibel og fremtidssikret.
 
 ### 2. Lavere kompleksitet og hurtigere implementering
 OIDC er lettere at integrere i moderne it-miljøer, hvilket reducerer udviklingstid og driftsomkostninger. Det giver hurtigere time-to-market og færre tekniske udfordringer.
