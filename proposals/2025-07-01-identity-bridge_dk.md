@@ -1,7 +1,6 @@
-
 ---
 layout: default
-title: Event-Driven Architecture
+title: Authentik-as-brooker
 parent: Proposals
 nav_order: 1
 ---
