@@ -4,15 +4,6 @@ remote_theme: just-the-docs/just-the-docs
 plugins:
   - jekyll-remote-theme
 
-just_the_docs:
-  collections:
-    proposals:
-      name: Proposals
-      nav_fold: true
-    decisions:
-      name: Decisions
-      nav_fold: true
-
 mermaid:
   # Version of mermaid library
   # Pick an available version from https://cdn.jsdelivr.net/npm/mermaid/
