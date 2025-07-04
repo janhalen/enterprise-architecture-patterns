@@ -1,10 +1,14 @@
 ---
 layout: default
-title: Authentik-as-brooker
+title: OpenData integration med FKa
 parent: Proposals
 ---
 
-# Arkitekturanbefaling 
+# Arkitekturanbefaling
+_OpenData integration med FKa_
+
+Udkast
+{: .label .label-yellow }
 
 ## Brug af Authentik som identitetsbro for CKAN
 
