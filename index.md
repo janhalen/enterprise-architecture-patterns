@@ -1,6 +1,6 @@
 ---
 layout: home
-title: System Design Docs
+title: Home
 nav_order: 1
 ---
 
