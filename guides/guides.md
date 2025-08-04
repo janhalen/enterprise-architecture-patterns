@@ -1,5 +1,5 @@
 ---
-title: PropoGuidessals
+title: Guides
 layout: default
 has_children: true
 ---
