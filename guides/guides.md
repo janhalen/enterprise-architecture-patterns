@@ -4,6 +4,6 @@ layout: default
 has_children: true
 ---
 
-# Proposals
+# Guides
 
 This section contains a selection of guides, tips & tricks and Q&As regarding open source in both danish and english
