@@ -13,57 +13,58 @@ parent: Activities
 
 ### OS²sandbox
 - 🏗️ Oprettelse af sandkasse til understøttelse af mulige kommende os2projekter
-- 🤝 Præsentation og udbredelse til intereserrede leverandører og bidragydere
-- 🛠️ Proof-of-Concept: Trykprøvning af sandkassen via anvendelse til det fælleseuropæisk genbrugsprojekt "Signalen" for KL.
+- 🤝 Præsentation og udbredelse til interesserede leverandører og bidragydere
+- 🛠️ Proof-of-Concept: Trykprøvning af sandkassen via anvendelse til det fælleseuropæiske genbrugsprojekt "Signalen" for KL.
 
 ### OS²adgang
 - 🔭 Identifikation og leverandørsamarbejde om bidrag til en moderne, vedligeholdt adgangsløsning der understøtter os2s portefølje via åbne standarder.
 - 🏗️ Definition af snitflader og teknisk planlægning for sammenkobling med Os2Samtale
 
 ### OS²samtale
- - 🔎 Identifikation og udvælgelse af en kommunikationsløsning  til os2 der passer ind i vores strategiske fundament.
-- 🔌 Modning og udviklings aktiviteteter på løsningen så den blev nemmere at tilslutte den danske fællesoffentlige infrastruktur.
-- 🏗️ Definition af driftskriterier og afdæking af mulige driftsleverandører
+ - 🔎 Identifikation og udvælgelse af en kommunikationsløsning til os2 der passer ind i vores strategiske fundament.
+- 🔌 Modning og udviklings aktiviteter på løsningen så den blev nemmere at tilslutte den danske fællesoffentlige infrastruktur.
+- 🏗️ Definition af driftskriterier og afdækning af mulige driftsleverandører
 - 🚀 Planlægning og beskrivelse af teknisk roadmap og kickoff af version 0.8
 
 ### OS²borgerpc
 - 🔍 Identifikation af mulige tekniske løsningsforslag til understøttelse af flerleverandør strategi for v.2.x
-- 🚀 Design og referencearkitektur på version "Next" (3.x) for at aktivere et større udbredelses potentiale via genbrug i OS²Display, OS²Skole (fase 3) og mulige udviddelser målrettet med regionerne og statslige institutioner.
+- 🚀 Design af referencearkitektur for version 'Next' (3.x), med fokus på genbrug i OS²Display og OS²Skole (fase 3), samt udvidelse af anvendergrundlaget med nye medlemmer fra regioner og statslige institutioner.
+- 🧩 Udvikling af en arkitekturstrategi baseret på deltagelse i upstream-løsninger frem for egenudvikling. Målet er at reducere vedligeholdelsesbyrden og teknisk gæld, modernisere stacken med løskoblede principper og standard GitOps principper, og styrke den langsigtede bæredygtighed og skalerbarhed i produktet.
 
 ### OS²-docs-template
-- 🧪 Introduktion af fælles dokumentations standard og tilhørende skabelon
+- 🧪 Introduktion af fælles dokumentationsstandard og tilhørende skabelon
 - 🧭 Udbredelse af skabelonen til OS²fleetoptimizer, OS²Compliance og OS²BorgerPC
-- 🚀 Opstart af initiativ til fælles vedligehold af dokumentations skabelonen
+- 🚀 Opstart af initiativ til fælles vedligehold af dokumentationsskabelonen
 
 ### OS²fleetoptimiser
 - 👋 Onboarding
-- 📢 Intensiv rådgivning på skalerings moden arktitektur og snitflade komponenter
+- 📢 Intensiv rådgivning på skaleringsmoden arkitektur og snitfladekomponenter
 
 ### OS²compliance 
 - 👋 Onboarding
-- 🗣️ Rådgivning om automatisering, transparens og udgivelses processer
+- 🗣️ Rådgivning om automatisering, transparens og udgivelsesprocesser
 
 ### OS²kitos
-- 🗣️ Rådgivning om åbne genbrugelig snitflade arkitektur
+- 🗣️ Rådgivning om åbne genbrugelig snitfladearkitektur
 
 ### OS²autoprocess
-- 🗣️ Rådgivning om genbrug af åbne snitflade arkitekturer og komponenter
+- 🗣️ Rådgivning om genbrug af åbne snitfladearkitekturer og komponenter
 
 ### connector
-- 🌟 Efter gentagne rådgivningsopgaver i flere produkter vedr. snitflade komponenter og arkitektur er der startet et initiativ til at definere en fælles, genbrugelig reference-arkitektur for effektive, delbare snitflader og integrationer på tværs af os2porteføljen.
-- 💸 Funding til arbejdet mangler
+- 🌟 På baggrund af gentagne rådgivningsopgaver er der igangsat et initiativ til en fælles referencearkitektur for delbare snitflader og integrationer på tværs af os2porteføljen.
+- 💸 Der mangler finansiering til arbejdet
 
 ### OS²skole
 - 📈 Understøttelse af projektgruppe med strategisk arkitektur rådgivning
 - 🏗️ Konkrete forslag til mulige PoC leverancer
-- 📢 Intensiv ugentlig sparring på open source koncepter og digitale suverænintets principper
+- 📢 kontinuerlig sparring på open source koncepter og digitale suverænitetsprincipper
 
 ### OS²iot
 - 🚀 Opstart af rådgivningsrække vedr. modernisering og løskobling af infrastruktur og arkitektur
 - 🔍 Identifikation og løsningsforslag til minimering af teknisk gæld
 
 ### health-analyzer
-- 🗣️ Som reaktion på samabejdsvanskeligehderne i BorgerPC projektet er arbejdet startet på at defininere en automatiseret løsning til at måle os2produkternes tilstand.
+- 🗣️ Som reaktion på samarbejdsvanskeligheder i BorgerPC-projektet er der igangsat arbejde med en automatiseret løsning til måling af os2produkternes tilstand.
 - 💸 Funding mangler
 
 ### Indledende rådgivning om onboarding / reboarding
