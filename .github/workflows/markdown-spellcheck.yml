@@ -12,9 +12,10 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Install aspell dictionaries
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y aspell aspell-en aspell-da
+      run: |
+    sudo add-apt-repository universe
+    sudo apt-get update
+    sudo apt-get install -y aspell aspell-en aspell-da
 
       - name: Run spellcheck
         uses: igsekor/pyspelling-any@v0.0.2
