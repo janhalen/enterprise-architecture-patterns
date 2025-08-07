@@ -11,13 +11,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Install aspell dictionaries
+    - name: Install aspell dictionaries
       run: |
-    sudo add-apt-repository universe
-    sudo apt-get update
-    sudo apt-get install -y aspell aspell-en aspell-da
+        sudo add-apt-repository universe
+        sudo apt-get update
+        sudo apt-get install -y aspell-en aspell-da
 
-      - name: Run spellcheck
+      - name: Run pyspelling spellcheck
         uses: igsekor/pyspelling-any@v0.0.2
         with:
           configFile: '.spellcheck.yml'
