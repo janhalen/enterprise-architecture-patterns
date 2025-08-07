@@ -10,7 +10,7 @@
 - Det er en kompliseret opgave (kompliceret)
 - Vi har ikke modtaget tilbagemelding fra leverandøren (tilbagemelding)
 - Der er mange udviddelser i systemet (udvidelser)
-- Testing 1-2-3-4-5-6-7-8-9-10-11-12-streetside-yarn
+- Testing 1-2-3-4-5-6-7-8-9-10-11-12-streetside-yarn-lock
 
 
 ## 🇬🇧 Engelske stavefejl
