@@ -1,0 +1,12 @@
+matrix:
+  - name: Markdown
+    aspell:
+      lang: da,en
+      ignore-case: true
+    dictionary:
+      wordlists:
+        - .wordlist.txt
+    pipeline:
+      - pyspelling.filters.markdown:
+    sources:
+      - '**/*.md'

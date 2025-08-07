@@ -1,0 +1,15 @@
+name: Spellcheck
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  spellcheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Spellcheck
+        uses: igsekor/pyspelling-any@v0.0.2
+        with:
+          configFile: '.spellcheck.yml'
