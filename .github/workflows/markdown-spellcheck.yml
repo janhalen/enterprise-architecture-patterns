@@ -8,8 +8,15 @@ jobs:
   spellcheck:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Spellcheck
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install aspell dictionaries
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y aspell aspell-en aspell-da
+
+      - name: Run spellcheck
         uses: igsekor/pyspelling-any@v0.0.2
         with:
           configFile: '.spellcheck.yml'
