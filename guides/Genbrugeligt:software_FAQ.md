@@ -1,23 +1,16 @@
-# 🇩🇰 Hvordan udgiver man sit software som open source.
-### _Hvad skal man være opmærksom på?_
+---
+layout: faq
+title: Hvordan sikrer man at et stykke egenudviklet software kan genbruges?
+parent: Guides
+---
 
 # Q&A
 
-### Q: _Hvad skal man tjekke for, når man offentliggør koden fx personhenførbare oplysninger m.m.?_
-
-### Q: _Hvilke data skal man fjerne?_
-
-
-### A: Hold koden ren for adgangsoplysninger og miljøspecifikke filer
+### 🧹  Hvad skal man tjekke for, når man offentliggør koden og hvilke data skal man fjerne?
+**Hold koden ren for adgangsoplysninger og miljøspecifikke filer**
 _Inden I offentliggør koden, skal I sikre, at der **ikke** ligger nogen form for data i repoet, som kan være følsomme, miljøspecifikke eller irrelevante for andre brugere. Et open source-repo skal være generisk og uafhængigt af jeres interne miljø – så andre kan bruge det uden at kende jeres infrastruktur._
 
-#### Best practice:
-- Brug **miljøvariabler** til konfiguration – ingen adgangsoplysninger i koden
-- Tilføj en **eksempelfil** som `config.example.env` og dokumenter hvordan den anvendes.
-- Brug `.gitignore` til at udelukke `.env`, `config.*`, `*.log`, `.pem` osv.
-- Dokumentér i `README.md`, hvordan man opsætter miljøet lokalt og hvilke miljøvarible der er nødvendige.
-
-#### Undgå:
+Undgå:
 - **Følsomme oplysninger og credentials**: API-nøgler, tokens, brugernavne, adgangskoder
 - **Miljøspecifikke filer**: Produktionskonfigurationer, interne URL’er, IP-adresser, databasenavne
 - **Data og logfiler**: Produktionsdata, testdata med rigtige oplysninger, logfiler fra drift eller udvikling
@@ -25,12 +18,18 @@ _Inden I offentliggør koden, skal I sikre, at der **ikke** ligger nogen form fo
 - **Midlertidige filer**: Lokale udviklingsfiler, cache, build-artifacts
 
 
-#### Men inkluder gerne:
+Men inkluder gerne:
 - **Syntetiske eller anonymiserede data** til eksempler og tests
 - **Eksempelfiler** til konfiguration, f.eks. `config.example.env`
 - Dokumentation, der forklarer hvordan man selv tilføjer konfiguration af adgange, logs o.s.v.
 
-### Q: _Hvilke tests skal man lave? (hvis nogen?)_
+Best practice:
+- Brug **miljøvariabler** til konfiguration – ingen adgangsoplysninger i koden
+- Tilføj en **eksempelfil** som `config.example.env` og dokumenter hvordan den anvendes.
+- Brug `.gitignore` til at udelukke `.env`, `config.*`, `*.log`, `.pem` osv.
+- Dokumentér i `README.md`, hvordan man opsætter miljøet lokalt og hvilke miljøvarible der er nødvendige.
+
+### ⚗️ Hvilke tests skal man lave?
 
 A: Automatiske tests og dokumenteret testmiljø øger kvaliteten og genbrugeligheden af softwaren. For at sikre at softwaren fungerer som forventet – både nu og i fremtiden – bør der være automatiske tests og en klar beskrivelse af, hvordan man opsætter et testmiljø. Det gør det lettere for andre at bidrage og genbruge projektet.
 
@@ -58,9 +57,9 @@ Tests der afhænger af interne systemer: Sørg for at tests kan køre uden adgan
 Inkluder gerne dummy-data (eller links til retvisende dummy data) til at simulere realistiske scenarier uden at bruge rigtige oplysninger.
 
 
-### Q: _Hvilken dokumentation skal man tilknytte?_
+### 📚 Hvilken dokumentation skal man tilknytte?
 
-### A: God dokumentation gør projektet lettere at forstå, bruge og genbruge  
+**God dokumentation gør projektet lettere at forstå, bruge og genbruge**
 _Dokumentation er en nøglekomponent i open source-projekter – både for at sænke barren for nye brugere og for at sikre projektets genbrugelighed._
 
 #### Best practice:
@@ -91,7 +90,7 @@ _Dokumentation er en nøglekomponent i open source-projekter – både for at s�
 
 ### Q: _Hvor skal man offentliggøre det?_
 
-### A: Brug åbne og tilgængelige platforme, der understøtter samarbejde og genbrug  
+A: Brug åbne og tilgængelige platforme, der understøtter samarbejde og genbrug  
 _For at sikre at din kode og dokumentation er nem at finde, bruge og bidrage til, bør du offentliggøre den på en platform, der er bredt anvendt i open source-fællesskabet og understøtter versionsstyring, issues og samarbejde._
 
 #### Best practice:
@@ -108,3 +107,7 @@ _For at sikre at din kode og dokumentation er nem at finde, bruge og bidrage til
 #### Men inkluder gerne:
 - **Et link til repoet i anden kommunikation:** Hvis projektet nævnes i artikler, præsentationer eller dokumenter, så link direkte til repoet.
 - **Beskrivelser i `CONTRIBUTING.md` og `CODE_OF_CONDUCT.md`:** For at gøre det nemt og trygt for andre at bidrage.
+
+
+
+

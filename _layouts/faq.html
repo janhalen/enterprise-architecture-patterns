@@ -1,0 +1,34 @@
+---
+layout: default
+---
+
+<link rel="stylesheet" href="/assets/css/accordion.css">
+
+<main>
+  <h1>{{ page.title }}</h1>
+
+  <div class="accordion">
+    {% assign sections = content | split: '<h3' %}
+    {% for section in sections %}
+      {% if forloop.first %}
+        {% continue %}
+      {% endif %}
+
+      {% assign question_start = section | split: '</h3>' %}
+      {% assign question_html = '<h3' | append: question_start[0] | append: '</h3>' %}
+      {% assign answer_html = question_start[1] %}
+      {% assign id = 'faq' | append: forloop.index %}
+
+      <input type="checkbox" id="{{ id }}" />
+      <label for="{{ id }}">
+        <blockquote class="callout question">
+          {{ question_html | strip_html }}
+          <span class="arrow">▶</span>
+        </blockquote>
+      </label>
+      <div class="content">
+        {{ answer_html }}
+      </div>
+    {% endfor %}
+  </div>
+</main>
