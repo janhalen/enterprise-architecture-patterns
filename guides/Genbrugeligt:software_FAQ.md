@@ -75,7 +75,7 @@ parent: Guides
 # Spørgsmål og svar
 
 <details>
-<summary><h2>❓ Hvad skal man tjekke for, når man offentliggør koden?</h2></summary>
+<summary><strong>❓ Hvad skal man tjekke for, når man offentliggør koden?</strong></summary>
 
 ### ✅ Hold koden ren for adgangsoplysninger og miljøspecifikke filer  
 _Inden I offentliggør koden, skal I sikre, at der **ikke** ligger nogen form for data i repoet, som kan være følsomme, miljøspecifikke eller irrelevante for andre brugere. Et open source-repo skal være generisk og uafhængigt af jeres interne miljø – så andre kan bruge det uden at kende jeres infrastruktur._
@@ -100,7 +100,7 @@ _Inden I offentliggør koden, skal I sikre, at der **ikke** ligger nogen form fo
 </details>
 
 <details>
-<summary><h2>❓ Hvilke tests skal man lave? (hvis nogen?)</h2></summary>
+<summary><strong>❓ Hvilke tests skal man lave?</strong></summary>
 
 ### ✅ Automatiske tests og dokumenteret testmiljø øger kvaliteten og genbrugeligheden af softwaren  
 _For at sikre at softwaren fungerer som forventet – både nu og i fremtiden – bør der være automatiske tests og en klar beskrivelse af, hvordan man opsætter et testmiljø. Det gør det lettere for andre at bidrage og genbruge projektet._
@@ -122,7 +122,7 @@ _For at sikre at softwaren fungerer som forventet – både nu og i fremtiden �
 </details>
 
 <details>
-<summary><h2>❓ Hvilken dokumentation skal man tilknytte?</h2></summary>
+<summary><strong>❓ Hvilken dokumentation skal man tilknytte?</strong></summary>
 
 ### ✅ God dokumentation gør projektet lettere at forstå, bruge og genbruge  
 _Dokumentation er en nøglekomponent i open source-projekter – både for at sænke barren for nye brugere og for at sikre projektets genbrugelighed._
@@ -146,7 +146,7 @@ _Dokumentation er en nøglekomponent i open source-projekter – både for at s�
 </details>
 
 <details>
-<summary><h2>❓ Hvor skal man offentliggøre det?</h2></summary>
+<summary><strong>❓ Hvor skal man offentliggøre det?</strong></summary>
 
 ### ✅ Brug åbne og tilgængelige platforme, der understøtter samarbejde og genbrug  
 _For at sikre at din kode og dokumentation er nem at finde, bruge og bidrage til, bør du offentliggøre den på en platform, der er bredt anvendt i open source-fællesskabet og understøtter versionsstyring, issues og samarbejde._
