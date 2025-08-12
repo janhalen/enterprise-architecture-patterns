@@ -1,10 +1,10 @@
 ---
-layout: faq
-title: Hvordan sikrer man at et stykke egenudviklet software kan genbruges?
+layout: default
+title: ♻️ Hvordan sikrer man at et stykke egenudviklet software kan genbruges?
 parent: Guides
 ---
 
-# 🌱 Genbrugs-kriterier for Open Source  
+# ♻️ Genbrugs-kriterier for Open Source  
 *Hvordan du gør dit projekt nemt at finde, forstå og genbruge – uden at miste pusten.*
 
 ---
