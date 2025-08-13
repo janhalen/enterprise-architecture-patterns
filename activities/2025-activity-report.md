@@ -1,10 +1,10 @@
 ---
 layout: default
-title: 🧭 Aktivitetsoversigt 2025
+title: 📋 Aktivitetsoversigt 2025
 parent: Activities
 ---
 
-# 🧭 Aktivitetsoversigt 2025
+# 📋 Aktivitetsoversigt 2025
 
 > *Oversigt over strategiske og operationelle aktiviteter.* - jan@os2.eu
 
@@ -67,6 +67,8 @@ parent: Activities
 - 🗣️ Som reaktion på samarbejdsvanskeligheder i BorgerPC-projektet er der igangsat arbejde med en automatiseret løsning til måling af os2produkternes tilstand.
 - 💸 Funding mangler
 
-### Indledende rådgivning om onboarding / reboarding
-- 🧑‍🦲 OS²sofd
-- ⬜ OS²forms
+### Rådgivnings aktivieter
+
+- ♻️ Rådgivning om open source og genbrugelighed "_KL - Genbrug af Software 2025_" - **Domstolsstyrelsen**
+- 🧑‍🦲 Indledende rådgivning om onboarding / reboarding - **OS²sofd**
+- ⬜ Indledende rådgivning om onboarding / reboarding **OS²forms**
