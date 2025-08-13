@@ -9,7 +9,7 @@ parent: Guides
 
 ---
 
-## 🔍 Eksponering (F)  
+## 🔍 Eksponering (Findable)  
 *Gør det nemt for andre at finde og forstå dit projekt.*
 
 - Projektet kan findes via almindelig internetsøgning.
@@ -21,7 +21,7 @@ parent: Guides
 
 ---
 
-## 🌐 Tilgængelighed (A)  
+## 🌐 Tilgængelighed (Accessible)  
 *Alle skal kunne tilgå og forstå projektet – uden at spørge først.*
 
 - Kildekode og dokumentation er offentligt tilgængeligt (GitHub, GitLab, Codeberg).
@@ -31,7 +31,7 @@ parent: Guides
 
 ---
 
-## 🔄 Interoperabilitet (I)  
+## 🔄 Interoperabilitet (Interoperable)  
 *Projektet skal kunne spille sammen med andre systemer og teknologier.*
 
 - Brug af **standardiserede dataformater** (JSON, YAML).
@@ -41,7 +41,7 @@ parent: Guides
 
 ---
 
-## 🔁 Genbrugelighed (R)  
+## 🔁 Genbrugelighed (Reusable)  
 *Andre skal kunne bruge, fejlfinde og bidrage til projektet.*
 
 - Projektet er **observable** – udstiller logs og data til fejlfinding.

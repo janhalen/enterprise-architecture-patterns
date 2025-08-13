@@ -1,15 +1,14 @@
 ---
 layout: home
-title: Enterprise Architecture Hub
+title: 🧭 Enterprise Architecture Hub
 nav_order: 1
 ---
 
-# 👋 Welcome to the Enterprise Architecture Hub
+# Welcome to the Enterprise Architecture Hub
 
 This site is your go-to resource for all architectural guidance, decisions, and onboarding materials across the OS² open source landscape.
 
-{: .fs-6 .fw-300 }
-_Last updated: {{ site.time | date: '%B %d, %Y' }}_
+📆 _Last updated: {{ site.time | date: '%B %d, %Y' }}_
 
 ---
 
@@ -38,3 +37,4 @@ This site is a living document. If you have suggestions, corrections, or contrib
 
 
 > _Maintained by Jan Maack Kjerbye, Enterprise Architect_ 📫 jan@os2.eu
+

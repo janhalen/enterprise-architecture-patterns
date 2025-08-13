@@ -1,6 +1,9 @@
-title: Just the Docs Template
-description: A starter template for a Jekyll site using the Just the Docs theme!
+title: Enterprise Architecture Hub
+description: Your go-to resource for all architectural guidance, decisions, and onboarding materials across the OS² open source landscape.
+logo: "assets/images/os2_logo.png"
+footer_content: " "
+
+aux_links:
+  "OS² offentligt digitaliseringsfællesskab": "https://os2.eu"
 
 theme: just-the-docs
-
-url: https://just-the-docs.github.io
