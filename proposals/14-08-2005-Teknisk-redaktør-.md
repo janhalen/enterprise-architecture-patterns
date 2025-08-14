@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Etablering af faggruppe for tværgående teknisk dokumentation"
+title: "🗳️ Etablering af faggruppe for tværgående teknisk dokumentation"
 author: "Jan Maack Kjerbye"
 date: 2025-08-14
 tags: [jekyll, dokumentation, open source, samarbejde, faggruppe]
@@ -8,8 +8,7 @@ status: "Udkast"
 parent: Proposals
 ---
 
-# Anbefaling af strategisk indsats
-## _Etablering af faggruppe for tværgående teknisk dokumentation_
+# 🗳️ Etablering af faggruppe for tværgående teknisk dokumentation
 
 *Denne indstilling fremsættes som led indsats for at styrke talentudvikling om samarbejde og metoder samt professionalisering og effektivitet i OS² fællesskabet.*
 
