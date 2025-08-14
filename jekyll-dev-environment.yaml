@@ -14,8 +14,8 @@ metadata:
     bind-mount-options: /home/jmk/Repositories/enterprise-architecture-patterns:Z
   creationTimestamp: "2025-08-08T08:55:35Z"
   labels:
-    app: jekyll-dev-pod
-  name: jekyll-dev-pod
+    app: jekyll-ea-dev-pod
+  name: jekyll-ea-dev-pod
 spec:
   containers:
   - args:
