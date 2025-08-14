@@ -1,40 +1,38 @@
 ---
 layout: home
-title: 🧭 Enterprise Architecture Hub
+title: 🧭 Enterprise Architecture Patterns
 nav_order: 1
 ---
 
-# Welcome to the Enterprise Architecture Hub
+# Welcome to Enterprise Architecture Patterns
 
-This site is your go-to resource for all architectural guidance, decisions, and onboarding materials across the OS² open source landscape.
+This site is your central hub for architectural guidance, reusable patterns, and strategic documentation across the OS² open source ecosystem.
 
 📆 _Last updated: {{ site.time | date: '%B %d, %Y' }}_
 
 ---
 
-## 📚 What You'll Find Here
+## 📘 What You'll Find
 
 - **Reference Architectures**  
-  Explore reusable patterns and blueprints for scalable, secure, and maintainable systems.
+  Discover proven patterns and blueprints for building scalable, secure, and maintainable systems.
 
 - **Architecture Decision Records (ADRs)**  
-  Understand the rationale behind key technical decisions.
+  Gain insight into the reasoning behind key architectural decisions.
 
 - **Technical Onboarding Guides**  
-  Get new team members up to speed quickly with curated onboarding paths.
+  Accelerate onboarding with structured, role-specific learning paths.
 
-- **Open Source Principles & Onboarding**  
-  Learn how we contribute to and consume open source responsibly.
+- **Open Source Principles & Practices**  
+  Understand how we contribute to and adopt open source responsibly and effectively.
 
-- **Activity Overviews for Management**  
-  Stay informed with high-level summaries of architectural initiatives and progress.
+- **Management Activity Overviews**  
+  Stay informed with high-level summaries of architectural initiatives and progress tracking.
 
 ---
 
+Use the sidebar to navigate proposals, decisions, and documentation.  
+This site is a living resource — contributions, corrections, and suggestions are always welcome.
 
-Use the sidebar to explore proposals and decisions.
-This site is a living document. If you have suggestions, corrections, or contributions, feel free to reach out or submit a pull request.
-
-
-> _Maintained by Jan Maack Kjerbye, Enterprise Architect_ 📫 jan@os2.eu
-
+> _Maintained by Jan Maack Kjerbye, Enterprise Architect_  
+> 📫 jan@os2.eu
