@@ -11,8 +11,6 @@ published: false # [Skal siden vises på sitet? false = nej]
 
 # <!-- [🔖 Titel på indsats eller forslag] -->
 
-📆 _Last updated: {{ site.time | date: '%B %d, %Y' }}_
-
 Udkast  
 {: .label .label-yellow }
 
