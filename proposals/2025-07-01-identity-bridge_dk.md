@@ -1,16 +1,15 @@
 ---
 layout: default
-title: OpenData integration med FKa
+title: 🔄 OpenData.dk integration med Fælleskommunal adgangsstyrin
 parent: Proposals
 ---
 
-# Arkitekturanbefaling
-## OpenData.dk integration med FKa
+# 🔄 OpenData.dk integration med Fælleskommunal adgangsstyring
 
 Udkast
 {: .label .label-yellow }
 
-_Brug af [Authentik](https://goauthentik.io/) som identitetsbro for den CKAN baserede dataportal OpenData.dk_
+_Brug af **OS²Adgang** som identitetsbro for den CKAN baserede dataportal OpenData.dk_
 
 ## Baggrund
 _Givet opgaven at integrere OpenData platformen med Fælleskommunal Adgangsstyring (FKA) anbefales følgende:_
@@ -34,7 +33,7 @@ Løsningen er designet til at vokse med organisationens behov. Den understøtter
 
 <br>
 
-## Forudsætninger for succes
+## Forudsætninger
 
 - **Teknisk opsætning og test**: Afsæt ressourcer til tilpasning af eksisterende CKAN OIDC plugin og korrekt implementering + test af konfigurationer, herunder claims mapping og redirect-URI’er.
 - **Dokumentation**: Klar dokumentation og overblik over autentificeringsflowet og de krævede arbejdsgange i KOMBIT systemerne er afgørende for en genbrugelig løsning og er en vigtig brik i en exit-strategi og leverer muligheden for et flerleverandør setup.
