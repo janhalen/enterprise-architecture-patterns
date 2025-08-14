@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 🔄 OpenData.dk integration med Fælleskommunal adgangsstyrin
+title: 🔄 OpenData.dk integration med Fælleskommunal adgangsstyring
 parent: Proposals
 ---
 
