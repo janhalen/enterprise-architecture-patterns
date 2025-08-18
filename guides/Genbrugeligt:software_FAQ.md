@@ -17,7 +17,7 @@ parent: Guides
 ## 2️⃣ Design og governance
 - [ ] Etabler governance og roller ([OS2 Governance-model](https://www.os2.eu/governance))
 - [ ] Planlæg brugerinddragelse og tilgængelighed ([FAIR-USE4OS Guidelines](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1012045))
-- [ ] Sikr bæredygtighed og finansiering over tid ([OS2 Governance-rapport skabelon](https://github.com/OS2offdig))
+- [ ] Garanter bæredygtighed og finansiering over tid ([OS2 Governance-rapport skabelon](https://github.com/OS2offdig))
 
 ## 3️⃣ Leverance og genbrug
 - [ ] Byg åbent med åbne standarder ([Standard for Public Code](https://standard.publiccode.net/criteria/))
