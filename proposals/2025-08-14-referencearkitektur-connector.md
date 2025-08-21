@@ -30,6 +30,7 @@ Et fælles projekt for en moderne genbrugelig  snitflade-arkitektur, der underst
 
 - **Frigøre udgifter** til duplikerede snitflade implementeringer i hvert enkelt produkt og udnytte dem til **forretningsfunktioner der skaber reel værdi**
 
+- **Fjerne ventetid og overhead** fra snitflade projekter ved at genanvende udvalgte dele af kildekoden fra eksisterende open source løsninger.
 
 ---
 
@@ -48,6 +49,25 @@ Et fælles projekt for en moderne genbrugelig  snitflade-arkitektur, der underst
 - Diagrammer og dokumentation er under opbygning – mulighed for at bidrage!
 
 ---
+
+## Risisci
+
+| ID | Risiko (årsag → effekt) | Sandsynlighed | Konsekvens | Risikoniveau | Afbødende tiltag | Ejer | Status |
+|---:|---|:---:|:---:|:---:|---|---|---|
+| R1 | Utilstrækkelig opbakning og ressourcer → projektet mangler kritisk masse og fremdrift | Middel | Høj | 🟥 Høj | Etabler sponsor-kreds; identificér 2–3 pilotmyndigheder; hybrid finansiering (timer + midler) | Programleder | Åben |
+| R3 | Eksterne afhængigheder (leverandører, integrationer) → forsinkelser og ekstraarbejde | Middel | Middel | 🟧 Middel | Permissiv licens; åbne API’er; referenceimplementering; partnerskab med specialister; fallback-strategier | Arkitekt | Åben |
+| R4 | Sikkerheds- eller databeskyttelseshændelse → tillidstab og juridiske konsekvenser | Lav | Høj | 🟧 Middel | Threat modeling; secure SDLC; DPIA; audit-logging; privacy by design | Sikkerhedsansvarlig | Åben |
+| R2 | Uklar rollefordeling og scope i opstartsfasen → forsinkelser og friktion | Lav | Middel | 🟨 Lav | Følg OS2’s proces; definér MVP og afgrænsninger; aftal styregruppe tidligt | Programleder | Åben |
+| R5 | Manglende drifts- og vedligeholdsmodel → bus factor og driftshuller | Lav | Middel | 🟨 Lav | OS2’s vedligeholdelsesmodel; LTS-branching; rotationsplan; runbooks | DevOps lead | Åben |
+
+**Legend:** Sandsynlighed/Konsekvens = Lav, Middel, Høj.  
+**Risikoniveau:** 🟨 Lav · 🟧 Middel · 🟥 Høj.
+
+
+
+
+
+
 
 
 ## 💰 Forventede effekter
