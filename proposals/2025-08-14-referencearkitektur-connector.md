@@ -16,19 +16,23 @@ Udkast
 {: .label .label-yellow }
 
 ## 🎯 Formål
-Et fælles projekt for moderne dataworkflow-arkitektur, der understøtter **data-integrationer** på tværs af offentlige systemer. Målet er at skabe en **modulær, genbrugelig og vedligeholdelsesvenlig** løsning.
+Et fælles projekt for en moderne genbrugelig  snitflade-arkitektur, der understøtter **data-integration** på tværs af offentlige systemer. Målet er at skabe en **modulær, genbrugelig og vedligeholdelsesvenlig** løsning.
 
-- Forslag om at **splitte kode ud fra eksisterende løsninger** og gøre dem mere genbrugelige.
-- Fokus på **konfiguration som kode** og **miljøvariabler** for nem deployment.
-- Ønske om at gøre det nemt at **komme i gang** med fælles komponenter.
+- Forslag om at **splitte hårdtbundne snitflader ud fra eksisterende løsninger** og istedet levere dem som selvstændige, genbrugelige moduler.
 
+- Fokus på effektivisering ved at **samle vedligeholdelses udgifterne** til snitflader omkring EN fælles kildekode. 
+
+- **Frigøre udgifter** til duplikerede snitflade implementeringer i hvert enkelt produkt og udnytte dem til **forretningsfunktioner der skaber reel værdi**
+
+- Give råderum til at investere i **øget sikkerhed og resiliens**, via fællesfinansieret udvikling af kildekoden til snitfladen.
 ---
 
 ## 🏗️ Arkitekturprincipper
 - **Open Source**: Transparens og fælles ejerskab.
-- **Modularitet**: Komponenter kan udskiftes og tilpasses.
-- **Standardisering**: Bruger velkendte protokoller og formater.
-- **Automatisering**: Fokus på CI/CD og konfigurationsstyring.
+- **Modularitet**: Komponenter kan udskiftes, tilføjes og tilpasses efter den enkelte myndigheds behov.
+- **Standardisering**: Bruger velkendte, velunderstøttede protokoller og formater.
+- **Genbrug**: Konfigurationer er løskoblede fra funktionskoden og gør genbrug simpelt.
+- **Automatisering**: Moderne indbygget automatisering skaber mulighed for transparens og resilliens, uden tab af effektivitet.
 
 ---
 
