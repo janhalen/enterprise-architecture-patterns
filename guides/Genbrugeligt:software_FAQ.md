@@ -131,33 +131,15 @@ parent: Guides
 
 <br>
 
-# 📚 Baggrundsmateriale
+---
 
-🏛 1. DIGST – Strategi og rammer for open source
+### Baggrundsmateriale
 
-> ###### - [DIGST Vejledning om open source](https://arkitektur.digst.dk/metoder/arkitekturmetoder/introduktion-til-vejledning-om-brug-af-open-source-i-den-offentlige-sektor)
+| 🏛 DIGST | 🤝 OS2 | 🫶 FAIR-USE4OS | 📖 Foundation for Public Code | 🌍 Open Source Guide |
+|----------|-------------------|------------------------|---------------|-----------------------|
+| 📖 [_DIGST Vejledning om open source_](https://arkitektur.digst.dk/metoder/arkitekturmetoder/introduktion-til-vejledning-om-brug-af-open-source-i-den-offentlige-sektor) | [ 📋 _OS2-Governancemodel_ ](https://www.os2.eu/governance) | [ 💓 _FAIR-USE4OS Guidelines_](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1012045) | [🥇 _Standard for Public Code_](https://standard.publiccode.net/)  | [ 🧑‍🤝‍🧑 _Community-drevet guide til open source_](https://opensource.guide/)|
 
-🤝 2. OS2 Governance-model og fællesudvikling
 
-> ###### - [Governancemodellen – OS2](https://www.os2.eu/governance)
-> ###### [Fem trin til at komme godt i gang](https://www.os2.eu/kom-i-gang)
-> ###### [OS2 GitHub – asessment og governance templates](https://github.com/OS2offdig/governance_report_template)  
 
-🫶 3. FAIR-principperne og FAIR-USE4OS (design og impact)</summary>
 
-> ###### - [FAIR for Beginners – DeiC](https://www.deic.dk/en/data-management/instructions-and-guides/FAIR-for-Beginners)  
-- [Guidelines for creating impactful open-source software (FAIR-USE4OS)](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1012045)  
-> ###### - [The FAIR Principles for Data and Software](https://www.sheffield.ac.uk/openresearch/resources/fair-data-and-software-principles)  
-> ###### - [Translating the FAIR principles to code](https://rse.sheffield.ac.uk/training/fair4rs/)  
 
-📖 4. Standard for Public Code (kvalitet og genbrugsklarhed)
-
-> ###### - [Standard for Public Code – Officiel side](https://standard.publiccode.net/)  
-> ###### - [GitHub-repo med eksempler og issues](https://github.com/publiccodenet/standard)  
-> ###### - [Kriterier og tjekliste](https://standard.publiccode.net/criteria/)  
-
-🌍 5. Open Source Guide (community og vedligehold)</summary>
-
-> ###### - [opensource.guide – Community-drevet guide til open source](https://opensource.guide/)  
-> ###### - [How to contribute to open source](https://opensource.guide/how-to-contribute/)  
-> ###### - [Building welcoming communities](https://opensource.guide/building-community/)
