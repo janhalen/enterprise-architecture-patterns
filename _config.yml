@@ -7,3 +7,8 @@ aux_links:
   "OS² offentligt digitaliseringsfællesskab": "https://os2.eu"
 
 theme: just-the-docs
+
+mermaid:
+  # Version of mermaid library
+  # Pick an available version from https://cdn.jsdelivr.net/npm/mermaid/
+  version: "11.9.0"
