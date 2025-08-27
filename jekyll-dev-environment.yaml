@@ -41,5 +41,5 @@ spec:
   - hostPath:
       path: /home/jmk/Repositories/enterprise-architecture-patterns
       type: Directory
-    name: home-jmk-repositories-enterprise-architecture-patterns-host-0
+      name: home-jmk-repositories-enterprise-architecture-patterns-host-0
 
