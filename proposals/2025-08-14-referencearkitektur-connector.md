@@ -1,16 +1,15 @@
 ---
 layout: default
-title: "🧩 Forslag til Referencearkitektur: connector (arbejdstitel)"
+title: "🧩 Referencearkitektur: connector"
 author: "Jan Maack Kjerbye"
 date: 2025-08-14
 tags: [open source, samarbejde]
+summary: "En moderne genbrugelig  snitflade-arkitektur, der understøtter data-integration på tværs"
 status: "Udkast"
 parent: Proposals
 ---
+{% include header_metadata.html %}
 
-# 🧩 Forslag til referencearkitektur: connector (arbejdstitel)
-
-📆 _Last updated: {{ site.time | date: '%B %d, %Y' }}_
 
 Udkast
 {: .label .label-yellow }
