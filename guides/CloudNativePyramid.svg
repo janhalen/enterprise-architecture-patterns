@@ -1,0 +1,137 @@
+<svg width="900" height="560" viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Cloud Native Pyramid — Five Slices with Callouts</title>
+  <desc id="desc">Five-layer pyramid with spaced callouts on both sides for Application, Platform, Kubernetes, Operating System, and Infrastructure.</desc>
+  <defs>
+    <style>
+      .front0{fill:#0f5132} .sideR0{fill:#0b3d26} .sideL0{fill:#2d6d4a} .top0{fill:#2d6d4a}
+      .front1{fill:#1b6d4b} .sideR1{fill:#14553c} .sideL1{fill:#348562} .top1{fill:#348562}
+      .front2{fill:#2e8b57} .sideR2{fill:#1b6d4b} .sideL2{fill:#51a97a} .top2{fill:#51a97a}
+      .front3{fill:#47a97a} .sideR3{fill:#3b9269} .sideL3{fill:#6fcf97} .top3{fill:#6fcf97}
+      .front4{fill:#7fdcb0} .sideR4{fill:#5fbf91} .sideL4{fill:#a2f0c9}
+
+      .edge {stroke:#0b3d26; stroke-width:1.1; vector-effect: non-scaling-stroke}
+      .base {stroke:#0b3d26; stroke-width:1; stroke-dasharray:3 4; opacity:.35; fill:none}
+
+      .label{font:600 20px system-ui, Segoe UI, Arial; fill:#f8f7e8}
+      .noteTitle{font:700 16px system-ui, Segoe UI, Arial; fill:#0b3d26}
+      .noteBody {font:400 11px system-ui, Segoe UI, Arial; fill:#0b3d26}
+
+      .callout{stroke:#c0b735; stroke-width:2.4; fill:none}
+      .box{fill:#ffffff; opacity:0.96; stroke:#14553c; stroke-width:1.5}
+    </style>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#0b3d26" flood-opacity="0.22"/>
+    </filter>
+  </defs>
+
+  <!-- Ground shadow -->
+  <ellipse cx="480" cy="520" rx="300" ry="42" fill="#0b3d26" opacity="0.08"/>
+
+  <!-- Pyramid layers -->
+  <!-- Base -->
+  <g filter="url(#shadow)">
+    <polygon class="sideL0 edge" points="328,411.2 280,440 230,500 290,464"/>
+    <polygon class="sideR0 edge" points="680,440 728,411.2 790,464 730,500"/>
+    <polygon class="front0 edge" points="280,440 680,440 730,500 230,500"/>
+    <polygon class="top0 edge" points="280,440 680,440 728,411.2 328,411.2"/>
+    <g text-anchor="middle"><text class="label" x="480" y="477">Infrastructure</text></g>
+  </g>
+  <!-- OS -->
+  <g filter="url(#shadow)">
+    <polygon class="sideL1 edge" points="366,358.4 330,380 280,440 328,411.2"/>
+    <polygon class="sideR1 edge" points="630,380 666,358.4 728,411.2 680,440"/>
+    <polygon class="front1 edge" points="330,380 630,380 680,440 280,440"/>
+    <polygon class="top1 edge" points="330,380 630,380 666,358.4 366,358.4"/>
+    <g text-anchor="middle"><text class="label" x="480" y="422">Operating System</text></g>
+  </g>
+  <!-- Kubernetes -->
+  <g filter="url(#shadow)">
+    <polygon class="sideL2 edge" points="404,305.6 380,320 330,380 366,358.4"/>
+    <polygon class="sideR2 edge" points="580,320 604,305.6 666,358.4 630,380"/>
+    <polygon class="front2 edge" points="380,320 580,320 630,380 330,380"/>
+    <polygon class="top2 edge" points="380,320 580,320 604,305.6 404,305.6"/>
+    <g text-anchor="middle"><text class="label" x="480" y="362">Kubernetes</text></g>
+  </g>
+  <!-- Platform -->
+  <g filter="url(#shadow)">
+    <polygon class="sideL3 edge" points="442,252.8 430,260 380,320 404,305.6"/>
+    <polygon class="sideR3 edge" points="530,260 542,252.8 604,305.6 580,320"/>
+    <polygon class="front3 edge" points="430,260 530,260 580,320 380,320"/>
+    <polygon class="top3 edge" points="430,260 530,260 542,252.8 442,252.8"/>
+    <g text-anchor="middle"><text class="label" x="480" y="302">Platform</text></g>
+  </g>
+  <!-- Application -->
+  <g filter="url(#shadow)">
+    <polygon class="sideL4 edge" points="480,200 442,252.8 430,260"/>
+    <polygon class="sideR4 edge" points="480,200 530,260 542,252.8"/>
+    <polygon class="front4 edge" points="480,200 430,260 530,260"/>
+    <g text-anchor="middle"><text class="label" x="478" y="245">App
+  </g>
+  <!-- Right-top: Application -->
+  <polyline class="callout" points="700,140 620,140 505,240"/>
+  <g>
+    <rect class="box" x="700" y="80" width="180" height="120" rx="10" ry="10"/>
+    <text class="noteTitle" x="710" y="105">Application</text>
+    <text class="noteBody" x="710" y="124">
+      <tspan x="710" dy="0">Business capabilities</tspan>
+      <tspan x="710" dy="18">Microservices and APIs</tspan>
+      <tspan x="710" dy="18">UI and workflows</tspan>
+      <tspan x="710" dy="18">Telemetry and tracing</tspan>
+    </text>
+  </g>
+
+  <!-- Left-mid: Platform -->
+  <polyline class="callout" points="200,290 300,290 430,295"/>
+  <g>
+    <rect class="box" x="20" y="230" width="180" height="120" rx="10" ry="10"/>
+    <text class="noteTitle" x="30" y="252">Platform</text>
+    <text class="noteBody" x="30" y="274">
+      <tspan x="30" dy="0">Service mesh</tspan>
+      <tspan x="30" dy="18">Ingress and routing</tspan>
+      <tspan x="30" dy="18">Secrets and policies</tspan>
+      <tspan x="30" dy="18">Observability tools</tspan>
+    </text>
+  </g>
+
+  <!-- Right-mid: Kubernetes -->
+  <polyline class="callout" points="700,300 620,310 546,355"/>
+  <g>
+    <rect class="box" x="700" y="240" width="180" height="120" rx="10" ry="10"/>
+    <text class="noteTitle" x="710" y="262">Kubernetes</text>
+    <text class="noteBody" x="710" y="284">
+      <tspan x="710" dy="0">Control plane</tspan>
+      <tspan x="710" dy="18">Scheduling and autoscaling</tspan>
+      <tspan x="710" dy="18">CNI and CSI</tspan>
+      <tspan x="710" dy="18">Operators and CRDs</tspan>
+    </text>
+  </g>
+
+  <!-- Left-low: Operating System (shorter line) -->
+  <polyline class="callout" points="200,440 250,420 385,416"/>
+  <g>
+    <rect class="box" x="20" y="380" width="180" height="120" rx="10" ry="10"/>
+    <text class="noteTitle" x="30" y="402">Operating System</text>
+    <text class="noteBody" x="30" y="424">
+      <tspan x="30" dy="0">Linux kernel and services</tspan>
+      <tspan x="30" dy="18">Container runtime and CRI</tspan>
+      <tspan x="30" dy="18">Process and resource limits</tspan>
+      <tspan x="30" dy="18">Package and update strategy</tspan>
+    </text>
+  </g>
+
+  <!-- Right-low: Infrastructure -->
+  <polyline class="callout" points="700,460 620,460 558,470"/>
+  <g>
+    <rect class="box" x="700" y="400" width="180" height="120" rx="10" ry="10"/>
+    <text class="noteTitle" x="710" y="422">Infrastructure</text>
+    <text class="noteBody" x="710" y="444">
+      <tspan x="710" dy="0">Compute and network</tspan>
+      <tspan x="710" dy="18">Block and object storage</tspan>
+      <tspan x="710" dy="18">Facilities and cloud services</tspan>
+      <tspan x="710" dy="18">Resilience and capacity</tspan>
+    </text>
+  </g>
+
+  <!-- Optional base outline -->
+  <polygon class="base" points="230,500 730,500 790,464 290,464"/>
+</svg>

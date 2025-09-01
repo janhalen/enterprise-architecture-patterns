@@ -1,15 +1,16 @@
 ---
 layout: default
 title: 🔄 OpenData.dk integration med Fælleskommunal adgangsstyring
+summary: "Brug af OS²Adgang som identitetsbro for den CKAN baserede dataportal OpenData.dk"
 parent: Proposals
 ---
 
-# 🔄 OpenData.dk integration med Fælleskommunal adgangsstyring
+{% include header_metadata.html %}
 
 Udkast
 {: .label .label-yellow }
 
-_Brug af **OS²Adgang** som identitetsbro for den CKAN baserede dataportal OpenData.dk_
+
 
 ## Baggrund
 _Givet opgaven at integrere OpenData platformen med Fælleskommunal Adgangsstyring (FKA) anbefales følgende:_
