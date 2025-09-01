@@ -5,72 +5,29 @@ parent: Guides
 ---
 
 # ♻️ Genbrugs-kriterier for Open Source  
-*Hvordan du gør dit projekt nemt at finde, forstå og genbruge – uden at miste pusten.*
+✅ _Hvordan du gør dit projekt nemt at finde, forstå og genbruge –  3 hurtige trin_
 
----
+<br>
 
-## 🔍 Eksponering (Findable)  
-*Gør det nemt for andre at finde og forstå dit projekt.*
+## 1️⃣ Strategi og rammer
+- [ ] Afklar behov og mål ([DIGST Vejledning om open source](https://arkitektur.digst.dk/sites/default/fileuploads/Tjekliste_til_brug_af_open_source_i_den_offentlige_sektor.pdf))
+- [ ] Vælg åben licens og delingsstrategi ([DIGST Tjekliste til Standard for Offentlig Kode (PDF)](https://arkitektur.digst.dk/sites/default/fileuploads/Tjekliste_til_Standard_for_Offentlig_Kode_version_0.7.1.pdf))
+- [ ] Lav markedsafdækning og TCO‑vurdering ([DIGST Strategier for genbrug og fællesudvikling](https://arkitektur.digst.dk/metoder/arkitekturmetoder/introduktion-til-vejledning-om-brug-af-open-source-i-den-offentlige-sektor))
 
-- Projektet kan findes via almindelig internetsøgning.
-- En kort og klar **README.md** forklarer formål og gevinster.
-- Dokumentationen er tilgængelig i et **søgbart webformat** (f.eks. auto - statisk site generator webside). skalbelon
-- Brug af **emneord/tags** for bedre indeksering.
-- Metadata udstilles via f.eks. **publiccode.yml**.
-- Projektets ejere deltager aktivt i at udbrede kendskabet.
+## 2️⃣ Design og governance
+- [ ] Etabler governance og roller ([OS2 Governance-model](https://www.os2.eu/governance))
+- [ ] Planlæg brugerinddragelse og tilgængelighed ([FAIR-USE4OS Guidelines](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1012045))
+- [ ] Garanter bæredygtighed og finansiering over tid ([OS2 Governance-rapport skabelon](https://github.com/OS2offdig))
 
----
+## 3️⃣ Leverance og genbrug
+- [ ] Byg åbent med åbne standarder ([Standard for Public Code](https://standard.publiccode.net/criteria/))
+- [ ] Dokumentér kode, test og review ([GitHub Open Source Guide](https://opensource.guide/how-to-contribute/))
+- [ ] Gør løsningen findbar og inviter bidrag ([opensource.guide – Building welcoming communities](https://opensource.guide/building-community/))
+- [ ] Vedligehold roadmap og community ([OS2 GitHub](https://github.com/OS2offdig))
 
-## 🌐 Tilgængelighed (Accessible)  
-*Alle skal kunne tilgå og forstå projektet – uden at spørge først.*
 
-- Kildekode og dokumentation er offentligt tilgængeligt (GitHub, GitLab, Codeberg).
-- Udviklingsmetoder er beskrevet i en **CONTRIBUTING.md**.
-- Udviklingen er **transparent** med historik (SemVer, Conventional Commits, CHANGELOG.md).
-- Der findes en **kontaktkanal** (issues, discussions, chat) til spørgsmål og feedback.
+<br>
 
----
-
-## 🔄 Interoperabilitet (Interoperable)  
-*Projektet skal kunne spille sammen med andre systemer og teknologier.*
-
-- Brug af **standardiserede dataformater** (JSON, YAML).
-- Kompatibilitet med andre **åbne systemer**.
-- Der er tænkt på **videreudvikling og integration** med andre systemer.
-- Projektet er pakket i et **standard eksekverbart format** (f.eks. oci-container), uafhængigt af lokale systemer.
-
----
-
-## 🔁 Genbrugelighed (Reusable)  
-*Andre skal kunne bruge, fejlfinde og bidrage til projektet.*
-
-- Projektet er **observable** – udstiller logs og data til fejlfinding.
-- Koden er **aktivt vedligeholdt** og sikker (opdaterede afhængigheder, automatisering).
-- Der er afsat **ressourcer til governance** (maintainere, code stewards).
-- Koden **testes og gennemses** før den merges (CI/CD, automatiske tests).
-- Et **aktivt, sund community** understøtter udvikling og vedligehold (Pony- og Elephant-faktorer). 
-- Code of Conduct: En CODE_OF_CONDUCT.md skaber tryghed og sætter rammer for samarbejde.
-- Der medfølger **implementeringsskabeloner** til flere platforme.
-- Security policy: En SECURITY.md med vejledning til, hvordan man rapporterer sårbarheder.
-- **Kvalitetssikring og sikkerhed** er dokumenteret og gerne automatiseret:
-  - Scanning af afhængigheder (f.eks Dependabot, Renovate eller Snyk.)
-  - Tests før hvert build som accept kriterier i PRs
-
----
-
-## 📚 Inspiration og baggrund
-
-### FAIR-principperne og FAIR-USE4OS 
-
-- [FAIR for Beginners – DeiC](https://www.deic.dk/en/data-management/instructions-and-guides/FAIR-for-Beginners)
-
-- [Guidelines for creating impactful open-source software](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1012045)
-
-- [The FAIR Principles for Data andSoftware](https://researchcodingclub.github.io/slides/2023-08-23-fair-data-and-software.pdf)
-
-- [Translating the FAIR principles to code](https://sites.google.com/sheffield.ac.uk/fair-guidance/your-data-typecode/code-software)
-
----
 
 # Spørgsmål og svar
 
@@ -102,8 +59,6 @@ parent: Guides
   </code></pre>
 </details>
 
----
-
 <details>
   <summary>❓ Hvilke tests skal man lave?</summary>
   <br>
@@ -126,8 +81,6 @@ parent: Guides
   - Syntetiske testdata til realistiske scenarier
   </code></pre>
 </details>
-
----
 
 <details>
   <summary>❓ Hvilken dokumentation skal man tilknytte?</summary>
@@ -152,9 +105,6 @@ parent: Guides
   - En `CONTRIBUTING.md` med bidragsvejledning
   </code></pre>
 </details>
-
----
-
 <details>
   <summary>❓ Hvor skal man offentliggøre det?</summary>
   <br>
@@ -179,4 +129,17 @@ parent: Guides
   </code></pre>
 </details>
 
+<br>
+
 ---
+
+### Baggrundsmateriale
+
+| 🏛 DIGST | 🤝 OS2 | 🫶 FAIR-USE4OS | 📖 Foundation for Public Code | 🌍 Open Source Guide |
+|----------|-------------------|------------------------|---------------|-----------------------|
+| 📖 [_DIGST Vejledning om open source_](https://arkitektur.digst.dk/metoder/arkitekturmetoder/introduktion-til-vejledning-om-brug-af-open-source-i-den-offentlige-sektor) | [ 📋 _OS2-Governancemodel_ ](https://www.os2.eu/governance) | [ 💓 _FAIR-USE4OS Guidelines_](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1012045) | [🥇 _Standard for Public Code_](https://standard.publiccode.net/)  | [ 🧑‍🤝‍🧑 _Community-drevet guide til open source_](https://opensource.guide/)|
+
+
+
+
+
