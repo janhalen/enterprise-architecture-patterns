@@ -1,79 +1,90 @@
 ---
 layout: default
-title: "Skift fra OS2borgerPC til FleetDM som styringsløsning for Linux-klienter"
+title: "💻 Referencearkitektur: Overgang fra OS2borgerPC til samlet, moderne klientstyring"
+summary: "Fra specialudviklet løsning til en fælles, skalerbar og open source-baseret platform, der understøtter alt fra kiosk-PC’er til kontorarbejdspladser – med højere sikkerhed, lavere vedligehold og stærkere samarbejde."
 author: "Jan Maack Kjerbye"
-date: "2025-08-27"
+date: "2025-08-24"
 tags: [styring, linux, open source, OS2, FleetDM, samarbejde]
 status: "Udkast"
 parent: "Proposals"
-published: false
+published: true
 ---
 
-# Deltagelse i FleetDM projeket
-> Moderne styringsløsning til mange klient typer
-
-📆 _Last updated: {{ site.time | date: '%B %d, %Y' }}_
+{% include header_metadata.html %}
 
 Udkast  
 {: .label .label-yellow }
 
+## Hensigtserklæring
+
+Vi står over for et strategisk valg: Skal vi fortsætte med en aldrende, specialudviklet løsning til Linux-klientstyring – eller tage springet til en moderne, fælles platform, der bygger på åbne standarder og globalt samarbejde?
+
+Dette forslag anbefaler en **kontrolleret overgang til FleetDM**, en open source-løsning, der muliggør **automatiseret compliance, skalerbar drift og lavere totalomkostninger**.  
+Målet er at skabe en **fælles styringsmodel for alle klienttyper** – fra en kiosk-PC i borgerservice, et digitalt skilt på en NUC eller Raspberry Pi, til en let kontor-PC eller en maskine med adgang til biblioteks- og internetservices.
+
+---
+
 ## Baggrund
 
-Den nuværende løsning til styring af Linux-klienter, der er baseret på specialudviklet kode har p.t. over 10 år på bagen og vil fremadrettet kræve betydelige ressourcer til vedligeholdelse og videreudvikling.
-Dette forslag har t
+Den nuværende løsning til styring af Linux-klienter er over 10 år gammel og kræver stigende ressourcer til vedligehold og videreudvikling.  
+En fremtidssikret løsning skal:
+
+- Reducere afhængigheden af specialudviklet kode
+- Understøtte flere klienttyper og brugsscenarier
+- Bygge på åbne standarder og fælles udvikling
+
+---
 
 ## FleetDM: Automatiseret compliance via reconciliation-pattern
 
-Upstream projektet FleetDM adskiller sig fundamentalt fra traditionel device-administration ved at anvende et moderne **reconciliation-baseret driftsparadigme**:
+FleetDM adskiller sig fra traditionel device-administration ved at anvende et **reconciliation-baseret driftsparadigme**:
 
-- I stedet for at klikke ind på hver enkelt gruppe af enheder og køre bash-scripts manuelt, defineres den ønskede tilstand centralt som **policies**.
-- FleetDM sørger derefter automatisk for at overvåge og rapportere afvigelser — og sættes op til automatisk at udbedre disse afvigelser.
-- Dette skaber en **deklarativ og skalerbar tilgang** til compliance, hvor driftsteamet arbejder med ønsket tilstand frem for ad hoc handlinger på arbitrære tidspunkter.
-- Systemet overvåger enhedernes tilstand 24/7-356 og frigør personalebindinger så effekterne af almindeligt forekommende hændelser som ferie, barsel, sygdom, jobskifte o.s.v. effektivt afbødes til at have minimalt impact på driften.
-- Resultatet er en mere sikkert, robust, ensartet og effektiv adminstration og compliance — med betydligt lavere risko for menneskelige fejl og lavere vedligeholdelsesbyrde.
+- **Deklarativ styring:** Policies definerer ønsket tilstand centralt – ikke manuelle scripts på enkelte enheder.
+- **Automatiseret overvågning og udbedring:** Systemet rapporterer afvigelser og kan automatisk korrigere dem.
+- **Skalerbarhed og robusthed:** Driftsteamet arbejder med ønsket tilstand frem for ad hoc handlinger.
+- **Kontinuerlig compliance:** 24/7-overvågning reducerer effekten af ferie, sygdom og jobskifte.
+- **Lavere risiko og vedligeholdelsesbyrde:** Mindre manuel håndtering, færre fejl.
 
+---
 
-## Forventede effekter
+## Forventede gevinster
 
-Et skifte til FleetDM kan levere følgende forventede gevinster:
+- **Styrket samarbejde** med globalt open source-fællesskab
+- **Højere kvalitet og sikkerhed** via automatiserede tests og løbende opdateringer
+- **Hurtigere onboarding** og standardiseret drift på tværs af klienttyper
+- **Fleksibilitet:** Understøtter alt fra ARM-baserede enheder til fulde arbejdsstationer
 
-- Styrket samarbejde med et globalt udviklingsfællesskab
-- Højere kvalitet og sikkerhed via automatiserede tests og løbende opdateringer
-- Hurtigere onboarding og standardiseret drift
+---
 
 ## Anvendte principper
 
-- Åbenhed og genbrug af eksisterende open source-løsninger
-- Modularitet og separation af ansvar
-- OS²-principper om fælles udvikling og vedligehold
-- Enterprise-arkitektur med fokus på skalerbarhed og fremtidssikring
+- **Åbenhed og genbrug** af eksisterende open source-løsninger
+- **Modularitet og separation af ansvar**
+- **OS²-principper** om fælles udvikling og vedligehold
+- **Enterprise-arkitektur** med fokus på skalerbarhed og fremtidssikring
+
+---
 
 ## Risici og mitigering
 
-- **Overgangsrisici ved migrering af klienter fra BorgerPC v.2.x.x**  
-  _Afbødes gennem trinvis udrulning og etablering af poc/testmiljøer_
+- **Migreringsrisici fra BorgerPC v.2.x.x**  
+  _Afbødes gennem trinvis udrulning og etablering af testmiljøer_
 
-- **Afhængighed af upstream roadmap og governance**  
+- **Afhængighed af upstream roadmap**  
   _Afbødes ved aktiv deltagelse i FleetDM-community og bidrag til projektet_
 
-- **Risiko for eksternt opkøb af FleetDM og/eller ændring af licenstype**  
-  _Afbødes ved løbende overvågning af projektet og en exit-strategi for videreførelse under ny maintainer_
+- **Risiko for ændring i licens eller ejerskab**  
+  _Afbødes ved overvågning og exit-strategi for videreførelse under ny maintainer_
 
-## Bilag og yderligere ressourcer  
-_For at understøtte beslutningsgrundlaget og give mulighed for selvstændig vurdering af FleetDM, henvises her til relevante ressourcer:_
+---
+
+## Bilag og ressourcer
 
 ### 🎥 Demoer og videoguides
-
-- [FleetDM YouTube-kanal](https://www.youtube.com/@fleetdm) – Demos af Fleet UI, CLI, REST API og Fleet Desktop  
-  - *Fleet in under 3 minutes* – Kort introduktion  
-  - *Deploy Fleet on Render in five minutes* – Hurtig opsætning  
-  - *Sprint demos og roadmap previews* – Indblik i udvikling og nye features
+- FleetDM YouTube-kanal – Demos af Fleet UI, CLI, REST API og Fleet Desktop  
+  - *Fleet in under 3 minutes*  
+  - *Deploy Fleet on Render in five minutes*  
+  - *Sprint demos og roadmap previews*
 
 ### 📚 Tutorials og onboarding
-- [FleetDM Tutorials & Guides](https://fleetdm.com/docs/get-started/tutorials-and-guides) – Komplet samling af guides til opsætning, MDM-migrering, policies, software deployment m.m.
-- [Fleetctl Preview](https://fleetdm.com/try-fleet) – Lokal demo med Docker og CLI-værktøjet `fleetctl`
-- [FleetDM GitHub Docs](https://github.com/fleetdm/fleet/blob/main/docs/Get%20started/tutorials-and-guides.md) – Tekniske guides til bl.a. Kubernetes, AWS, CentOS og GitHub Actions
-
-### 🧪 Community-erfaringer og brugsscenarier
-- [Kicking the Tires on FleetDM](https://keyboardcrunch.com/posts/FleetDM/) – Erfaringer fra homelab og research, inkl. praktiske tips og konfigurationer
-- [Fleet Success Stories](https://fleetdm.com/success-stories) – Case studies fra organisationer som Wayfair og Schrödinger
+- [FleetDM Tutorials & Guides](https://fleetdm.com/docs/get-started/tutorialsttps://github.com/fleetdm/fleet/blob/main/docs/Get%20started/tutorialsboardcrunch.com/posts/F
