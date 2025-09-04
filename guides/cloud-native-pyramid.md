@@ -10,71 +10,58 @@ parent: Guides
   <desc id="desc">Five-layer pyramid with spaced callouts on both sides for Application, Platform, Kubernetes, Operating System, and Infrastructure.</desc>
   <defs>
     <style>
-      .front0{fill:#0f5132} .sideR0{fill:#0b3d26} .sideL0{fill:#2d6d4a} .top0{fill:#2d6d4a}
-      .front1{fill:#1b6d4b} .sideR1{fill:#14553c} .sideL1{fill:#348562} .top1{fill:#348562}
-      .front2{fill:#2e8b57} .sideR2{fill:#1b6d4b} .sideL2{fill:#51a97a} .top2{fill:#51a97a}
-      .front3{fill:#47a97a} .sideR3{fill:#3b9269} .sideL3{fill:#6fcf97} .top3{fill:#6fcf97}
-      .front4{fill:#7fdcb0} .sideR4{fill:#5fbf91} .sideL4{fill:#a2f0c9}
-
-      .edge {stroke:#0b3d26; stroke-width:1.1; vector-effect: non-scaling-stroke}
-      .base {stroke:#0b3d26; stroke-width:1; stroke-dasharray:3 4; opacity:.35; fill:none}
-
-      .label{font:600 20px system-ui, Segoe UI, Arial; fill:#f8f7e8}
-      .noteTitle{font:700 16px system-ui, Segoe UI, Arial; fill:#0b3d26}
-      .noteBody {font:400 11px system-ui, Segoe UI, Arial; fill:#0b3d26}
-
-      .callout{stroke:#c0b735; stroke-width:2.4; fill:none}
-      .box{fill:#ffffff; opacity:0.96; stroke:#14553c; stroke-width:1.5}
+      .front0{fill:#0f5132}.sideR0{fill:#0b3d26}.sideL0{fill:#2d6d4a}.top0{fill:#2d6d4a}
+      .front1{fill:#1b6d4b}.sideR1{fill:#14553c}.sideL1{fill:#348562}.top1{fill:#348562}
+      .front2{fill:#2e8b57}.sideR2{fill:#1b6d4b}.sideL2{fill:#51a97a}.top2{fill:#51a97a}
+      .front3{fill:#47a97a}.sideR3{fill:#3b9269}.sideL3{fill:#6fcf97}.top3{fill:#6fcf97}
+      .front4{fill:#7fdcb0}.sideR4{fill:#5fbf91}.sideL4{fill:#a2f0c9}
+      .edge{stroke:#0b3d26;stroke-width:1.1;vector-effect:non-scaling-stroke}
+      .base{stroke:#0b3d26;stroke-width:1;stroke-dasharray:3 4;opacity:.35;fill:none}
+      .label{font:600 20px system-ui,Segoe UI,Arial;fill:#f8f7e8}
+      .noteTitle{font:700 16px system-ui,Segoe UI,Arial;fill:#0b3d26}
+      .noteBody{font:400 11px system-ui,Segoe UI,Arial;fill:#0b3d26}
+      .callout{stroke:#c0b735;stroke-width:2.4;fill:none}
+      .box{fill:#fff;opacity:.96;stroke:#14553c;stroke-width:1.5}
     </style>
     <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
       <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#0b3d26" flood-opacity="0.22"/>
     </filter>
   </defs>
-
-  <!-- Ground shadow -->
   <ellipse cx="480" cy="520" rx="300" ry="42" fill="#0b3d26" opacity="0.08"/>
-
-  <!-- Pyramid layers -->
-  <!-- Base -->
   <g filter="url(#shadow)">
     <polygon class="sideL0 edge" points="328,411.2 280,440 230,500 290,464"/>
     <polygon class="sideR0 edge" points="680,440 728,411.2 790,464 730,500"/>
     <polygon class="front0 edge" points="280,440 680,440 730,500 230,500"/>
     <polygon class="top0 edge" points="280,440 680,440 728,411.2 328,411.2"/>
-    <g text-anchor="middle"><text class="label" x="480" y="477">Infrastructure</text></g>
+    <text class="label" x="480" y="477" text-anchor="middle">Infrastructure</text>
   </g>
-  <!-- OS -->
   <g filter="url(#shadow)">
     <polygon class="sideL1 edge" points="366,358.4 330,380 280,440 328,411.2"/>
     <polygon class="sideR1 edge" points="630,380 666,358.4 728,411.2 680,440"/>
     <polygon class="front1 edge" points="330,380 630,380 680,440 280,440"/>
     <polygon class="top1 edge" points="330,380 630,380 666,358.4 366,358.4"/>
-    <g text-anchor="middle"><text class="label" x="480" y="422">Operating System</text></g>
+    <text class="label" x="480" y="422" text-anchor="middle">Operating System</text>
   </g>
-  <!-- Kubernetes -->
   <g filter="url(#shadow)">
     <polygon class="sideL2 edge" points="404,305.6 380,320 330,380 366,358.4"/>
     <polygon class="sideR2 edge" points="580,320 604,305.6 666,358.4 630,380"/>
     <polygon class="front2 edge" points="380,320 580,320 630,380 330,380"/>
     <polygon class="top2 edge" points="380,320 580,320 604,305.6 404,305.6"/>
-    <g text-anchor="middle"><text class="label" x="480" y="362">Kubernetes</text></g>
+    <text class="label" x="480" y="362" text-anchor="middle">Kubernetes</text>
   </g>
-  <!-- Platform -->
   <g filter="url(#shadow)">
     <polygon class="sideL3 edge" points="442,252.8 430,260 380,320 404,305.6"/>
     <polygon class="sideR3 edge" points="530,260 542,252.8 604,305.6 580,320"/>
     <polygon class="front3 edge" points="430,260 530,260 580,320 380,320"/>
     <polygon class="top3 edge" points="430,260 530,260 542,252.8 442,252.8"/>
-    <g text-anchor="middle"><text class="label" x="480" y="302">Platform</text></g>
+    <text class="label" x="480" y="302" text-anchor="middle">Platform</text>
   </g>
-  <!-- Application -->
   <g filter="url(#shadow)">
     <polygon class="sideL4 edge" points="480,200 442,252.8 430,260"/>
     <polygon class="sideR4 edge" points="480,200 530,260 542,252.8"/>
     <polygon class="front4 edge" points="480,200 430,260 530,260"/>
-    <g text-anchor="middle"><text class="label" x="478" y="245">App
+    <text class="label" x="478" y="245" text-anchor="middle">App</text>
   </g>
-  <!-- Right-top: Application -->
   <polyline class="callout" points="700,140 620,140 505,240"/>
   <g>
     <rect class="box" x="700" y="80" width="180" height="120" rx="10" ry="10"/>
@@ -86,8 +73,6 @@ parent: Guides
       <tspan x="710" dy="18">Telemetry and tracing</tspan>
     </text>
   </g>
-
-  <!-- Left-mid: Platform -->
   <polyline class="callout" points="200,290 300,290 430,295"/>
   <g>
     <rect class="box" x="20" y="230" width="180" height="120" rx="10" ry="10"/>
@@ -99,8 +84,6 @@ parent: Guides
       <tspan x="30" dy="18">Observability tools</tspan>
     </text>
   </g>
-
-  <!-- Right-mid: Kubernetes -->
   <polyline class="callout" points="700,300 620,310 546,355"/>
   <g>
     <rect class="box" x="700" y="240" width="180" height="120" rx="10" ry="10"/>
@@ -112,8 +95,6 @@ parent: Guides
       <tspan x="710" dy="18">Operators and CRDs</tspan>
     </text>
   </g>
-
-  <!-- Left-low: Operating System (shorter line) -->
   <polyline class="callout" points="200,440 250,420 385,416"/>
   <g>
     <rect class="box" x="20" y="380" width="180" height="120" rx="10" ry="10"/>
@@ -125,8 +106,6 @@ parent: Guides
       <tspan x="30" dy="18">Package and update strategy</tspan>
     </text>
   </g>
-
-  <!-- Right-low: Infrastructure -->
   <polyline class="callout" points="700,460 620,460 558,470"/>
   <g>
     <rect class="box" x="700" y="400" width="180" height="120" rx="10" ry="10"/>
@@ -138,10 +117,9 @@ parent: Guides
       <tspan x="710" dy="18">Resilience and capacity</tspan>
     </text>
   </g>
-
-  <!-- Optional base outline -->
   <polygon class="base" points="230,500 730,500 790,464 290,464"/>
 </svg>
+
 
 # 🌐 Cloud Native Pyramid Explained
 This guide breaks down the five layers of a modern cloud-native infrastructure into simple, relatable terms. Each layer builds on the one below it, forming a pyramid that supports digital services.
