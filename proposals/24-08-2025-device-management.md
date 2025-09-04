@@ -86,12 +86,13 @@ FleetDM adskiller sig fra traditionel device-administration ved at anvende et **
 - **Getting Started**  
   [FleetDM Tutorials & Guides](https://fleetdm.com/docs/get-started/tutorials-and-guides)
 
-- **Community & Success Stories**  
-  [FleetDM Success Stories](https://fleetdm.com/docs)
+- **Testimonials**
+  [Is it any good? What people are saying?](https://fleetdm.com/testimonials)
 
-  **Case study**
+- **Case study**
   [Remediating the xz vulnerability with Fleet](https://fleetdm.com/guides/remediating-the-xz-vulnerability-with-fleet)
 
 - **Demo Videos**  
   [FleetDM YouTube Channel](https://www.youtube.com/@fleetdm)
+
 ---
