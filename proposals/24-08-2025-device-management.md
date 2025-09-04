@@ -80,11 +80,19 @@ FleetDM adskiller sig fra traditionel device-administration ved at anvende et **
 
 ## Bilag og ressourcer
 
-### 🎥 Demoer og videoguides
-- FleetDM YouTube-kanal – Demos af Fleet UI, CLI, REST API og Fleet Desktop  
-  - *Fleet in under 3 minutes*  
-  - *Deploy Fleet on Render in five minutes*  
-  - *Sprint demos og roadmap previews*
+- **Why FleetDM?**  
+  [FleetDM Official Docs](https://fleetdm.com/docs)
 
-### 📚 Tutorials og onboarding
-- [FleetDM Tutorials & Guides](https://fleetdm.com/docs/get-started/tutorialsttps://github.com/fleetdm/fleet/blob/main/docs/Get%20started/tutorialsboardcrunch.com/posts/F
+- **Getting Started**  
+  [FleetDM Tutorials & Guides](https://fleetdm.com/docs/get-started/tutorials-and-guides)
+
+- **Testimonials**
+  [Is it any good? What people are saying?](https://fleetdm.com/testimonials)
+
+- **Case study**
+  [Remediating the xz vulnerability with Fleet](https://fleetdm.com/guides/remediating-the-xz-vulnerability-with-fleet)
+
+- **Demo Videos**  
+  [FleetDM YouTube Channel](https://www.youtube.com/@fleetdm)
+
+---
