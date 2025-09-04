@@ -15,23 +15,15 @@ published: true
 Udkast  
 {: .label .label-yellow }
 
-## Hensigtserklæring
-
-Vi står over for et strategisk valg: Skal vi fortsætte med en aldrende, specialudviklet løsning til Linux-klientstyring – eller tage springet til en moderne, fælles platform, der bygger på åbne standarder og globalt samarbejde?
-
-Dette forslag anbefaler en **kontrolleret overgang til FleetDM**, en open source-løsning, der muliggør **automatiseret compliance, skalerbar drift og lavere totalomkostninger**.  
-Målet er at skabe en **fælles styringsmodel for alle klienttyper** – fra en kiosk-PC i borgerservice, et digitalt skilt på en NUC eller Raspberry Pi, til en let kontor-PC eller en maskine med adgang til biblioteks- og internetservices.
-
 ---
 
 ## Baggrund
 
-Den nuværende løsning til styring af Linux-klienter er over 10 år gammel og kræver stigende ressourcer til vedligehold og videreudvikling.  
-En fremtidssikret løsning skal:
+Den nuværende løsning til styring af Linux-klienter er over 10 år gammel og kræver stigende ressourcer til vedligehold og videreudvikling.
+Vi står over for et strategisk valg: Skal vi fortsætte med en aldrende, specialudviklet løsning til Linux-klientstyring – eller tage springet til en moderne, fælles platform, der bygger på åbne standarder og globalt samarbejde?
 
-- Reducere afhængigheden af specialudviklet kode
-- Understøtte flere klienttyper og brugsscenarier
-- Bygge på åbne standarder og fælles udvikling
+Dette forslag anbefaler en **kontrolleret overgang**, til en genbrugelig [upstream](https://maximilianmichels.com/2021/upstream-first/) open source-løsning, der muliggør **automatiseret compliance, skalerbar drift og lavere totalomkostninger**.  
+Målet er at skabe en **fælles automatiseret styringsmodel for alle klienttyper** – fra en kiosk-PC i borgerservice, et digitalt skilt på en NUC eller Raspberry Pi, til en let kontor-PC eller en maskine med adgang til biblioteks- og internetservices.
 
 ---
 
@@ -61,7 +53,7 @@ FleetDM adskiller sig fra traditionel device-administration ved at anvende et **
 - **Åbenhed og genbrug** af eksisterende open source-løsninger
 - **Modularitet og separation af ansvar**
 - **OS²-principper** om fælles udvikling og vedligehold
-- **Enterprise-arkitektur** med fokus på skalerbarhed og fremtidssikring
+- **Standardiseret løsnings-arkitektur** med fokus på skalerbarhed og fremtidssikring
 
 ---
 
@@ -83,16 +75,16 @@ FleetDM adskiller sig fra traditionel device-administration ved at anvende et **
 - **Why FleetDM?**  
   [FleetDM Official Docs](https://fleetdm.com/docs)
 
-- **Getting Started**  
-  [FleetDM Tutorials & Guides](https://fleetdm.com/docs/get-started/tutorials-and-guides)
-
-- **Testimonials**
+- **Testimonials**  
   [Is it any good? What people are saying?](https://fleetdm.com/testimonials)
 
-- **Case study**
-  [Remediating the xz vulnerability with Fleet](https://fleetdm.com/guides/remediating-the-xz-vulnerability-with-fleet)
+- **Case study**  
+[Remediating the xz vulnerability with Fleet](https://fleetdm.com/guides/remediating-the-xz-vulnerability-with-fleet)
 
-- **Demo Videos**  
+- **Demo Videos**   
   [FleetDM YouTube Channel](https://www.youtube.com/@fleetdm)
+
+- **Getting Started**  
+  [FleetDM Tutorials & Guides](https://fleetdm.com/docs/get-started/tutorials-and-guides)
 
 ---
