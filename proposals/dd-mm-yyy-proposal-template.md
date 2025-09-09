@@ -9,9 +9,7 @@ parent: "Proposals"
 published: false # [Skal siden vises på sitet? false = nej]
 ---
 
-# <!-- [🔖 Titel på indsats eller forslag] -->
-
-📆 _Last updated: {{ site.time | date: '%B %d, %Y' }}_
+{% include header_metadata.html %}
 
 Udkast  
 {: .label .label-yellow }
