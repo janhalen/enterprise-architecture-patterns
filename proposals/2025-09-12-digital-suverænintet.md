@@ -114,7 +114,6 @@ flowchart TB
 
     rpi@{ shape: rounded}
     integration@{ shape: trap-b}
-    n1@{ shape: rect}
     git@{ shape: cyl}
     systems@{ shape: procs}
      school:::Client
@@ -124,22 +123,25 @@ flowchart TB
      canvas:::Service
      signage:::Service
      groupware:::Service
-     integration:::Infra
-     deployment:::Infra
-     observability:::Infra
-     auth:::Infra
-     fleet:::Infra
-     compliance:::Infra
+     integration:::Service
+     deployment:::Service
+     observability:::Service
+     auth:::Service
+     fleet:::Service
+     compliance:::Service
      git:::Data
      municipal:::Data
      systems:::Data
-    classDef Client fill:#E3F2FD,stroke:#90CAF9,color:#0D47A1
-    classDef Service fill:#FFF3E0,stroke:#FFCC80,color:#BF360C
-    classDef Infra fill:#E8F5E9,stroke:#A5D6A7,color:#1B5E20
-    classDef Data fill:#DEFFF8,stroke:#46EDC8,color:#378E7A 
-    style Backend stroke:none
-    style Common stroke:none,fill:powderblue
-    style Clients stroke:none
-    style Cluster stroke:none
-    style DataSources stroke:none
+
+
+classDef Client fill:PowderBlue,stroke:LightSteelBlue,color:DarkSlateGray
+classDef Service fill:PaleGoldenRod,stroke:gold,color:DarkSlateGray
+classDef Data fill:PowderBlue,stroke:LightSteelBlue,color:DarkSlateGray
+
+style Backend stroke:none,fill:MintCream
+style Common stroke:none,fill:Mintcream
+style Clients stroke:none,fill:MintCream
+style Cluster stroke:none,fill:WhiteSmoke
+style DataSources stroke:none,fill:MintCream 
+
 ```
