@@ -12,6 +12,10 @@ published: true
 
 {% include header_metadata.html %}
 
+Udkast
+{: .label .label-yellow }
+
+
 <style>
 .value-grid {
   display: grid;
