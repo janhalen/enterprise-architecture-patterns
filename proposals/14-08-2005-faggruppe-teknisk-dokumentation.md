@@ -12,9 +12,6 @@ parent: Proposals
 
 *Denne indstilling fremsættes som led indsats for at styrke talentudvikling om samarbejde og metoder, samt professionalisering og effektivitet i OS² fællesskabet.*
 
-Udkast
-{: .label .label-yellow }
-
 
 ## Baggrund
 
