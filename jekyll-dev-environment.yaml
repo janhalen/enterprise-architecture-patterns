@@ -1,44 +1,29 @@
-# Save the output of this file and use kubectl create -f to import
-# it into Kubernetes.
-#
-# Created with podman-5.5.2
-
-# NOTE: If you generated this yaml from an unprivileged and rootless podman container on an SELinux
-# enabled system, check the podman generate kube man page for steps to follow to ensure that your pod/container
-# has the right permissions to access the volumes added.
----
 apiVersion: v1
 kind: Pod
 metadata:
-  annotations:
-    bind-mount-options: /home/jmk/Repositories/enterprise-architecture-patterns:Z
-  creationTimestamp: "2025-08-08T08:55:35Z"
+  name: jekyll-ea-dev-pod
   labels:
     app: jekyll-ea-dev-pod
-  name: jekyll-ea-dev-pod
+  annotations:
+    bind-mount-options: /home/jmk/Repositories/enterprise-architecture-patterns:Z
 spec:
   containers:
-  - args:
-    - bundle
-    - exec
-    - jekyll
-    - serve
-    - -H
-    - 0.0.0.0
-    - -P
-    - "4000"
-    ports:
-      - containerPort: 4000
-        hostPort: 4000
-        protocol: TCP
-    image: ghcr.io/bretfisher/jekyll-serve:latest
-    name: jekyll-dev
-    volumeMounts:
-    - mountPath: /site
-      name: home-jmk-repositories-enterprise-architecture-patterns-host-0
+    - name: jekyll-dev
+      image: ghcr.io/bretfisher/jekyll-serve:latest
+      ports:
+        - containerPort: 4000
+          hostPort: 4000
+      volumeMounts:
+        - name: site
+          mountPath: /site
+        - name: bundle-cache
+          mountPath: /usr/local/bundle
   volumes:
-  - hostPath:
-      path: /home/jmk/Repositories/enterprise-architecture-patterns
-      type: Directory
-    name: home-jmk-repositories-enterprise-architecture-patterns-host-0
-
+    - name: site
+      hostPath:
+        path: /home/jmk/Repositories/enterprise-architecture-patterns
+        type: Directory
+    - name: bundle-cache
+      hostPath:
+        path: /home/jmk/.cache/jekyll-bundle
+        type: DirectoryOrCreate
