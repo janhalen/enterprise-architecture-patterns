@@ -45,14 +45,27 @@ Løsningen er designet til at vokse med organisationens behov. Den understøtter
 ## Løsnings overblik
 
 ```mermaid
-
-flowchart 
-    CKAN -->|OIDC| Authentik
-    Authentik -->|SAML| Legacy_IdP
-    subgraph " "
-        CKAN[OpenData<br>CKAN Platform OIDC plugin]
-        Authentik[OS2 Adgang<br>Authentik OIDC Brooker og proxy]
-        Legacy_IdP[Fælleskommunal Adgangsstyring<br>SAML IdP OIO]
-    end
-    
+---
+config:
+  theme: default
+---
+flowchart TB
+ subgraph subGraph0[" "]
+        CKAN[("📊 <b>OpenData Platform</b><br><small>Bruger login via OS2 Adgang</small>")]
+        Authentik["🔐 <b>OS2 Adgang</b><br><small>Sikrer adgang mellem <br> moderne og ældre loginsystemer</small>"]
+        Legacy_IdP["🏛️ <b>Fælleskommunal<br> Adgang</b><br><small>Bruger SAML og OIO</small>"]
+  end
+    CKAN -- OIDC login --> Authentik
+    Authentik -- SAML bro --> Legacy_IdP
+    CKAN@{ shape: rounded}
+    Authentik@{ shape: h-cyl}
+    Legacy_IdP@{ shape: subproc}
+     CKAN:::Aqua
+     Authentik:::Sky
+     Legacy_IdP:::Ash
+    classDef Aqua stroke-width:1px, stroke-dasharray:none, stroke:#46EDC8, fill:#DEFFF8, color:#378E7A
+    classDef Sky stroke-width:1px, stroke-dasharray:none, stroke:#374D7C, fill:#E2EBFF, color:#374D7C
+    classDef Ash stroke-width:1px, stroke-dasharray:none, stroke:#999999, fill:#EEEEEE, color:#000000
+    style Legacy_IdP color:#616161
+    style subGraph0 fill:#e2f2e6, stroke:none
 ```

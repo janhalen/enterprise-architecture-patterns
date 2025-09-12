@@ -15,8 +15,6 @@ published: true
 Udkast  
 {: .label .label-yellow }
 
----
-
 ## Baggrund
 
 Den nuværende løsning til styring af Linux-klienter er over 10 år gammel og kræver stigende ressourcer til vedligehold og videreudvikling.
