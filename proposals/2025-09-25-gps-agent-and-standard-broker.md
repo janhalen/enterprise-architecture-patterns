@@ -19,9 +19,37 @@ Udkast
 
 ---
 
+> ### Det anbefales at undgå risici for opbygning af **unødvendige vedligeholdelsesomkostninger**, **leverandørafhængigheder** og betydelig **teknisk gæld** -- ved at genbruge eksisterende standardisereder datamodeller og Open Source komponenter.
+>
 
-{: .default }
-> _Det anbefales at undgå risici for opbygning af **unødvendige vedligeholdelsesomkostninger**, **leverandørafhængigheder** og betydelig **teknisk gæld** ved at genbruge eksisterende standardisereder datamodeller og Open Source komponenter som [NGSI-LD](https://fiware-datamodels.readthedocs.io/en/stable/ngsi-ld_howto/) og [Orion-LD](https://fiware-orion.readthedocs.io/en/master/)_
+---
+## Komponenter
+---
+
+```mermaid
+flowchart LR
+    A(["GPS device"]) --> B("IoT Agent<br>-Producer-")
+    B -- Update Context --> C("Orion-LD <br>Context Broker")
+    F["Flådestyringssystem<br>-Consumer-"] -- Query Realtid --> C
+    C -- Subscription Notify --> D["QuantumLeap<br>-Consumer-"]
+    D --> E["TimeSeries<br>State-store"]
+    F -- Historisk Data SQL --> E
+    D -- Subscribe --> C
+
+    F@{ shape: internal-storage}
+    D@{ shape: h-cyl}
+    E@{ shape: cyl}
+     A:::Ash
+     B:::Aqua
+     C:::Aqua
+     F:::Sky
+     D:::Ash
+     D:::Aqua
+     E:::Ash
+    classDef Sky stroke-width:1px, stroke-dasharray:none, stroke:#374D7C, fill:#E2EBFF, color:#374D7C
+    classDef Ash stroke-width:1px, stroke-dasharray:none, stroke:#999999, fill:#EEEEEE, color:#000000
+    classDef Aqua stroke-width:1px, stroke-dasharray:none, stroke:#46EDC8, fill:#DEFFF8, color:#378E7A
+```
 
 
 #### **[NGSI-LD](https://fiware-datamodels.readthedocs.io/en/stable/ngsi-ld_howto/) (Next Generation Service Interface - Linked Data)**
@@ -31,7 +59,10 @@ Udkast
 #### **[Orion-LD](https://fiware-orion.readthedocs.io/en/master/) (Context Broker-software fra FIWARE)**
 > Implementerer NGSI-LD standarden. Den fungerer som systemets centrale nerve: den samler data fra alle GPS-enheder og præsenterer dem som en samlet, realtids kontekst til andre service. Ved at bruge Orion-LD sikrer man et skalerbart, driftssikkert kernesystem, hvis vedligeholdelse og udvikling varetages af et internationalt Open Source-fællesskab.
 
-Opsummering: [NGSI-LD](https://fiware-datamodels.readthedocs.io/en/stable/ngsi-ld_howto/) giver standarden, [Orion-LD](https://fiware-orion.readthedocs.io/en/master/) giver implementeringen, og sammen leverer de et fundament, der eliminerer teknisk gæld og vendor lock-in!
+#### **[QuantumLeap](https://quantumleap.readthedocs.io/en/latest/) (Historisk Data Persistence Modul)**
+> Abonnerer på notifikationer fra Orion-LD Context Brokeren og arkiverer alle kontekst-ændringer i en **Time Series Database** Modulet er kritisk for at sikre **historisk lagring** uden at belaste Context Brokeren.
+
+Opsummering: [NGSI-LD](https://fiware-datamodels.readthedocs.io/en/stable/ngsi-ld_howto/) giver standarden, [Orion-LD](https://fiware-orion.readthedocs.io/en/master/) giver implementeringen oo [QuantumLeap](https://quantumleap.readthedocs.io/en/latest/) sikrer den automatiske og skalerbare historiske lagring. 
 
 # Forventede gevinster
 ---
