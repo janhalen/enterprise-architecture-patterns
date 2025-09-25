@@ -12,3 +12,7 @@ mermaid:
   # Version of mermaid library
   # Pick an available version from https://cdn.jsdelivr.net/npm/mermaid/
   version: "11.9.0"
+
+callouts:
+  default:
+    color: green

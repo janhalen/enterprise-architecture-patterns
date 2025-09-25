@@ -1,12 +1,15 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: jekyll-ea-dev-pod
-  labels:
-    app: jekyll-ea-dev-pod
-  annotations:
-    bind-mount-options: /home/jmk/Repositories/enterprise-architecture-patterns:Z
+  name: jekyll
 spec:
+  volumes:
+    - name: jekyll-ea-shared
+      hostPath:
+        path: /home/jmk/Repositories/enterprise-architecture-patterns
+        type: Directory
+        selinuxRelabel: "z"
+
   containers:
     - name: jekyll-dev
       image: ghcr.io/bretfisher/jekyll-serve:latest
@@ -14,16 +17,6 @@ spec:
         - containerPort: 4000
           hostPort: 4000
       volumeMounts:
-        - name: site
+        - name: jekyll-ea-shared
           mountPath: /site
-        - name: bundle-cache
-          mountPath: /usr/local/bundle
-  volumes:
-    - name: site
-      hostPath:
-        path: /home/jmk/Repositories/enterprise-architecture-patterns
-        type: Directory
-    - name: bundle-cache
-      hostPath:
-        path: /home/jmk/.cache/jekyll-bundle
-        type: DirectoryOrCreate
+          
