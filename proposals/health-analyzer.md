@@ -28,6 +28,51 @@ Dette PoC skal udnytte **Evidence** til statisk rapportering, Meltano til ELT-pr
 ## Komponenter
 _Arkitekturlandskab_
 
+```mermaid
+flowchart LR
+
+    A["GitHub API"] -- Pull metrikker --> B
+
+
+ subgraph s1["GitHub Actions"]
+        B["Meltano"]
+        F["Evidence Build"]
+        AX{"data <br> &amp; state"}
+  end
+
+ subgraph Git["GitHub"]
+        E["Repository"]
+        G["Statisk Site Output"]
+  end
+
+    G -- Deploy --> H["GitHub Pages"]
+    AX ~~~ G
+    B --> AX
+    F --> E
+    E --> G
+    AX -- Delta Load --> Git
+    Git -- State --> B
+    H ~~~ A
+
+    E@{ shape: cyl}
+    G@{ shape: docs}
+    H@{ shape: procs}
+     E:::Aqua
+     G:::Aqua
+     B:::Aqua
+     F:::Aqua
+     AX:::Aqua
+     A:::Sky
+     H:::Sky
+    classDef Sky stroke-width:1px, stroke-dasharray:none, stroke:#374D7C, fill:#E2EBFF, color:#374D7C
+    classDef Aqua stroke-width:1px, stroke-dasharray:none, stroke:#46EDC8, fill:#DEFFF8, color:#378E7A
+    style Git fill:#BBDEFB,stroke:none
+    style s1 fill:#BBDEFB,stroke:none
+
+
+
+```
+
 ---
 
 #### **[Meltano](https://www.meltano.com/) (ELT Engine)**
