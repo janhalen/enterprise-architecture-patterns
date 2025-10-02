@@ -19,23 +19,36 @@ Udkast
 <!-- [Beskriv den kontekst eller problemstilling, som dokumentet adresserer.] -->
 <!-- [Hvad er de nuværende udfordringer, og hvorfor er der behov for denne indsats?] -->
 
-## Formål og forventet effekt
+# Arkitektur anbefaling
 
-<!-- [Beskriv intentionen med indsatsen og de konkrete resultater, man håber at opnå.] -->
+---
 
-Denne indsats har til formål at <!-- [indsæt formål] -->.  
-De ønskede effekter af indsatsen omfatter:
+> ### Det anbefales at <!-- Anbefalinger...-->
 
-- <!-- [Effekt 1, fx: Øget samarbejde] -->
-- <!-- [Effekt 2, fx: Bedre kvalitet] -->
-- <!-- [Effekt 3, fx: Hurtigere onboarding] -->
+## Komponenter
+_Arkitekturlandskab_
 
-## Anvendte principper
+---
 
-<!-- [Beskriv hvilke principper, metoder eller frameworks der ligger til grund for indsatsen.] -->
-<!-- [Fx: Åbenhed, genbrug, modularitet, OS²-principper] -->
+Højniveau arkitekturlandskab i mermaid
+```mermaid
+flowchart LR
+A-->B
+```
 
-## Risici
 
-<!-- [Identificér potentielle risici og barrierer for succes.] -->
-<!-- [Hvad kan gå galt, og hvordan kan det afbødes?] -->
+#### **[Komponent A](https://link/) (Beskrivende linktekst)**
+
+> Komponent A beskrivelse
+
+Opsummering: <!-- komponent opsummering med links -->
+
+# Forventede gevinster
+---
+
+
+### <!-- f.eks 💰 Reduktion af driftsbyrden -->
+> Brødtekst med **effekten** i bold
+
+
+# Anvendte arkitekturprincipper
