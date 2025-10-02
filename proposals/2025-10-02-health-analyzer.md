@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "PoC: Helbredsanalyse via Serverless Dataops" # [🔖 Titel på indsats eller forslag]
+title: " 📈 PoC: Helbredsanalyse via Serverless DataOps"
 author: "Jan Maack Kjerbye" # [Navn på forfatter]
 date: "2025-10-02" # [Dato for oprettelse]
 tags: [DataOps, Serverless BI, Open Source, Meltano, Evidence] # [Liste over relevante tags]
@@ -19,11 +19,10 @@ Udkast
 Dette dokument adresserer behovet for at evaluere **helbred, bæredygtighed og genanvendelighed** af open source-projekter via **data-drevet indsigt**. De nuværende udfordringer er primært knyttet til fraværet af **gennemsigtig, automatiseret** dataindsamling og rapportering uden at pådrage sig driftsbyrden fra leverandør og infrastruktur bundne datawarehouses og BI-værktøjer.
 
 # Arkitektur anbefaling
----
 
-> ### Det anbefales at **etablere et Serverless BI/DataOps Proof-of-Concept (PoC)** på en **Serverless BI**-tilgang, hvor analyser er **versionsstyrede** (`BI as code`), og rapporter genereres **on-demand** uden dedikeret infrastruktur..
 
-Dette PoC skal udnytte **Evidence** til statisk rapportering, Meltano til ELT-processen og GitHub Actions som den serverløse orkestrato
+> ### Det anbefales at **etablere et Serverless BI/DataOps Proof-of-Concept (PoC)** med en løskoblet Serverless BI-tilgang, hvor analyser er **versionsstyrede**, og rapporter genereres **on-demand** uden dedikeret infrastruktur..
+
 
 ## Komponenter
 _Arkitekturlandskab_
@@ -73,28 +72,28 @@ flowchart LR
 
 ```
 
+#### [Meltano](https://www.meltano.com/)
+
+> Meltano fungerer som data extract og loadmotor og bruger **Singer-protokollen** til at trække data via []`tap-github`. Den er essentiel for at sikre **inkrementel replikering** af metrikker og for at indkapsle *hele* dataudtræksprocessen i én container. Meltano er konfigureret til at bruge den samme **SQLite-fil** som både tilstandslager (`.meltano/meltano.sqlite`) og datalager (`data/pipeline.sqlite`).
+
+#### [Evidence](https://www.evidence.dev/)
+
+> Evidence er et **Data-as-Code** rapporteringsværktøj, der tager live-data og transformerer det til **statiske rapporter** via versionsstyret Markdown og SQL. Dette flow sikrer, at analyser er **versionerede, auditerbare** og **transparente**.
+
+#### [GitHub Actions](https://github.com/features/actions)
+
+> Fungerer som **serverless orkestrator** og tidsbaseret scheduler. GitHub Actions eksekverer Meltano-containeren, håndterer **State Persistence** i git, og afslutter med at bygge og deploye Evidence-sitet til GitHub Pages.
+
+#### [GitHub Pages](https://docs.github.com/en/pages)
+> Leverer statiske rapporter fra Evidence og gør dem tilgængelige som en versioneret hjemmeside direkte fra Git-repositoriet.
+
+### Opsummering:
+
+[Meltano](https://www.meltano.com/) henter data, [Evidence](https://www.evidence.dev/)  genererer rapporter, og [GitHub Actions](https://github.com/features/actions) sørger for, at det hele sker automatisk – med publicering til [GitHub Pages](https://docs.github.com/en/pages) uden behov for servere eller manuel indsats. 
+
 ---
-
-#### **[Meltano](https://www.meltano.com/) (ELT Engine)**
-
-> Meltano fungerer som den **åbne kildekode ELT-motor** og bruger **Singer-protokollen** til at ekstrahere (via f.eks. `tap-github`) og indlæse data. Den er essentiel for at sikre **inkrementel replikering** af metrikker og for at indkapsle *hele* dataudtræksprocessen i én container. Meltano er konfigureret til at bruge den samme **SQLite-fil** som både tilstandslager (`.meltano/meltano.sqlite`) og datalager (`data/pipeline.sqlite`).
-
-Opsummering: ELT-motor, der henter data fra GitHub API og indlæser det inkrementelt i **SQLite-filen** (`data/pipeline.sqlite`).
-
-#### **[Evidence](https://www.evidence.dev/) (Reporting Framework)**
-
-> Evidence er et **Data-as-Code** rapporteringsværktøj, der tager live-data og transformerer det til **statiske Markdown/HTML-rapporter**. Det benytter **DuckDB** til at query data direkte fra den opdaterede SQLite-fil, hvilket sikrer, at analyser er **versionerede, auditerbare** og **transparente**.
-
-Opsummering: Konverterer SQLite-data til statiske, **versionerede rapporter** til **GitHub Pages**.
-
-#### **GitHub Actions (Orkestrering)**
-
-> Fungerer som den **serverless orkestrator** og tidsbaserede scheduler. GHA eksekverer Meltano-containeren, håndterer **State Persistence** ved at downloade/committe den opdaterede SQLite-fil (`.meltano/meltano.sqlite` og `data/pipeline.sqlite`) tilbage til Git, og afslutter med at bygge og deploye Evidence-sitet.
-
-Opsummering: **Automatiserer hele end-to-end-pipelinen** uden at kræve dedikeret serverdrift (serverless).
 
 # Forventede gevinster
----
 
 
 ### 💰 Reduktion af driftsbyrden
@@ -105,6 +104,8 @@ Opsummering: **Automatiserer hele end-to-end-pipelinen** uden at kræve dedikere
 
 ### ⚡ Hurtig og Transparent Levering
 > Rapporter genereres **hurtigt** som statiske HTML-sider, der kan **deles uden login** (via GitHub Pages), hvilket sikrer **transparens** og nem adgang for både tekniske og forretningsmæssige interessenter.
+
+---
 
 # Anvendte arkitekturprincipper
 
