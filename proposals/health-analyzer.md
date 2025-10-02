@@ -6,7 +6,7 @@ date: "2025-10-02" # [Dato for oprettelse]
 tags: [DataOps, Serverless BI, Open Source, Meltano, Evidence] # [Liste over relevante tags]
 status: "Udkast" # [Status: Udkast, Godkendt, etc.]
 parent: "Proposals"
-published: false # [Skal siden vises på sitet? false = nej]
+published: true
 ---
 
 {% include header_metadata.html %}
