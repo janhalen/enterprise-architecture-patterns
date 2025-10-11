@@ -35,6 +35,19 @@ FleetDM adskiller sig fra traditionel device-administration ved at anvende et **
 - **Kontinuerlig compliance:** 24/7-overvågning reducerer effekten af ferie, sygdom og jobskifte.
 - **Lavere risiko og vedligeholdelsesbyrde:** Mindre manuel håndtering, færre fejl.
 
+Tilføjet 10 okt 2025
+{: .label .label-green }
+
+### Zero Trust Network Access (ZTNA)
+
+Ved at integrere FleetDM med en open source-implementering af ZTNA kan løsningen hærdes betydeligt via en **Software-Defined Perimeter (SDP)**, der lukker for traditionelle angrebsflader og realiserer ekstra fordele ved et Zero Trust-miljø.
+
+| Sikkerhed 🛡️ | Pålidelighed 🚀 | Kontrol 🚦 |
+| :--- | :--- | :--- |
+| **Usynligt privat netværk** (Netværksforbindelser udstilles ikke offentligt). | **Stabile forbindelser uanset device lokation** (Virker på tværs af alle netværk uden firewall-ændringer). | **Central styring af adgangsregler** (Netværksregler styres ét sted frem for mange distribuerede firewalls). |
+| **Styrede klient adgange via politikker** (Enheder får kun adgang, f.eks hvis de er i en sund sikkerhedstilstand). | **Enkel klient identifikation** (Logiske navne til alle typer klienter'er, istedet for IP-adresser). | **Separation af Ansvar** (Adskiller kontrollen af netværket fra den daglige drift af services). |
+| **Automatisk og Sikker Opkobling** (Automatiserede, sikre opsætningsflows). | | |
+
 ---
 
 ## Forventede gevinster
