@@ -76,6 +76,8 @@ FleetDM adskiller sig fra traditionel device-administration ved at anvende et **
 - **Risiko for ændring i licens eller ejerskab**  
   _Afbødes ved overvågning og exit-strategi for videreførelse under ny maintainer_
 
+- **Operationelle risici ved heterogene netværk**
+  _Mitigeres ved valgfri tilføjelse af en open source ZTNA-løsning (f.eks Headscale) der sikrer device-identiteter og adgangskontrol
 ---
 
 ## Bilag og ressourcer
@@ -92,7 +94,10 @@ FleetDM adskiller sig fra traditionel device-administration ved at anvende et **
 - **Case study**
   [Remediating the xz vulnerability with Fleet](https://fleetdm.com/guides/remediating-the-xz-vulnerability-with-fleet)
 
-- **Demo Videos**  
+- **FleetDM Demo Videos**  
   [FleetDM YouTube Channel](https://www.youtube.com/@fleetdm)
+
+- **Zero Trust Network Access**
+  [Learn how ZTNA safeguards critical infrastructure across any deployment model.](https://tailscale.com/events-webinars/ztna/ondemand)
 
 ---
