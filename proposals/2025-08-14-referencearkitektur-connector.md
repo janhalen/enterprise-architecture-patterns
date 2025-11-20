@@ -14,47 +14,72 @@ parent: Proposals
 Udkast
 {: .label .label-yellow }
 
-## 🎯 Formål
-Et fælles projekt for en moderne genbrugelig  snitflade-arkitektur, der understøtter **data-integration** på tværs af offentlige systemer. 
 
-- Skabe råderum til at investere i **øget sikkerhed og resiliens**, via fællesfinansieret udvikling af kildekoden til snitfladerne.
+# Formål
+_Et fælles projekt for en moderne genbrugelig  snitflade-arkitektur, der understøtter **data-integration** på tværs af offentlige systemer._
 
-- Levere besparelser ved at **samle udgifterne** til vedligehold omkring EN fælles kildekode. 
-
-- Bane vejen for en **fremtidssikrede, resilliente snitflader** ved at udvikle dem i fællesskab som selvstændige moduler der kan genbruges af alle.
-
-- **Eliminere teknisk gæld** ved at separere snitfladerne fra fagsystemerne og reducere behovet for betydelige mænger duplikeret non-standard infrastruktur kode.
-
-- **Realisere handlefrihed** for de bidragende myndigheder ved at frigøre styring og ejerskab over snitflade koden fra enkelte fagsystemer og leverandører.
-
-- **Frigøre udgifter** til duplikerede snitflade implementeringer i hvert enkelt produkt og udnytte dem til **forretningsfunktioner der skaber reel værdi**
+# Arkitektur anbefaling
 
 
+> ### Det anbefales at undgå risici for opbygning af **unødvendige vedligeholdelsesomkostninger**, **leverandørafhængigheder** og betydelig **teknisk gæld** -- ved at genbruge eksisterende standardisereder datamodeller og Open Source komponenter.
+>
+
+## Komponenter
 ---
 
-## 🏗️ Arkitekturprincipper
-- **Open Source**: Transparens og fælles ejerskab.
-- **Modularitet**: Komponenter kan udskiftes, tilføjes og tilpasses efter den enkelte myndigheds behov.
-- **Standardisering**: Bruger velkendte, velunderstøttede protokoller og formater.
-- **Genbrug**: Konfigurationer er løskoblede fra funktionskoden og gør genbrug simpelt.
-- **Automatisering**: Moderne indbygget automatisering skaber mulighed for transparens og resilliens, uden tab af effektivitet.
+```mermaid
 
+flowchart LR
+    A["Eksternt System<br>(API, DB, fil)"] --> B["Singer Tap<br>- Extract -"]
+    B --> C["Meltano<br>- Orkestrering -"]
+    C --> D["Singer Target<br>- Load til DuckDB -"]
+    D --> E["DuckDB<br>- Rå data -"]
+    E --> F["dbt<br>- Transformér & Dokumentér -"]
+    F --> G["Analyser / Dashboards<br>(f.eks. Grist, Metabase)"]
+
+    A:::Ash
+    B:::Aqua
+    C:::Sky
+    D:::Aqua
+    E:::Ash
+    F:::Sky
+    G:::Aqua
+
+    classDef Sky stroke-width:1px, stroke-dasharray:none, stroke:#374D7C, fill:#E2EBFF, color:#374D7C
+    classDef Ash stroke-width:1px, stroke-dasharray:none, stroke:#999999, fill:#EEEEEE, color:#000000
+    classDef Aqua stroke-width:1px, stroke-dasharray:none, stroke:#46EDC8, fill:#DEFFF8, color:#378E7A
+
+```
+
+
+#### **[NGSI-LD](https://fiware-datamodels.readthedocs.io/en/stable/ngsi-ld_howto/) (Next Generation Service Interface - Linked Data)**
+
+> Den åbne datastandard 
+
+
+# Forventede gevinster
 ---
 
-## 🔧 Teknisk Struktur
-- Projektet er p.t. bygget op i en **sandbox** for eksperimenter og samarbejde.
-- Der er fokus på **dataflow** og **integration**, men selve koden er endnu minimal.
-- Diagrammer og dokumentation er under opbygning – mulighed for at bidrage!
+### 🤝 Styrket handlefrihed og exit-strategi
+> Ved at frigøre ejerskab og styring af snitflade koden fra enkelte leverandører og istedet vælge veldokumenterede standardløsninger sikres snitfladernes **drifts kontinuitet**, idet et større antal leverandører vil kunne varetage drift og videreudvikling.
 
+### 💰 Reduktion af driftsbyrden
+> Sikkerhedsrettelser og vedligeholdelse af kernekomponenterne samles i en fælles kildekode. Dette **aflaster driftsbudgettet** for tunge opgaver med at vedligeholde en komplet egenudviklet infrastruktur-backend.
+
+### 🚀 Øget effektivitet
+> Fællesskabet leverandører bliver frigjort fra at skulle levere og vedligeholde duplikerede infrastruktur indsatser. Dette gør det muligt udelukkende at fokusere på den enkelte snitflade og datamodel, hvilket **maksimerer den tid, der bruges på at levere direkte forretningsværdi.**
+
+### 🔃 Øget interoperabilitet
+> Ved at genbruge bredt anvendte internationale open source komponenter, bliver det **mere omkostningseffektivt** at høste genvinsterne af interoperabilitet. Man skal ganske enkelt ikke starte forfra hver gang et nyt system eller datakilde skal forbindes.
+
+
+
+# Anvendte arkitekturprincipper
 ---
+Forslaget er i tråd med de [fællessoffentlige arkitektur principper](https://arkitektur.digst.dk/principper-og-regler) ved at anvende følgende anerkendte internationale principper for software og enterprise arkitektur:
 
+[♻️ Software Reuse & FOSS](https://glossary.cncf.io/portability/){: .btn .btn-green }
+[👁️ Open Standards](https://www.etsi.org/technologies/smart-cities/ngsi-ld){: .btn .btn-green }
+[🧩 Loose Coupling & Modularity](https://glossary.cncf.io/loosely-coupled-architecture/){: .btn .btn-green }
+[ ELT Data integration pattern]
 
-## 💰 Forventede effekter
-
-- Reducerede udgifter til cybersikkerhed og fejlretning via fælles vedligehold.
-- Investeringvillighed i øget kvalitet og resilliens qua de ovenstående besparelser.
-- Drastisk minimering af teknisk gæld ved at udfase store mængder uhomogen snitfladekode.
-- Realisering af handlefrihed og ejerskab over myndighedens egen data-infrastruktur.
-
-
-🔗 https://github.com/os2sandbox/connector
