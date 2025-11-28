@@ -20,19 +20,18 @@ Styregruppen i os2ai har længe ønsket sig en løsning for *“LLM as a Service
 - **Flatrate betaling** 
 - **Solidaritetsmodel**
 
-Tidligere forsøg har ikke leveret en skalerbar og fair løsning. Samtidig er der et stigende behov for at reducere energiforbrug og driftsomkostninger.
 
 # Arkitektur anbefaling
 
 ---
 
-> ### Det anbefales at anvende **KServe med ModelMesh** på den eksisterende Kubernetes-platform for at udnytte de muligheder vi allerede betaler for i vore k8s cluster til at levere 
+> ### Det anbefales at anvende **KServe med ModelMesh** for at udnytte de muligheder vi allerede betaler for i vore k8s cluster til at levere på de ovenstående ønsker.
 
 Denne løsning:
 - Udnytter de k8s native **operators og funktionalitet** vi allerede betaler for.
-- Genbruger eksisterende internationalt vedligeholdte løsninger, istedet for at opfinde en ny dyb tallereken.
-- Understøtter **multi-tenancy og model-sharing** for effektiv ressourceudnyttelse
-- Muliggør **scale-to-zero** og GPU-pooling → lavere energiforbrug og hostingpris
+- Genbruger eksisterende internationalt vedligeholdte løsninger, istedet for at opfinde nye dybe tallerkener.
+- Understøtter **model-sharing** for effektiv ressourceudnyttelse
+- Muliggør **scale-to-zero** og GPU-pooling for lavere energiforbrug og dermed forventet lavere hostingpriser
 - Er **CNCF open source** og cloud-neutral
 
 ## Komponenter
