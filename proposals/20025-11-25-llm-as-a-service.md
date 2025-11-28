@@ -24,9 +24,7 @@ Styregruppen i os2ai har længe ønsket sig en løsning for *“LLM as a Service
 
 # Arkitektur anbefaling
 
----
-
-> ### Det anbefales at anvende **KServe med ModelMesh** for at udnytte de muligheder vi allerede betaler for i vore k8s cluster til at levere på de ovenstående ønsker.
+> ### Det anbefales at anvende **KServe** med **ModelMesh** for at udnytte de muligheder vi allerede betaler for i vore k8s cluster, til at levere på de ovenstående ønsker.
 
 Denne løsning:
 - Udnytter de k8s native **operators og funktionalitet** vi allerede betaler for.
