@@ -1,6 +1,6 @@
 ---
 layout: default
-title: " 🧠 LLM som fælles service – Solidaritetsmodel og grøn IT"
+title: " 🧠 LLM som service – Solidaritetsmodel og grøn IT"
 author: "Jan Maack Kjerbye"
 date: "2025-11-28"
 tags: [AI, LLM, Kubernetes, KServe, ModelMesh, Grøn IT]
@@ -90,20 +90,4 @@ Integrerer med KServe for dynamisk model-loading og routing.
 ## Anvendte arkitekturprincipper  
 Forslaget understøtter følgende principper:
 
-[♻️ Genbrug og fælles løsninger](https://arkitektur.digst.dk/principper-og-regler){: .btn .btn-green }  
-> Vi anvender CNCF open source-komponenter (KServe, ModelMesh) frem for egenudvikling.
-
-[👁️ Åbne standarder og interoperabilitet](https://arkitektur.digst.dk/principper-og-regler){: .btn .btn-green }  
-> Kubernetes-native operators og åbne protokoller (REST/gRPC, OCI) sikrer leverandøruafhængighed.
-
-[🧩 Modularitet og løskobling](https://arkitektur.digst.dk/principper-og-regler){: .btn .btn-green }  
-> Komponenter kan udskiftes uden at påvirke resten af løsningen.
-
-[🔒 Sikkerhed og robusthed](https://arkitektur.digst.dk/principper-og-regler){: .btn .btn-green }  
-> RBAC, namespace-isolation og audit logs understøtter multi-tenancy og compliance.
-
-[🌱 Grøn IT og effektiv ressourceudnyttelse](https://arkitektur.digst.dk/principper-og-regler){: .btn .btn-green }  
-> Scale-to-zero og GPU-pooling reducerer energiforbrug og driftsomkostninger.
-
-[📏 Standardisering og governance](https://arkitektur.digst.dk/principper-og-regler){: .btn .btn-green }  
-> CNCF-standarder og Kubernetes-native operators sikrer fremtidssikret styring.
+[♻️ Genbrug og fælles løsninger](https://arkitektur.digst.dk/principper-og-regler){: .btn .btn-green } [👁️ Åbne standarder og interoperabilitet](https://arkitektur.digst.dk/principper-og-regler){: .btn .btn-green } [🧩 Modularitet og løskobling](https://arkitektur.digst.dk/principper-og-regler){: .btn .btn-green } [🔒 Sikkerhed og robusthed](https://arkitektur.digst.dk/principper-og-regler){: .btn .btn-green }  [🌱 Grøn IT og effektiv ressourceudnyttelse](https://arkitektur.digst.dk/principper-og-regler){: .btn .btn-green } [📏 Standardisering og governance](https://arkitektur.digst.dk/principper-og-regler){: .btn .btn-green }  
