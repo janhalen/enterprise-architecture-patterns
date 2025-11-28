@@ -36,13 +36,13 @@ flowchart LR
     S1>"Indendørs sensorer"] --> A1("IoT Agent<br>-Producer-")
     S2["Vejrdata API<br>(DMI)"] --> n1["Context Provider<br>-Producer-"]
     A1 -- "Inde temperatur<br>- NGSI-LD -" --> C("Orion-LD<br>Context Broker")
-    C -- Notify --> AI["Predictive Heating Service<br>-Consumer-"] & QL["QuantumLeap<br>-Consumer-"] & n3["IoT Agent<br>-Adapter-"]
+    C -- Notify --> AI["Predictive Heating Service<br>-Consumer-"] & QL["QuantumLeap<br>-Consumer-"] & n3["IoT Agent<br>- Modbus bridge -"]
     QL --> TS["Historisk Data<br>- TimeSeries -<br>State-store"]
     QL --- n2["Grafisk<br>Overbliks flade"]
     QL -. Subscribe .-> C
     n1 -- "Ude temperatur<br>- NGSI-LD -" --> C
     AI -. Subscribe .-> C
-    n3 --> HVAC["Varmekontrolsystem<br>(API modtager)"]
+    n3 -- Modbus --> HVAC["Varmekontrolsystem<br>(API modtager)"]
     n3 -. Subscribe .-> C
     S2@{ shape: das}
     n1@{ shape: rounded}
@@ -74,6 +74,10 @@ flowchart LR
 #### **[Komponent A](https://link/) (Beskrivende linktekst)**
 
 > Komponent A beskrivelse
+
+OSS Datamodel imod Danfoss ECL: https://github.com/smart-data-models/dataModel.Device/blob/master/Modbus/README.md
+
+Tutorial example: https://ngsi-ld-tutorials.readthedocs.io/en/latest/time-series-data.html
 
 Opsummering: <!-- komponent opsummering med links -->
 

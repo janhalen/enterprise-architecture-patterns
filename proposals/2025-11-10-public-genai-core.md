@@ -93,10 +93,3 @@ Opsummering:
 > Gevinst
 
 
-# Anvendte arkitekturprincipper
----
-Forslaget er i tråd med de [fællessoffentlige arkitektur principper](https://arkitektur.digst.dk/principper-og-regler) ved at anvende følgende anerkendte internationale principper for software og enterprise arkitektur:
-
-[♻️ Software Reuse & FOSS](https://glossary.cncf.io/portability/){: .btn .btn-green }
-[👁️ Open Standards](https://www.etsi.org/technologies/smart-cities/ngsi-ld){: .btn .btn-green }
-[🧩 Loose Coupling & Modularity](https://glossary.cncf.io/loosely-coupled-architecture/){: .btn .btn-green }

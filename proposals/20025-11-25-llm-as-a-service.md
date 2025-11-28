@@ -6,7 +6,7 @@ date: "2025-11-28"
 tags: [AI, LLM, Kubernetes, KServe, ModelMesh, Grøn IT]
 status: "Udkast"
 parent: "Proposals"
-published: false
+published: true
 ---
 
 {% include header_metadata.html %}
