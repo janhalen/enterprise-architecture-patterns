@@ -80,12 +80,7 @@ Integrerer med KServe for dynamisk model-loading og routing.
 ### 🔒 Robust og fremtidssikret
 > CNCF open source og Kubernetes-native operators sikrer standardisering og leverandøruafhængighed.
 
-# Anvendte arkitekturprincipper
----
-
-
-
 ## Anvendte arkitekturprincipper  
-Forslaget understøtter følgende principper:
+Forslaget understøtter følgende fællesoffentlige principper og regler:
 
 [♻️ Genbrug og fælles løsninger](https://arkitektur.digst.dk/principper-og-regler){: .btn .btn-green } [👁️ Åbne standarder og interoperabilitet](https://arkitektur.digst.dk/principper-og-regler){: .btn .btn-green } [🧩 Modularitet og løskobling](https://arkitektur.digst.dk/principper-og-regler){: .btn .btn-green } [🔒 Sikkerhed og robusthed](https://arkitektur.digst.dk/principper-og-regler){: .btn .btn-green }  [🌱 Grøn IT og effektiv ressourceudnyttelse](https://arkitektur.digst.dk/principper-og-regler){: .btn .btn-green } [📏 Standardisering og governance](https://arkitektur.digst.dk/principper-og-regler){: .btn .btn-green }  
