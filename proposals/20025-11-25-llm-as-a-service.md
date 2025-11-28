@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "LLM som fælles service – Solidaritetsmodel og grøn IT"
+title: " 🧠 LLM som fælles service – Solidaritetsmodel og grøn IT"
 author: "Jan Maack Kjerbye"
 date: "2025-11-28"
 tags: [AI, LLM, Kubernetes, KServe, ModelMesh, Grøn IT]
