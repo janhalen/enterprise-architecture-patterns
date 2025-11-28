@@ -1,7 +1,7 @@
 ---
 layout: default
-title: " 🧠 LLM som service"
-summary: "Solidarisk betlingsmodeller og grøn IT"
+title: "🧠 LLM som service"
+summary: "En skalerbar LLM-as-a-Service løsning der leverer solidariske flatrate-priser og potentiale for energieffektiv drift"
 author: "Jan Maack Kjerbye"
 date: "2025-11-28"
 tags: [AI, LLM, Kubernetes, KServe, ModelMesh, Grøn IT]
