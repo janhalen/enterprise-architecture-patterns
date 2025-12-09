@@ -17,7 +17,7 @@ Udkast
 
 ## Baggrund
 
-Styregruppen i os2ai ænsker sig en løsning for der kan levere en *“LLM as a Service”* med:
+Styregruppen i os2ai ønsker sig en løsning for der kan levere en *“LLM as a Service”* med:
 - **Flatrate betaling** 
 - **Solidaritetsmodel**
 
