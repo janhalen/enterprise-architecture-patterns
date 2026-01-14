@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 👥 Rollefordeling i Open Source Software projekter
+title: 👥 Rollefordeling i OS2 forankrede Open Source Software projekter
 summary: "Et aktivitetsbaseret rolle- og aktivitetsoverblik for Open Source projekter med fokus på genbrugelighed, kvalitet og specialisering."
 author: "Jan Maack Kjerbye"
 date: "2025-09-16"
