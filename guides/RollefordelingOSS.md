@@ -1,7 +1,7 @@
 ---
 layout: default
-title: 👥 Rollefordeling i OS2 forankrede Open Source Software projekter
-summary: "Et aktivitetsbaseret rolle- og aktivitetsoverblik for Open Source projekter med fokus på genbrugelighed, kvalitet og specialisering."
+title: 👥 Aktiviteter & roller i OS2-projekter
+summary: "En standardiseret aktivitets og rollebeskrivelse for OS2-projekter baseret på internationale Open Source best practices."
 author: "Jan Maack Kjerbye"
 date: "2025-09-16"
 parent: Guides
@@ -12,21 +12,34 @@ parent: Guides
 Udkast  
 {: .label .label-yellow }
 
-Denne korte guide definerer ansvarsfordelingen i OS2-projekter. For at professionalisere og sikre ejerskab er opgaverne delt mellem specialiserede roller fremfor en generel koordinator. Centralt for modellen er adskillelsen mellem teknisk release-styring, produktmæssig prioritering og uafhængig kode-review (Four eyes principle).
+Denne korte guide definerer ansvarsfordelingen i OS2-projekter. For at professionalisere og sikre ejerskab er opgaverne delt mellem specialiserede roller fremfor en generel koordinator. Centralt for modellen er adskillelsen mellem teknisk release-styring, produktmæssig prioritering og uafhængig kode-review (Four eyes principle). 
 
----
+## 🖼️ Projektrammer og Leverancestyring
 
-# 👨‍💻 Applikationsudvikling
+| AKTIVITET | ROLLE | BEST PRACTICE |
+| :--- | :--- | :--- |
+| **Leverancestyring & Værdi** | Program Lead & Product Owner (PO) | • Ejer "Hvad" og "Hvorfor" (vision og prioritering).<br>• Godkender leverancer ift. forretningsværdi.<br>• Håndterer politiske interessenter og strategisk retning. |
+| **Strategi & Standarder** | Rådgivende Enterprise Arkitekt | • Afklarer ophæng til strategiske mål.<br>• Sikrer overensstemmelse med nationale og internationale standarder.<br>• Kvalitetssikrer leverancer op imod arkitektur krav og principper. |
+| **Operationel Drift & Support** | Projektsekretær | • Frigør PO ved at eje "Hvordan" og "Hvornår" (logistik).<br>• Facilitering af møder, referater og opfølgning på action-items.<br>• Onboarding af medlemmer og styring af adgangsrettigheder i systemer.<br>• Sikker dokumenthåndtering, arkivering og versionsstyring. |
 
-| Aktivitet | Rolle | Best Practice |
+### 📋 Projekt & Community forvaltning
+
+| AKTIVITET | ROLLE | BEST PRACTICE |
+| :--- | :--- | :--- |
+| **Behovsmodning & Backlog** | PO & Release Manager | • Screening af indkomne issues.<br>• PO skriver User Stories; RM validerer teknisk modenhed før udvikling besluttes.<br>• Ved uklarhed og forståelsesgab konsulteres arkitekten. |
+| **Funktionsverifikation** | Product Owner (PO) | • Slutgodkendelse af features baseret på Acceptance Criteria.<br>• Fokus på om løsningen løser brugerens behov. |
+| **Design og teknologivalg** | Rådgivende arkitekt | • Anviser best practices før udviklingen startes.<br>• Rådgiver om teknologivalg og standarder. |
+| **Community Management** | Community Manager | • Håndterer Code of Conduct, issue-skabeloner og brugeradgange til issue-trackers.<br>• Sikrer god tone og uddanner i brug af issue-trackeren. |
+
+## ⛓️ Applikationsudvikling
+
+| AKTIVITET | ROLLE | BEST PRACTICE |
 |:---|:---|:---|
-| **Nyudvikling af applikationskode** | Specialist-udvikler / Applikationsudvikler | Modularisering og domain-driven design. Arbejder i isolerede feature branches ud fra issue-beskrivelser. |
-| **Review af applikationskode** | Senior udvikler (Ekstern/Uafhængig) | **Four eyes principle:** Minimum to uafhængige senior-udviklere reviewer kode for at undgå bias før PR sendes til PO/RM. |
-| **Design og teknologivalg** | Rådgivende arkitekt | Indkaldes ad hoc til at anvise best practice for applikationens livscyklus og infrastruktur før udviklingen startes. |
+| **Nyudvikling af applikationskode** | Specialist-udvikler / Applikationsudvikler | - Modularisering og domain-driven design.<br>- Arbejder i isolerede feature branches ud fra issue-beskrivelser.<br> - |
+| **Review af applikationskode** | Senior udvikler | - Reviewer kode i PRs<br>- Arbejder med Four-Eyes principle for øget transparens og kvalitet.<br>- Er |
 
----
 
-# ⚙️ Klargøring og leverance
+## ⚙️ Klargøring og leverance
 
 | Aktivitet | Rolle | Best Practice |
 |:---|:---|:---|
@@ -35,21 +48,15 @@ Denne korte guide definerer ansvarsfordelingen i OS2-projekter. For at professio
 | **Automatisk opdatering af afhængigheder** | CI/CD Engineer / RM | Brug værktøjer som Renovate eller Dependabot. RM kan godkende mindre rettelser og automatiske sikkerhedspatches. |
 | **Vulnerability Management** | Release Manager (RM) | Ansvarlig for modtagelse af sikkerhedsrapporter (VDP) og uddelegering af udbedring som hastesager til leverandører. |
 
----
-
-# 🧪 Kvalitetssikring & Community
+## 🧪 Kvalitetssikring
 
 | Aktivitet | Rolle | Best Practice |
 |:---|:---|:---|
 | **Teststrategi og testkode** | QA Engineer / Test Automation Specialist | Brug test-first/TDD. Adskil unit, integration og e2e tests. Verifikation sker optimalt via en test-faggruppe. |
-| **Funktionsreview og verifikation** | Product Owner (PO) | Endelig godkendelse af tilføjelser ud fra acceptance kriterier og "Definition of Done" (IKKE kode-review). |
-| **Kvalificering af behov** | Product Owner & Release Manager | Løbende screening af indkomne issues. PO prioriterer user-stories der leverer værdi, mens RM validerer teknisk modenhed og release-parathed før opgaverne sættes i gang. |
 | **Dokumentationsstyring** | Technical Editor (TE) | Reviewer PRs for dokumentationskvalitet. PO/RM merger som udgangspunkt kun, hvis TE har givet "OK". |
-| **Community Management** | Community Manager (CM) | Håndterer Code of Conduct, issue-skabeloner og brugeradgang. Sikrer god tone og uddanner i brug af trackeren. |
 
----
 
-# 🛠️ Produktionsdrift
+## 🛠️ Produktionsdrift
 
 | Aktivitet | Rolle | Best Practice |
 |:---|:---|:---|
@@ -58,10 +65,10 @@ Denne korte guide definerer ansvarsfordelingen i OS2-projekter. For at professio
 | **Udrulning til produktion** | Driftsoperatør | Automatisér med CI/CD pipelines og brug blue/green eller canary deployment-strategier. |
 | **Overvågning og Observability** | Driftsoperatør | Brug standard observability-værktøjer (f.eks. CNCF OpenTelemetry). |
 
----
 
 ### 📚 Læs mere
 
 > - 📘 [Linux Foundation – Open Source Guides](https://www.linuxfoundation.org/resources/open-source-guides)  
 > - 📘 [Open Source Guides – Leadership & Governance](https://opensource.guide/leadership-and-governance/)  
 > - 📘 [OS2 – Strategi for Open Source Governance](https://os2.dk)
+
