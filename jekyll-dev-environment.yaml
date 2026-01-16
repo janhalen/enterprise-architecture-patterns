@@ -6,7 +6,7 @@ spec:
   volumes:
     - name: jekyll-ea-shared
       hostPath:
-        path: /home/jmk/Repositories/enterprise-architecture-patterns
+        path: /home/jmk/Repos/enterprise-architecture-patterns
         type: Directory
         selinuxRelabel: "z"
 
