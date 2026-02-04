@@ -28,82 +28,116 @@ Dette dokument adresserer behovet for at evaluere **helbred, bæredygtighed og g
 _Arkitekturlandskab_
 
 ```mermaid
-flowchart LR
+---
+title: Serverless OS2 Trust-Stack
+---
+graph LR
+    %% Node Definitions
+    Repo(fa:fa-code App Source Repo)
+    
+    subgraph GitOps[fa:fa-gears GitOps-Repo]
+        ScanCfg[ScanCode Options]
+        BentoCfg[Bento Pipeline Config]
+        BlobCfg[Bloblang Transform expressions]
+    end
 
-    A["GitHub API"] -- Pull metrikker --> B
+    subgraph S3[fa:fa-cloud-storage S3 / Object Storage]
+        State[(fa:fa-database Golden Copy <br> Historical Parquet)]
+    end
 
+    subgraph Runner[CI/CD Runner Context]
+        direction TB
+        ScanCode{ScanCode Toolkit}
+        Mapping[Bento <br> Data processor]
+        Storage[(DuckDB <br> In-process OLAP)]
+        Evidence[Evidence.dev <br> SSG Dashboard]
+    end
+    
+    subgraph Pages[Git Forge Static Hosting]
+        Dashboard(fa:fa-chart-column Statisk Dashboard)
+    end
 
- subgraph s1["GitHub Actions"]
-        B["Meltano"]
-        F["Evidence Build"]
-        AX{"data <br> &amp; state"}
-  end
+    %% Connections
+    Repo --> ScanCode
+    
+    %% Config injections
+    ScanCfg -.->|.opts| ScanCode
+    BentoCfg -..->|.yaml| Mapping
+    BlobCfg -..->|.blobl| Mapping
+    
+    %% The Delta Flow
+    ScanCode -- "|JSONL|" --> Mapping
+    State -- "|Read History|" --> Storage
+    Mapping -- "|Delta|" --> Storage
+    Storage -- "|Sync/Write|" --> State
+    
+    %% The Dashboard Flow
+    State -- "|Optimized Parquet|" --> Evidence
+    Evidence -- HTML --> Dashboard
 
- subgraph Git["GitHub"]
-        E["Repository"]
-        G["Statisk Site Output"]
-  end
-
-    G -- Deploy --> H["GitHub Pages"]
-    AX ~~~ G
-    B --> AX
-    F --> E
-    E --> G
-    AX -- Delta Load --> Git
-    Git -- State --> B
-    H ~~~ A
-
-    E@{ shape: cyl}
-    G@{ shape: docs}
-    H@{ shape: procs}
-     E:::Aqua
-     G:::Aqua
-     B:::Aqua
-     F:::Aqua
-     AX:::Aqua
-     A:::Sky
-     H:::Sky
-    classDef Sky stroke-width:1px, stroke-dasharray:none, stroke:#374D7C, fill:#E2EBFF, color:#374D7C
-    classDef Aqua stroke-width:1px, stroke-dasharray:none, stroke:#46EDC8, fill:#DEFFF8, color:#378E7A
-    style Git fill:#BBDEFB,stroke:none
-    style s1 fill:#BBDEFB,stroke:none
-
-
-
+    %% Professional Styling
+    style Repo fill:#e1f5fe,stroke:#01579b,stroke-width:1px
+    style Dashboard fill:#ffffff,stroke:#3949ab,stroke-width:2px
+    style GitOps fill:#f0f4f8,stroke:#2c3e50,stroke-dasharray: 5 5
+    style Pages fill:#f0f4f8,stroke:#2c3e50,stroke-dasharray: 5 5
+    style S3 fill:#fff9c4,stroke:#fbc02d,stroke-dasharray: 5 5
+    style State fill:#ffffff,stroke:#fbc02d
+    
+    style ScanCfg fill:#ffffff,stroke:#64b5f6
+    style BentoCfg fill:#ffffff,stroke:#64b5f6
+    style BlobCfg fill:#ffffff,stroke:#64b5f6
+    
+    style Runner fill:#f1f8e9,stroke:#558b2f
+    style ScanCode fill:#dcedc8,stroke:#689f38
+    style Mapping fill:#ffffff,stroke:#64b5f6
+    style Storage fill:#e0f2f1,stroke:#00796b
+    style Evidence fill:#e8eaf6,stroke:#3f51b5
 ```
 
-#### [Meltano](https://www.meltano.com/)
+#### [AboutCode ScanCode](https://scancode-toolkit.readthedocs.io/)
 
-> Meltano fungerer som data extract og loadmotor og bruger **Singer-protokollen** til at trække data via []`tap-github`. Den er essentiel for at sikre **inkrementel replikering** af metrikker og for at indkapsle *hele* dataudtræksprocessen i én container. Meltano er konfigureret til at bruge den samme **SQLite-fil** som både tilstandslager (`.meltano/meltano.sqlite`) og datalager (`data/pipeline.sqlite`).
+> ScanCode fungerer som den primære motor til **compliance- og sårbarhedsanalyse**. Den er konfigureret deklarativt via en `.opts` fil fra et centralt **GitOps-repo**, hvilket sikrer, at scannings-policies er versionerede og ensartede. ScanCode genererer rådata i **JSONL-format**, hvilket gør det muligt at streame resultaterne direkte videre til transformation uden at overbelaste hukommelsen i CI/CD-runneren.
+
+#### [WarpStream Bento](https://github.com/warpstreamlabs/bento)
+
+> Bento fungerer som den **serverløse transformations-motor**. Ved hjælp af det deklarative sprog **Bloblang** mapper, filtrerer og fladgør Bento de komplekse JSON-data fra ScanCode. Dette eliminerer behovet for specialskrevet Python-kode og gør datahåndteringen "stream-native", så selv meget store scanninger kan behandles effektivt i en container.
+
+#### [S3 / Object Storage](https://en.wikipedia.org/wiki/Amazon_S3)
+
+> S3 fungerer som den **serverløse persistens-løsning** og fungerer som "Source of Truth" for historiske data. Ved at opbevare en **"Golden Copy" i Parquet-format** på S3, kan pipelinen udføre **inkrementel delta-loading**. Det betyder, at kun nye ændringer processeres, hvilket sparer tid og beregningsressourcer, samtidig med at historiske trends bevares på tværs af kørsler.
+
+#### [DuckDB](https://duckdb.org/)
+
+> DuckDB fungerer som den højperformante **in-process OLAP-motor**. Den læser de transformerede data fra Bento og de historiske data fra S3 for at udføre lynhurtige SQL-joins og filtreringer. DuckDB konsoliderer resultaterne til optimerede **Parquet-filer**, som Evidence.dev bruger til at generere dashboardet.
 
 #### [Evidence](https://www.evidence.dev/)
 
-> Evidence er et **Data-as-Code** rapporteringsværktøj, der tager live-data og transformerer det til **statiske rapporter** via versionsstyret Markdown og SQL. Dette flow sikrer, at analyser er **versionerede, auditerbare** og **transparente**.
+> Evidence er et **Data-as-Code** rapporteringsværktøj, der tager de præ-processerede Parquet-filer og transformerer dem til **statiske dashboards** via versionsstyret Markdown og SQL. Dette sikrer, at compliance-rapporterne er lynhurtige, auditerbare og kan hostes uden en aktiv database-server.
 
-#### [GitHub Actions](https://github.com/features/actions)
+#### [CI/CD Runners](https://forgejo.org/docs/latest/user/actions/)
 
-> Fungerer som **serverless orkestrator** og tidsbaseret scheduler. GitHub Actions eksekverer Meltano-containeren, håndterer **State Persistence** i git, og afslutter med at bygge og deploye Evidence-sitet til GitHub Pages.
+> Fungerer som den **serverløse orkestrator** (f.eks. Forgejo Actions). Runneren eksekverer containere for ScanCode og Bento, orkestrerer dataflowet til S3 via DuckDB, og afslutter med at bygge og deploye det færdige Evidence-dashboard som statiske filer.
 
-#### [GitHub Pages](https://docs.github.com/en/pages)
-> Leverer statiske rapporter fra Evidence og gør dem tilgængelige som en versioneret hjemmeside direkte fra Git-repositoriet.
+#### [Git Forge Pages](https://forgejo.org/docs/latest/user/pages/)
+
+> Leverer det færdige dashboard fra Evidence og gør det tilgængeligt som en versioneret hjemmeside. Da sitet er **rent statisk**, kræver det ingen backend-infrastruktur, hvilket minimerer både sikkerhedsrisici og driftsomkostninger.
 
 ### Opsummering:
 
-[Meltano](https://www.meltano.com/) henter data, [Evidence](https://www.evidence.dev/)  genererer rapporter, og [GitHub Actions](https://github.com/features/actions) sørger for, at det hele sker automatisk – med publicering til [GitHub Pages](https://docs.github.com/en/pages) uden behov for servere eller manuel indsats. 
+[ScanCode](https://scancode-toolkit.readthedocs.io/) analyserer koden ➡️ [Bento](https://github.com/warpstreamlabs/bento) transformerer dataene ➡️ [DuckDB](https://duckdb.org/) håndterer delta-loading mod [S3](https://en.wikipedia.org/wiki/Amazon_S3) og ➡️ [Evidence](https://www.evidence.dev/) genererer de statiske rapporter, som publiceres automatisk via [CI/CD](https://forgejo.org/docs/latest/user/actions/) uden behov for vedvarende serverdrift.
 
 ---
 
 # Forventede gevinster
 
+### 💰 Driftsøkonomi og Digital Suverænitet
+> Løsningen er baseret på et **serverløst paradigme**, hvilket eliminerer behovet for proprietære SaaS-licenser og aktive databaseservere. Ved at anvende **Object Storage (S3)** og ephemeral beregning i CI/CD, sikres fuldt ejerskab over egne data uden risiko for vendor lock-in eller uforudsigelige prisstigninger.
 
-### 💰 Reduktion af driftsbyrden
-> Løsningen er **serverløs**, hvilket eliminerer behovet for at **drifte, opdatere og betale for en persistent database** og et traditionelt BI-værktøj. Omkostninger er primært knyttet til den minimale beregningstid i GitHub Actions.
+### 🧠 Open Source Ejerskab og AGPL-Skabelon
+> Hele pipelinen leveres som en **AGPL-licenseret skabelon**, hvilket garanterer fuld handlefrihed og gennemsigtighed. Ved at eje kildekoden til både transformationer og dashboards opnår organisationen **digital suverænitet**, hvor kontrol over compliance-regler og historik forbliver intern, mens fællesskabet kan bidrage til skabelonens udvikling.
 
-### 🧠 BI as Code og Genanvendelighed
-> **Hele analysen** (data, transformation, rapport) er versionsstyret i Git. Dette sikrer **fuld sporbarhed** (*traceability*) og gør det muligt at **genanvende** og klone løsningen med minimal indsats for nye projekter (princippet om **Infrastructure as Code** udvidet til data).
-
-### ⚡ Hurtig og Transparent Levering
-> Rapporter genereres **hurtigt** som statiske HTML-sider, der kan **deles uden login** (via GitHub Pages), hvilket sikrer **transparens** og nem adgang for både tekniske og forretningsmæssige interessenter.
+### ⚡ BI-as-Code og Skalerbar Performance
+> Ved at definere alt fra scanningsparametre til transformationer som kode (**Bloblang/SQL**), opnås fuld sporbarhed via Git. Kombinationen af **JSONL-streaming** og **DuckDB** gør det muligt at håndtere store datamængder effektivt og levere lynhurtige, statiske dashboards via **Evidence.dev** uden behov for tunge BI-klienter.
 
 ---
 
