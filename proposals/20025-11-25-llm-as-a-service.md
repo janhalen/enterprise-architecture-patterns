@@ -1,10 +1,10 @@
 ---
 layout: default
-title: "🧠 LLM som service"
-summary: "En skalerbar LLM-as-a-Service løsning der leverer solidariske flatrate-priser og potentiale for energieffektiv drift"
+title: "🧠 Sprogmodeller-as-a-service"
+summary: "En skalerbar, LLM-as-a-Service løsning bygget på åbne standarder, der muliggører solidarisk fair-use og energieffektiv drift."
 author: "Jan Maack Kjerbye"
-date: "2025-11-28"
-tags: [AI, LLM, Kubernetes, KServe, ModelMesh, Grøn IT]
+date: "2026-02-17"
+tags: [AI, LLM, Kubernetes, Envoy, KServe, Kueue, Cloud Native]
 status: "Udkast"
 parent: "Proposals"
 published: true
@@ -17,75 +17,89 @@ Udkast
 
 ## Baggrund
 
-Styregruppen i os2ai ønsker sig en løsning for der kan levere en *“LLM as a Service”* med:
-- **Flatrate betaling** 
-- **Solidaritetsmodel**
-
+For at sikre en solidarisk adgang til sprogmodeller i OS2ai vil tilføjelsen af en *“LLM as a Service”* løsning til OS2ai kunne levere:
+- **Flatrate betaling** (baseret på organisationsstørrelse)
+- **Fair-use solidaritetsmodel** (Fair-use pooling af ressourcer)
+- **Høj sikkerhed** (Ingen læk af data til eksterne API'er)
 
 # Arkitektur anbefaling
 
-> ### Det anbefales at lave en teknisk PoC der omfatter **KServe** med **ModelMesh** for at kunne udnytte de muligheder vi allerede betaler for i vore k8s clusters, til at levere på ønskerne.
+> ### Det anbefales at følge internationale Cloud Native referencearktitekturer og implementere en løsning baseret på **Envoy AI Gateway**, **Kueue** og **KServe**. En sådan model adskiller adgangs- og ressource-styring fra selve model-afviklingen og sikrer en ægte cloud-native platform.
 
 Denne løsning:
-- Udnytter de k8s native **operators og funktionalitet** vi allerede betaler for.
-- Genbruger eksisterende internationalt vedligeholdte løsninger, istedet for at opfinde nye dybe tallerkener.
-- Understøtter **model-sharing** for effektiv ressourceudnyttelse
-- Muliggør **scale-to-zero** og GPU-pooling for lavere energiforbrug og dermed forventet lavere hostingpriser
-- Er **CNCF open source** og cloud-neutral
+- **Standardiserer adgang:** Bruger Envoy AI Gateway til at skabe én samlet, sikker indgang for alle organisationer.
+- **Sikrer Fair-Use:** Bruger **Kueue** til at styre ressourcefordeling (GPU-kvoter) på tværs af organisationer gennem en solidarisk model.
+- **Løskobler applikation og model:** Applikationer taler med en stabil gateway, mens modellerne kan opdateres eller skiftes i baggrunden uden nedetid.
+- **Følger 12/15-faktor principper:** Alt er deklarativt, stateless og konfigureret som kode (Config-as-Code) uden procedurale indgreb i containers.
+- **Er 100% OSI-compliant:** Baseret udelukkende på CNCF open source-projekter, hvilket sikrer mod leverandørbindinger.
 
 ## Komponenter
 _Arkitekturlandskab_
 
 ---
 
+
 ```mermaid
-flowchart LR
-    subgraph Application cluster
-        A[Brugergrænseflade]
-        B[Backend]
-    end
-    subgraph GPU Cluster
-        C[KServe Operator]
-        D[vLLM Embedded i ModelMesh]
+flowchart TD
+    subgraph "Applikations Domæne"
+        A[Brugergrænseflade / Applikation]
     end
 
-    A --> B --> C --> D
+    subgraph "Infrastructure Domæne"
+        B[Envoy AI Gateway]-.-
+        B1[Auth & Credentials]
+    end
 
-    A:::Aqua
+    subgraph "Inference Domæne"
+        C[Kueue Resource Manager]
+        D[KServe InferenceServices]
+        E[ModelMesh / vLLM]
+    end
+
+    A -->|mTLS / JWT| B
+    B -->|Fair-Use Routing| C
+    C --> D
+    D --> E
+
+    classDef Sky stroke-width:1px, stroke-dasharray:none, stroke:#374D7C, fill:#E2EBFF, color:#374D7C
+    classDef Aqua stroke-width:1px, stroke-dasharray:none, stroke:#46EDC8, fill:#DEFFF8, color:#378E7A
+    classDef Tech stroke-width:1px, stroke-dasharray:none, stroke:#378E7A, fill:#DEFFF8, color:#000
+    
+    A:::Sky
     B:::Aqua
+    B1:::Tech
     C:::Aqua
     D:::Aqua
-    classDef Sky stroke-width:1px, stroke-dasharray:none, stroke:#374D7C, fill:#E2EBFF, color:#374D7C
-    classDef Ash stroke-width:1px, stroke-dasharray:none, stroke:#999999, fill:#EEEEEE, color:#000000
-    classDef Aqua stroke-width:1px, stroke-dasharray:none, stroke:#46EDC8, fill:#DEFFF8, color:#378E7A
+    E:::Aqua
 ```
 
-### [Kserve](https://kserve.github.io/website/)
-> Skalerbar inferencing med multi-tenancy og dynamisk model-loading og skalering.
+### [Envoy AI Gateway](https://aigateway.envoyproxy.io/)
+**Det strategiske kontrolpunkt.** Håndterer identifikation af alle organisationer, injicerer API-nøgler sikkert (Credential Injection) og håndterer routing. Det sikrer, at applikationskoden aldrig "ser" følsomme nøgler, og at data ikke flyder til ikke-godkendte eksterne services.
 
-### [ModelMesh](https://github.com/kserve/modelmesh)
-> Avanceret runtime til multi-model hosting med memory-optimering.
-Gør det muligt at have mange modeller tilgængelige uden at alle fylder i GPU-hukommelsen samtidig.
-Integrerer med KServe for dynamisk model-loading og routing.
+### [Kueue](https://kueue.sigs.k8s.io/)
+**Solidaritets-motoren.** Styrer hvem der får lov at bruge GPU'erne "lige nu". Hvis én myndighed bruger hele sin kvote, holder Kueue deres requests i kø, indtil der er ledig kapacitet, så de ikke "stjæler" fra naboen, men stadig kan udnytte ledig overskudskapacitet via "borrowing".
 
+### [KServe](https://kserve.github.io/website/) & [ModelMesh](https://kserve.github.io/archive/0.8/modelserving/mms/modelmesh/overview/)
+**Produktionsmaskinen.** Automatiserer udrulning af modeller som skalerbare services. ModelMesh gør det muligt at køre mange forskellige modeller på få GPU'er ved at dele hukommelsen effektivt, hvilket er essentielt for at holde prisen nede i en flatrate-model.
 
 # Forventede gevinster
 
-### 💰 Fair og forudsigelig økonomi
-> Faste tiers med flatrate muliggør solidarisk prisstruktur.
+### 💰 Solidarisk og forudsigelig økonomi
+Ved at bruge Envoy og Kueue kan vi garantere kapacitet til alle, samtidig med at vi tillader "lån" af ledig kapacitet på tværs af platformen. Det fjerner behovet for kompleks token-afregning og understøtter en ren flatrate-struktur.
 
-### 🌱 Grøn IT og lavere hostingpris
-> Scale-to-zero og GPU-pooling reducerer energiforbrug og driftsomkostninger markant.
+### 🔒 Enterprise Sikkerhed & Governance
+Al trafik monitoreres via standard OpenTelemetry logning. Vi får fuldt overblik over anvendelse pr. organisation på netværksniveau, hvilket gør revision og auditering muligt uden specialudviklet kode.
 
-### 🔒 Robust og fremtidssikret
-> CNCF open source og Kubernetes-native operators sikrer standardisering og leverandøruafhængighed.
+### 🌱 Grøn IT og optimeret drift
+Scale-to-zero og intelligent GPU-pooling kan minimere tomgangskørsel, hvilket reducerer både CO2-aftryk og de faktiske hostingomkostninger for de deltagende organisationer.
 
 ## Anvendte arkitekturprincipper  
-Forslaget understøtter følgende fællesoffentlige principper og regler:
+Forslaget understøtter følgende fællesoffentlige principper:
 
-[♻️ Genbrug og fælles løsninger](https://arkitektur.digst.dk/principper-og-regler){: .btn .btn-green } [👁️ Åbne standarder og interoperabilitet](https://arkitektur.digst.dk/principper-og-regler){: .btn .btn-green } [🧩 Modularitet og løskobling](https://arkitektur.digst.dk/principper-og-regler){: .btn .btn-green } [🔒 Sikkerhed og robusthed](https://arkitektur.digst.dk/principper-og-regler){: .btn .btn-green }  [🌱 Grøn IT og effektiv ressourceudnyttelse](https://arkitektur.digst.dk/principper-og-regler){: .btn .btn-green } [📏 Standardisering og governance](https://arkitektur.digst.dk/principper-og-regler){: .btn .btn-green }  
+[♻️ Genbrug og fælles løsninger](https://arkitektur.digst.dk/principper-og-regler){: .btn .btn-green } [👁️ Åbne standarder](https://arkitektur.digst.dk/principper-og-regler){: .btn .btn-green } [🧩 Modularitet og løskobling](https://arkitektur.digst.dk/principper-og-regler){: .btn .btn-green } [🔒 Sikkerhed og robusthed](https://arkitektur.digst.dk/principper-og-regler){: .btn .btn-green } [🌱 Grøn IT](https://arkitektur.digst.dk/principper-og-regler){: .btn .btn-green } [📏 Governance](https://arkitektur.digst.dk/principper-og-regler){: .btn .btn-green }  
 
 ## Kilder
-
-- https://developer.ibm.com/articles/llms-inference-scaling-vllm-kserve/
-- https://developer.ibm.com/blogs/kserve-and-watson-modelmesh-extreme-scale-model-inferencing-for-trusted-ai/
+- [Envoy AI Gateway Reference Architecture](https://aigateway.envoyproxy.io/blog/envoy-ai-gateway-reference-architecture)
+- [Kueue: Multi-tenant batch and AI scheduling](https://kueue.x-k8s.io/)
+- [KServe: Scalable Model Serving](https://kserve.github.io/website/)
+- [Cloud Native AI Whitepaper (CNCF)](https://www.cncf.io/reports/cloud-native-ai-whitepaper/)
