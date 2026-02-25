@@ -1,22 +1,29 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: jekyll
+  name: jekyll-ea
+  annotations:
+    io.podman.annotations.userns: "keep-id"
 spec:
-  volumes:
-    - name: jekyll-ea-shared
-      hostPath:
-        path: /home/jmk/Repos/enterprise-architecture-patterns
-        type: Directory
-        selinuxRelabel: "z"
-
   containers:
     - name: jekyll-dev
       image: ghcr.io/bretfisher/jekyll-serve:latest
+      env:
+        - name: GEM_HOME
+          value: /site/.bundle/gems
+        - name: BUNDLE_PATH
+          value: /site/.bundle/gems
       ports:
         - containerPort: 4000
           hostPort: 4000
+      securityContext:
+        seLinuxOptions:
+          type: spc_t
       volumeMounts:
         - name: jekyll-ea-shared
           mountPath: /site
-          
+  volumes:
+    - name: jekyll-ea-shared
+      hostPath:
+        path: .
+        type: Directory
