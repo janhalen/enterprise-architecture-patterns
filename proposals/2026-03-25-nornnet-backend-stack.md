@@ -12,15 +12,20 @@ published: true
 
 {% include header_metadata.html %}
 
-Udkast  
+under review
 {: .label .label-yellow }
+> ⚠️ **Dette dokument er under review og ændres løbende indtil det er godkendt **
 
-⚠️ **Dette dokument beskriver en PoC-backendstack og er IKKE production ready.** Komponenter som backup, DNS/DHCP og høj tilgængelighed er udeladt og skal etableres før produktionsdrift.
+---
+
+not production ready!
 {: .label .label-red }
+
+> ⚠️ **Dette dokument beskriver en PoC-backendstack og er IKKE udtryk for en production ready stack.** Komponenter som backup, DNS/DHCP og HA og andre elementer der skal være til stede for en produktions-klar stack, er udeladt og skal etableres før produktionsdrift.
 
 ## Baggrund
 
-Nornnet-enheder trækker opdateringer via en pull-model. Dette kræver en række backing services på bagsiden: et sted at opbevare kode, bygge images, distribuere opdateringer, modtage telemetry og styre adgang.
+Nornnet-enheder trækker opdateringer via en pull-model. Dette kræver en række backing services: et sted at opbevare kode, bygge images, distribuere opdateringer, modtage telemetry og styre adgang.
 
 Denne dokument beskriver den samlede backend-stack – inddelt i **infrastrukturservices** og **applikationsservices** – der skal til for at understøtte en fuld nornnet-drift.
 
