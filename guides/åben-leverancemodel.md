@@ -6,18 +6,18 @@ parent: Guides
 ---
 
 # 📦 Åben leverancemodel
-_En åben standard model for softwareleverancer der kan introducere **gennemsigtighed**, **kontrol** og **frihed** i softwareleverancer til offentlige myndigheder_
+### _Sådan får I styr på leverancerne!_
 
-###### 👤 Jan Maack Kjerbye - Enterprise Arkitekt @ os2.eu
+<p style="text-align:right"><small>👤 Jan Maack Kjerbye - Enterprise Arkitekt @ os2.eu</small></p>
 
 <br>
 
-## En genvej til dokumenterbare leverancer
+> _Som projektleder i det offentlige kan du stå i en situation hvor du indkøber softwareudvikling uden at kunne se hvad leverandøren faktisk laver. Det behøver ikke være sådan._
+>
+> _En åben leverancemodel gør alt arbejde synligt og sporbart - fra den første idé til den endelige leverance. Modellen bygger ovenpå jeres kontrakt - I får nu dokumentation for hvad der er lavet, hvad der mangler, og hvem der har gjort hvad._
 
-> _Som projektleder i det offentlige kan du stå i en situation hvor du indkøber softwareudvikling uden at kunne se hvad leverandøren faktisk laver. Leverandøren leverer kode "når den er klar", og du bedømmer fremskridt på baggrund af møder og statusrapporter i stedet for faktisk dokumentation, hvor opgaver og kode er bundet sammen. Det behøver ikke være sådan._
-> 
-> _Den åbne leverancemodel gør alt arbejde synligt og sporbart - fra den første idé til den endelige leverance. Modellen bygger ovenpå jeres kontrakt - I får nu dokumentation for hvad der er lavet, hvad der mangler, og hvem der har gjort hvad._
- 
+
+
 ## Fordelene
 
 - **Enighed om leverancer**:
@@ -40,40 +40,40 @@ _En åben standard model for softwareleverancer der kan introducere **gennemsigt
 ### Forstå begreberne {#begreber}
 ##### Denne guide anvender en række tekniske begreber fra versionsstyring og softwareudvikling. Nedenfor er de forklaret med kendte begreber fra projektstyring
 
-[`issue`](#begreber)  
+`issue`  
 : <small>Opgavebeskrivelser, user-stories, løsningsdialog, fejlbeskrivelser, ideer m.m. samles i `issue-trackeren` som issues.
 
-[`branch`](#begreber)  
+`branch`  
 : <small>Isoleret arbejdsmappe, bindes sammen med et issue for at forstå formålet og gøre indholdet transparent.
 
-[`backlog`](#begreber)  
+`backlog`  
 : <small>Prioriteret liste af opgaver
 
-[`maintainer`](#begreber)  
+`maintainer`  
 : <small>Teknisk rolle der sikrer processerne overholdes og automatiserer processerne løbende.
 
-[`branch protection`](#begreber)  
+`branch protection`  
 : <small>**Kildekodebeskyttelse** Et standard regelsæt der opsættes på `repo`  og forhindrer merge uden review.
 
-[`pull request`](#begreber)  
+`pull request`  
 : <small>Anmodning om godkendelse og publicering. Forkortes PR og omtales i nogle systemer også som MR - merge request
 
-[`repository`](#begreber)  
+`repository`  
 : <small>**Projektmappe** - Projektområde til kode, dokumentation, releaseprocesser, kvalitetssikring og `issue-tracker` 
 
-[`merge`](#begreber)  
+`merge`  
 : <small>Godkendelse og publicéring til `main-branch` - Indfletning af godkendt kode, klar til produktion.
 
-[`main branch`](#begreber)  
+`main branch`  
 : <small>**Seneste udgivelsesklare version** - Hovedsporet for kildekoden - den godkendte, endelige version klar til release
 
-[`repo`](#begreber)  
-: <small>**Projektmappe** - Kort for repository` - projektområde til kode, dokumentation, releaseprocesser, kvalitetssikring og `issue-tracker` 
+`repo`  
+: <small>**Projektmappe** - Kort for `repository` - projektområde til kode, dokumentation, releaseprocesser, kvalitetssikring og `issue-tracker` 
 
-[`git`](#begreber)  
+`git`  
 : <small>**Versionsstying** - Versionskontrolssystem der kan styre ændringer i projektet
 
-[`CI/CD`](#begreber)  
+`CI/CD`  
 : <small>Continuous Integration / Continuous Deployment - indbyggede automatiseringsværktøjer i enhver moderne git platform. Maintaineren vælger fra et stort bibliotek af færdige byggeblokke ≈ Automatiseret kvalitetssikring
 
 ---
@@ -89,16 +89,17 @@ _En åben standard model for softwareleverancer der kan introducere **gennemsigt
 
 
 ### 2. TEKNISK IMPLEMENTERING
-**Konfigurer værktøjer der matcher projektets størrelse**
+**Få styr på værktøjerne fra start**
 
 * Alt starter i jeres projekts OS2-ejede [`repo`](#begreber) skriv til os2@os2.eu for oprettelse samt onboarding af maintainer og projektleder.
 * Jeres leverancestyring konfigureres i dette [`repo`](#begreber) - I har som medlemmer direkte adgang og indflydelse. Kildekode, dokumentation og leverancehistorik m.m. placeres her, uden for leverandørens interne systemer.
 * Maintainer opsætter [`branch protection`](#begreber) regler der sikrer at kun gennemgået kode kan [`merges`](#begreber).
 * Maintainer opsætter også [`pull request`](#begreber)-skabeloner der sikrer at alle [`pull requests`](#begreber) indeholder nødvendig kontekst.
 * Moderne git platforme har indbygget [`CI/CD`](#begreber)-funktionalitet - klar til brug med det samme. Maintaineren vælger fra et stort bibliotek af automatiserings byggeblokke og tilpasser dem til projektet.
-* Adgangsrettigheder konfigureres og sikrer at kun maintainer og projektleder (på vegne af produktejer) har skriveadgang til [`main branch`](#begreber). 
+* Adgangsrettigheder konfigureres og sikrer at kun maintainer og projektleder (på vegne af produktejer) har skriveadgang til [`main branch`](#begreber).
+
 ### 3. PROCESS ETABLERING
-**Indfør standard Open Source-arbejdsgange**
+**Arbejd transparent fra dag ét**
 
 * Definer en [`backlog`](#begreber) i jeres `issue-tracker` med alle ønsker og krav og bind dem sammen med koden via en `branch` når arbejdet er godkendt til at sætte i gang. Prioriter synligt, så leverandøren ved præcis hvad der skal laves.
 * Alt arbejde udspringer af en aftalt opgave ([`issue`](#begreber)). Når leverandøren har udført arbejdet, kan I se det via en anmodning om godkendelse ([`pull request`](#begreber)). Her kan I stille spørgsmål, bede om rettelser eller demoer. Først når I har godkendt det, bliver det en del af løsningen.
