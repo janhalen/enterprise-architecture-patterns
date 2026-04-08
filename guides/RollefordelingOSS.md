@@ -72,3 +72,14 @@ Denne korte guide definerer ansvarsfordelingen i OS2-projekter. For at professio
 > - 📘 [Open Source Guides – Leadership & Governance](https://opensource.guide/leadership-and-governance/)  
 > - 📘 [OS2 – Strategi for Open Source Governance](https://os2.dk)
 
+---
+
+## Integration af Kapabiliteter i OS2 Projekter
+
+| AKTIVITET                          | ROLLE                     | BEST PRACTICE                                                    | RELATERET KAPACITET            |
+|-------------------------------------|---------------------------|----------------------------------------------------------------|----------------------------------|
+| **Behovsmodning & Backlog**         | PO & Release Manager      | Screening af indkomne issues; skriving af User Stories.           | Håndtering af problemer og pull requests |
+| **Community Management**             | Community Manager         | Håndterer Code of Conduct, issue-skabeloner og brugeradgang.    | Community Management              |
+| **Dokumentationsstyring**           | Technical Editor (TE)     | Reviewer PRs for dokumentationskvalitet.                         | Dokumentationsovervågning        |
+| **Vulnerability Management**         | Release Manager (RM)      | Ansvarlig for modtagelse af sikkerhedsrapporter.                  | Automatisk Sikkerhedsovervågning |
+| **Operationel Drift & Support**     | Projektsekretær           | Facilitering af møder, opfølgning på action-items.               | Kommunikation og feedback kanaler |
