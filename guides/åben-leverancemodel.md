@@ -83,24 +83,29 @@ _En åben standard model for softwareleverancer der kan introducere **gennemsigt
 ### 1. ORGANISERING
 **Etabler klare roller og prioritering**
 
-I OS2's styringsmodel etableres en styregruppe og en koordinationsgruppe til at varetage projektets ledelse og produktansvar. Definér derudover hvem der har det tekniske overblik og sikrer at I når jeres mål ([`maintainer`](#begreber)). De tre roller har forskellige fokusområder men et fælles mål: at levere kvalitetssoftware til tiden. Styregruppen har det overordnede ledelsesansvar. Koordinationsgruppen varetager produktansvaret og kan uddelegere opgaver, men ikke ansvaret. Maintaineren sikrer at arbejdet lever op til de aftalte standarder og anvender indbyggede automatiseringsværktøjer (CI/CD) til at automatisere kvalitet og leverancer. Maintainer-rollen kræver teknisk kompetence og et leverandøruafhængigt overblik - det kan være en teknisk kollega, eller en specialist I hyrer ind separat.
+* Følg OS2's styringsmodel og etabler en styregruppe og en koordinationsgruppe til at varetage projektets ledelse og produktansvar. Skriv til os2@os2.eu for at komme i gang med det organisatoriske.
+* Definér en rolle der har det tekniske overblik ([`maintainer`](#begreber)). De tre roller har forskellige fokusområder men et fælles mål: at levere kvalitetssoftware til tiden.
+* Maintaineren sikrer at arbejdet lever op til aftalte standarder og anvender indbyggede automatiseringsværktøjer (CI/CD). Rollen kræver teknisk kompetence og et leverandøruafhængigt overblik - det kan være en teknisk kollega, eller en specialist I hyrer ind separat. 
 
-Definer en [`backlog`](#begreber) med alle ønsker og krav. Prioriter denne [`backlog`](#begreber) synligt, så leverandøren ved præcis hvad der skal laves.
 
-### 2. PROCESS ETABLERING
-**Indfør standard Open Source-arbejdsgange**
-
-* Alt arbejde udspringer af en aftalt opgave ([`issue`](#begreber)). Når leverandøren har udført arbejdet, kan I se det via en anmodning om godkendelse ([`pull request`](#begreber)). Her kan I stille spørgsmål, bede om rettelser eller demoer. Først når I har godkendt det, bliver det en del af løsningen.
-* Hver ændring arbejdes i en isoleret arbejdskopi kaldet en [`branch`](#begreber) der knyttes til det relevante [`issue`](#begreber).
-* [`pull request`](#begreber) som kvalitetssikring: Før kode [`merges`](#begreber), gennemgås den af en anden end forfatteren.
-
-### 3. TEKNISK IMPLEMENTERING
+### 2. TEKNISK IMPLEMENTERING
 **Konfigurer værktøjer der matcher projektets størrelse**
 
-* [`branch protection`](#begreber) regler der sikrer at kun gennemgået kode kan [`merges`](#begreber).
-* [`pull request`](#begreber)-skabeloner der sikrer at alle [`pull requests`](#begreber) indeholder nødvendig kontekst.
-* Moderne git platforme har indbygget [`CI/CD`](#begreber)-funktionalitet - klar til brug med det samme. Maintaineren vælger fra et stort bibliotek af færdige byggeblokke og tilpasser dem til projektet. Alt konfigureres i jeres OS2-forenings ejet [`repo`](#begreber) - I har som medlemmer direkte adgang og indflydelse. Kildekode, dokumentation og leverancehistorik m.m. placeres her, uden for leverandørens interne systemer.
-* Adgangsrettigheder sikrer at kun maintainer og projektleder (på vegne af produktejer) har skriveadgang til [`main branch`](#begreber). Leverandøren kan levere kode, men kan ikke ændre den endelige løsning uden jeres godkendelse - og ligesom alt andet arbejde er også godkendelsen synlig i ændringshistorikken.
+* Alt starter i jeres projekts OS2-ejede [`repo`](#begreber) skriv til os2@os2.eu for oprettelse samt onboarding af maintainer og projektleder.
+* Jeres leverancestyring konfigureres i dette [`repo`](#begreber) - I har som medlemmer direkte adgang og indflydelse. Kildekode, dokumentation og leverancehistorik m.m. placeres her, uden for leverandørens interne systemer.
+* Maintainer opsætter [`branch protection`](#begreber) regler der sikrer at kun gennemgået kode kan [`merges`](#begreber).
+* Maintainer opsætter også [`pull request`](#begreber)-skabeloner der sikrer at alle [`pull requests`](#begreber) indeholder nødvendig kontekst.
+* Moderne git platforme har indbygget [`CI/CD`](#begreber)-funktionalitet - klar til brug med det samme. Maintaineren vælger fra et stort bibliotek af automatiserings byggeblokke og tilpasser dem til projektet.
+* Adgangsrettigheder konfigureres og sikrer at kun maintainer og projektleder (på vegne af produktejer) har skriveadgang til [`main branch`](#begreber). 
+### 3. PROCESS ETABLERING
+**Indfør standard Open Source-arbejdsgange**
+
+* Definer en [`backlog`](#begreber) i jeres `issue-tracker` med alle ønsker og krav og bind dem sammen med koden via en `branch` når arbejdet er godkendt til at sætte i gang. Prioriter synligt, så leverandøren ved præcis hvad der skal laves.
+* Alt arbejde udspringer af en aftalt opgave ([`issue`](#begreber)). Når leverandøren har udført arbejdet, kan I se det via en anmodning om godkendelse ([`pull request`](#begreber)). Her kan I stille spørgsmål, bede om rettelser eller demoer. Først når I har godkendt det, bliver det en del af løsningen.
+* Hver ændring arbejdes i en isoleret arbejdskopi kaldet en [`branch`](#begreber) der knyttes til det relevante [`issue`](#begreber).
+* Leverandøren kan nu levere kode, men kan ikke ændre den endelige løsning uden jeres godkendelse - og ligesom alt andet arbejde er også godkendelsen synlig i ændringshistorikken.
+* Resultatet af arbejdet leveres som en `pull request`](#begreber). Før kode [`merges`](#begreber), gennemgås den af en andre end forfatteren selv.
+* Som behovet stiger tilføjes automatiske tests via den indbyggede CI/CD inden kode man [`merges`](#begreber).
 
 ## Fremadrettet
 
