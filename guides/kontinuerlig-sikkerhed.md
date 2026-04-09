@@ -14,9 +14,7 @@ _En simpel automatiseret tilgang til beskyttelse af softwareprojekter_
 
 > Mange organisationer investerer i periodiske, manuelle kodegennemgange, såkaldte "code-reviews". Mens dette er værdifuldt, kan disse statiske øjebliksbilleder efterlade systemer sårbare i mange måneder imellem gennemgangene. Ved at omprioritere det samme budget hen imod kontinuerlig sikkerheds vedligeholdelse kan projekter opnå nær realtidsbeskyttelse og automatisk overholdelse af cybersikkerhedskrav.
 
-## Fordelene
 
-- **Automatisk overholdelse**:
 
     Aktiver den indbyggede (ofte ubrugte) automatiserings funktionalitet i git repositoriet til overholdelse af cybersikkerhedsstandarder
 
