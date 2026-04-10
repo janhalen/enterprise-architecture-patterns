@@ -12,7 +12,7 @@ Draft
 
 _Sådan får I styr på leverancerne!_
 
-<p style="text-align:right"><small>Jan Maack Kjerbye - Enterprise Arkitekt @ os2.eu</small></p>
+<p style="text-align:right"><small><a href="mailto:jan.maack@os2.eu">Jan Maack Kjerbye - Enterprise Arkitekt @ os2.eu ✉️</a></small></p>
 
 <br>
 
@@ -76,43 +76,23 @@ Når I arbejder åbent og transparent, kan I opbygge et fællesskab omkring jere
 
 ---
 
-## Forstå begreberne {#begreber2}
+## Forstå begreberne {#begreber}
+#### Klik på begrebet for en længere ekstern forklaring (på engelsk)
 
-`issue`  
-: <small>**Opgavebeskrivelser**, user-stories, løsningsdialog, fejlbeskrivelser, ideer m.m. samles i `issue-trackeren` som issues. 
-
-`branch`  
-: <small>**Isoleret arbejdsmappe**, bindes sammen med et issue for at forstå formålet og gøre indholdet transparent.
-
-`backlog`  
-: <small>**Udestående opgave** Brutto liste af mulige opgaver og ønsker
-
-`maintainer`  
-: <small>**Teknisk vedligeholdelsesansvarlig** Teknisk rolle der sikrer processerne overholdes og automatiserer processerne løbende.
-
-`branch protection`  
-: <small>**Kildekodebeskyttelse** Et standard regelsæt der opsættes på `repo`  og forhindrer merge uden review.
-
-`pull request`  
-: <small>**Anmodning om godkendelse** og publicering. Forkortes PR og omtales i nogle systemer også som MR - merge request
-
-`repository`  
-: <small>**Projektmappe** - Projektområde til kode, dokumentation, releaseprocesser, kvalitetssikring og `issue-tracker` 
-
-`merge`  
-: <small>**Godkendelse** og publicéring af kode, dokumentation eller konfiguration til f.eks `main-branch`
-
-`main branch`  
-: <small>**Seneste udgivelsesklare version** - Hovedsporet for kildekoden - den godkendte, endelige version klar til release
-
-`repo`  
-: <small>**Projektmappe** - Kort for `repository` - projektområde til kode, dokumentation, releaseprocesser, kvalitetssikring og `issue-tracker` 
-
-`git`  
-: <small>**Versionsstying** - Versionskontrolssystem der kan styre ændringer i projektet
-
-`CI/CD`  
-: <small>Continuous Integration / Continuous Deployment - indbyggede automatiseringsværktøjer i enhver moderne git platform. Maintaineren vælger fra et stort bibliotek af færdige byggeblokke ≈ Automatiseret kvalitetssikring 
+| Term | Beskrivelse |
+|:----|:------------|
+|[`issue`](https://docs.github.com/en/issues/tracking-your-work-with-issues/learning-about-issues/about-issues) ↗ | <small>En opgave, fejl eller idé der registreres i issue-trackeren</small> 
+|[`branch`](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches) ↗ | <small>En isoleret arbejdsmappe der knyttes til et issue</small>
+|[`backlog`](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects) ↗ | <small>Alle opgaver der venter på at blive prioriteret</small>
+|[`maintainer`](https://docs.github.com/en/repositories/managing-your-repositorys-settings/about-repositories) ↗ | <small>Teknisk ansvarlig der sikrer processerne overholdes og kan automatisere dem</small>
+|[`branch protection`](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches) ↗ | <small>Regler der forhindrer kodeændringer uden godkendelse</small>
+|[`pull request`](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) ↗ | <small>Anmodning om godkendelse og publicering af kode</small>
+|[`repository`](https://docs.github.com/en/get-started/learning-about-github/about-github#repositories) ↗ | <small>Projektmappe med kode, dokumentation og releaseprocesser</small>
+|[`merge`](https://docs.github.com/en/get-started/using-git/about-git#merge) ↗ | <small>Godkendelse og publicéring af kode, dokumentation eller konfiguration</small>
+|[`main branch`](https://docs.github.com/en/get-started/learning-about-github/about-github#about-branches) ↗ | <small>Den godkendte, endelige version af koden (klar til udgivelse)</small>
+|[`repo`](https://docs.github.com/en/get-started/learning-about-github/about-github#repositories) ↗ | <small>Kort for repository (projektmappe med kode og dokumentation)</small>
+|[`git`](https://docs.github.com/en/get-started/using-git/about-git) ↗ | <small>Versionsstyringssystem der holder styr på ændringer i projektet</small>
+|[`CI/CD`](https://docs.github.com/en/actions/automating-builds-and-tests/about-continuous-integration) ↗ | <small>Værktøjer til automatisering af test og udgivelse af kode</small> |
 
 ---
 
