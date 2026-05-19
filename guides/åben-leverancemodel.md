@@ -31,7 +31,7 @@ _Sådan får I styr på leverancerne!_
 | Behold kontrollen over jeres projekt uanset hvilken leverandør I vælger at bruge, nu eller i fremtiden. Når al kode og dokumentation er tilgængeligt, kan I til enhver tid skifte leverandør uden at miste viden eller investeret arbejde.|
 
 | **Digital suverænitet** |
-|   _Digital suverænitet_ er et mål for mange myndigheder, men vejen derhen kan føles uklar. Denne model giver et konkret svar: Når I ejer kildekoden, har uafhængig teknisk kompetence og arbejder transparent, har I allerede taget de vigtigste skridt. EU's og statens ambitioner om [digital suverænitet](#laes-mere) starter med at have kontrol over jeres egne digitale løsninger.  |
+|   _Digital suverænitet_ er et mål for mange myndigheder, men vejen derhen kan føles uklar. Denne model giver et konkret svar: Når I ejer kildekoden, har uafhængig teknisk kompetence og arbejder transparent, har I allerede taget de vigtigste skridt. EU's og statens ambitioner om [digital suverænitet](#læs-mere) starter med at have kontrol over jeres egne digitale løsninger.  |
 
 | **Direkte genbrugelighed** |
 | Når I betaler for en løsning der er udviklet i det åbne med denne metode, kan andre offentlige myndigheder genbruge den med blot ganske få lokale tilpasninger. Dette maksimerer værdien af skatteborgernes penge og styrker det fællesoffentlige digitale økosystem. |
@@ -97,7 +97,7 @@ Når I arbejder åbent og transparent, kan I opbygge et fællesskab omkring jere
 ---
 
 
-## Læs mere {:#laes-mere}
+## Læs mere
 
 * [OS2.eu - **Det gør OS2**](/det-goer-OS2)
 * [OS2.eu - **Governance og styringsmodel**](/governance)
