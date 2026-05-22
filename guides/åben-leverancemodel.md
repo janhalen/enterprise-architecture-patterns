@@ -45,7 +45,7 @@ _Sådan får I styr på leverancerne!_
 ---
 * Følg OS2's styringsmodel og etabler en styregruppe og en koordinationsgruppe til at varetage projektets ledelse og produktansvar. Skriv til os2@os2.eu for at komme i gang med det organisatoriske.
 * Definér en [`maintainer`](#begreber)-rolle der har det tekniske overblik. Styregruppen, koordinationsgruppen og maintaineren har forskellige fokusområder men et fælles mål: at levere kvalitetssoftware til tiden.
-* [`Maintainer`](#begreber)-rollen sikrer at arbejdet lever op til aftalte standarder og kan automatisere arbejdsgangene via [`CI/CD`](#begreber) automatiseringsværktøjer indbygget i projektets versionsstyrings [`repository`](#begreber). Rollen er koordinationsgruppens forlængede tekniske arm og kræver open source-kompetencer, dyb erfaring med versionsstyringsværktøjet [`git`](#begreber) og et neutralt, leverandøruafhængigt overblik - det kan være en dybt teknisk kollega, eller en teknisk open source specialist I hyrer ind separat, uafhængigt af udviklings- eller hostingleverandøren.
+* Som koordinationsgruppens forlængede tekniske arm understøtter [`Maintainer`](#begreber)-rollen kvalitet og kadence gennem automatiserede processer. For at bevare kontrollen skal rollen være leverandøruafhængig og ligge uden for leverandørens organisation. Rollen kræver dyb dokumenteret erfaring med [`git`](#begreber) og open source-processer.
 
 ---
 ### 2. Teknisk implementering
@@ -55,7 +55,9 @@ _Sådan får I styr på leverancerne!_
 * Alt starter i jeres projekts OS2-ejede [`repository`](#begreber). Skriv til os2@os2.eu for oprettelse samt onboarding af maintainer og projektleder.
 * Jeres leverancestyring konfigureres og styres fra dette [`repo`](#begreber) - I har som medlemmer direkte adgang og indflydelse. Kildekode, dokumentation og leverancehistorik m.m. placeres her, uden for udviklings- eller hostingleverandørernes interne systemer.
 * Maintainer opsætter [`branch protection`](#begreber)-regler der sikrer at kun gennemgået, godkendt kode kan [`merges`](#begreber) ind i projektet.
-* Maintainer opsætter også [`pull request`](#begreber)-skabeloner der sikrer at alle ændringsanmodninger ([`pull requests`](#begreber)) indeholder nødvendig kontekst.
+* Maintainer opsætter [`pull request`](#begreber)-skabeloner der sikrer at alle ændringsanmodninger ([`pull requests`](#begreber)) indeholder nødvendig kontekst.
+* Maintaineren opsætter [`issue`](#begreber)-skabeloner der sikrer at alle nye opgaver indeholder de nødvendige informationer.
+* Maintaineren opsætter i samarbejde med projektlederen meningsfulde [`labels`](#begreber) (emne-markører) og [`milestones`](#begreber) (milepæle), der passer til projektets kontekst.
 * Moderne [`git`](#begreber) platforme har indbygget [`CI/CD`](#begreber)-funktionalitet - klar til brug med det samme. Maintaineren vælger fra et stort bibliotek af automatiseringsbyggeblokke og tilpasser dem til projektet.
 * Adgangsrettigheder konfigureres og vedligeholdes for at sikre at kun maintainer og projektleder (på vegne af styregruppen) har skriveadgang til [`main branch`](#begreber).
 
@@ -93,6 +95,8 @@ Når I arbejder åbent og transparent, kan I opbygge et fællesskab omkring jere
 |[`repo`](https://docs.github.com/en/get-started/learning-about-github/about-github#repositories) ↗ | <small>Almindeligt brugt forkortelse for repository – projektmappe med kode og dokumentation</small>
 |[`git`](https://docs.github.com/en/get-started/using-git/about-git) ↗ | <small>Versionsstyringssystem der holder styr på ændringer i projektet</small>
 |[`CI/CD`](https://docs.github.com/en/actions/automating-builds-and-tests/about-continuous-integration) ↗ | <small>Værktøjer til automatisering af test og udgivelse af kode</small> |
+|[`labels`](https://docs.github.com/en/issues/managing-issues-with-labels/about-labels) ↗ | <small>Mærkater brugt til at kategorisere og sortere issues og pull requests</small> |
+|[`milestones`](https://docs.github.com/en/issues/planning-and-tracking-with-projects/managing-milestones/about-milestones) ↗ | <small>Tidsbundne mål for projektet, der hjælper med at holde fokus på vigtige leverancer</small> |
 
 ---
 
@@ -110,4 +114,5 @@ Når I arbejder åbent og transparent, kan I opbygge et fællesskab omkring jere
 * [GitHub.com - **About pull requests**](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)
 * [GitHub.com - **About protected branches**](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)
 * [GitHub.com - **About branch protection rules**](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-branch-protection-rules)
+* [GitHub.com - **Using labels and milestones to track work**](https://docs.github.com/en/issues/using-labels-and-milestones-to-track-work)
 * [os2.eu - **Hvad er Open Source?**](/hvad-er-open-source-1)
