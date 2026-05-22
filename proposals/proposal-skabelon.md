@@ -1,8 +1,8 @@
 ---
 layout: default
 title: {Titel på forslaget}
-parent: Guides
-
+parent: Proposals
+published: false
 ---
 
 Draft
