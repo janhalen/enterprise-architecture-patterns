@@ -100,6 +100,6 @@ Forslaget understøtter følgende fællesoffentlige principper:
 
 ## Kilder
 - [Envoy AI Gateway Reference Architecture](https://aigateway.envoyproxy.io/blog/envoy-ai-gateway-reference-architecture)
-- [Kueue: Multi-tenant batch and AI scheduling](https://kueue.x-k8s.io/)
+- [Kueue: Multi-tenant batch and AI scheduling](https://kueue.sigs.k8s.io/)
 - [KServe: Scalable Model Serving](https://kserve.github.io/website/)
 - [Cloud Native AI Whitepaper (CNCF)](https://www.cncf.io/reports/cloud-native-ai-whitepaper/)
