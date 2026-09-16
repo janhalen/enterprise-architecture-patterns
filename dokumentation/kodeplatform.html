@@ -4,28 +4,32 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Åben platform til samarbejde og kildekode — OS²</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --green-900: #1a3a25;
-    --green-800: #2d5a3d;
-    --green-700: #3d7a52;
-    --green-600: #4a9060;
-    --green-100: #e8f5ec;
-    --green-50: #f4faf6;
-    --green-25: #f8fcf9;
-    --gray-900: #1a1d21;
-    --gray-700: #3d4148;
-    --gray-600: #4f555e;
-    --gray-500: #6b7280;
-    --gray-400: #9ca3af;
-    --gray-300: #d1d5db;
-    --gray-200: #e5e7eb;
-    --gray-100: #f3f4f6;
-    --gray-50: #f9fafb;
+    --green-900: #14352a;
+    --green-800: #1f5338;
+    --green-700: #2e7a4c;
+    --green-600: #3d9a5e;
+    --green-100: #e2f0e6;
+    --green-50: #f0f8f2;
+    --green-25: #f6fbf7;
+    --gray-900: #111318;
+    --gray-700: #33373f;
+    --gray-600: #454a54;
+    --gray-500: #5e6470;
+    --gray-400: #8c929c;
+    --gray-300: #c4c8ce;
+    --gray-200: #dde0e4;
+    --gray-100: #eff1f3;
+    --gray-50: #f7f8f9;
     --white: #ffffff;
-    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-serif: "Source Serif 4", "Georgia", "Times New Roman", serif;
+    --font-sans: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     --font-mono: "SF Mono", "Cascadia Code", "Fira Code", Consolas, monospace;
     --sidebar-width: 280px;
     --content-max: 780px;
@@ -57,10 +61,9 @@
   }
 
   .sidebar-title {
-    font-size: 0.7rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
+    font-family: var(--font-serif);
+    font-size: 0.85rem;
+    font-weight: 600;
     color: var(--green-800);
     margin-bottom: 1.25rem;
     padding-bottom: 0.75rem;
@@ -131,11 +134,12 @@
   }
 
   .doc-header h1 {
-    font-size: 2.25rem;
-    font-weight: 800;
-    line-height: 1.15;
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.12;
     color: var(--green-900);
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
     margin-bottom: 1rem;
   }
 
@@ -148,21 +152,23 @@
   .doc-meta strong { color: var(--gray-700); }
 
   /* --- SECTIONS --- */
-  section { margin-bottom: 3rem; }
+  section { margin-bottom: 3.5rem; }
 
   section h2 {
-    font-size: 1.5rem;
-    font-weight: 700;
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    font-weight: 600;
     color: var(--green-900);
     margin-bottom: 1rem;
     padding-bottom: 0.5rem;
     border-bottom: 2px solid var(--green-100);
-    letter-spacing: -0.01em;
+    letter-spacing: -0.005em;
   }
 
   section h3 {
-    font-size: 1.15rem;
-    font-weight: 700;
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    font-weight: 600;
     color: var(--gray-900);
     margin-top: 2rem;
     margin-bottom: 0.75rem;
@@ -187,7 +193,7 @@
 
   /* --- BLOCKQUOTES --- */
   blockquote {
-    border-left: 4px solid var(--green-800);
+    border-left: 5px solid var(--green-800);
     background: var(--green-50);
     padding: 1.25rem 1.5rem;
     margin: 1.5rem 0;
@@ -266,8 +272,9 @@
   }
 
   .card-title {
+    font-family: var(--font-serif);
     font-size: 1rem;
-    font-weight: 700;
+    font-weight: 600;
     color: var(--gray-900);
     margin-bottom: 0.35rem;
   }
@@ -345,13 +352,13 @@
       padding: 4rem 1.25rem 3rem;
     }
 
-    .doc-header h1 { font-size: 1.6rem; }
+    .doc-header h1 { font-size: 1.75rem; }
 
     .card-grid {
       grid-template-columns: 1fr;
     }
 
-    section h2 { font-size: 1.25rem; }
+    section h2 { font-size: 1.35rem; }
   }
 
   /* --- PRINT --- */
@@ -364,9 +371,12 @@
       max-width: 100%;
     }
 
-    body { font-size: 11pt; }
+    body { font-size: 11pt; font-family: var(--font-sans); }
 
-    .doc-header h1 { font-size: 20pt; }
+    .doc-header h1 { font-size: 20pt; font-family: var(--font-serif); }
+
+    section h2 { font-family: var(--font-serif); }
+    section h3 { font-family: var(--font-serif); }
 
     blockquote {
       border-left: 3pt solid #2d5a3d;
