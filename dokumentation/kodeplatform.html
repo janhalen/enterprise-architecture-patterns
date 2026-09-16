@@ -1,34 +1,683 @@
 <!DOCTYPE html>
 <html lang="da">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kodeplatform Dokumentation</title>
-  <style>
-    body {
-      font-family: system-ui, -apple-system, sans-serif;
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-      line-height: 1.6;
-      color: #1a1a1a;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Åben platform til samarbejde og kildekode — OS²</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --green-900: #1a3a25;
+    --green-800: #2d5a3d;
+    --green-700: #3d7a52;
+    --green-600: #4a9060;
+    --green-100: #e8f5ec;
+    --green-50: #f4faf6;
+    --green-25: #f8fcf9;
+    --gray-900: #1a1d21;
+    --gray-700: #3d4148;
+    --gray-600: #4f555e;
+    --gray-500: #6b7280;
+    --gray-400: #9ca3af;
+    --gray-300: #d1d5db;
+    --gray-200: #e5e7eb;
+    --gray-100: #f3f4f6;
+    --gray-50: #f9fafb;
+    --white: #ffffff;
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-mono: "SF Mono", "Cascadia Code", "Fira Code", Consolas, monospace;
+    --sidebar-width: 280px;
+    --content-max: 780px;
+  }
+
+  html { scroll-behavior: smooth; scroll-padding-top: 2rem; }
+
+  body {
+    font-family: var(--font-sans);
+    color: var(--gray-900);
+    background: var(--white);
+    line-height: 1.7;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* --- SIDEBAR NAV --- */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--sidebar-width);
+    height: 100vh;
+    background: var(--green-25);
+    border-right: 1px solid var(--green-100);
+    padding: 2rem 1.25rem;
+    overflow-y: auto;
+    z-index: 100;
+  }
+
+  .sidebar-title {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--green-800);
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--green-800);
+  }
+
+  .sidebar nav ul { list-style: none; }
+
+  .sidebar nav ul li { margin-bottom: 0.15rem; }
+
+  .sidebar nav ul li a {
+    display: block;
+    padding: 0.35rem 0.6rem;
+    color: var(--gray-600);
+    text-decoration: none;
+    font-size: 0.82rem;
+    line-height: 1.4;
+    border-radius: 4px;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  .sidebar nav ul li a:hover,
+  .sidebar nav ul li a.active {
+    background: var(--green-100);
+    color: var(--green-800);
+  }
+
+  .sidebar nav ul li a.nav-sub {
+    padding-left: 1.4rem;
+    font-size: 0.78rem;
+    color: var(--gray-500);
+  }
+
+  .sidebar nav ul li a.nav-sub:hover,
+  .sidebar nav ul li a.nav-sub.active {
+    color: var(--green-700);
+  }
+
+  /* Mobile hamburger */
+  .sidebar-toggle {
+    display: none;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 200;
+    background: var(--green-800);
+    color: var(--white);
+    border: none;
+    border-radius: 6px;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.85rem;
+    cursor: pointer;
+    font-family: var(--font-sans);
+  }
+
+  /* --- MAIN CONTENT --- */
+  .main {
+    margin-left: var(--sidebar-width);
+    max-width: calc(var(--content-max) + 4rem);
+    padding: 3rem 2rem 4rem;
+  }
+
+  /* --- DOCUMENT HEADER --- */
+  .doc-header {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 3px solid var(--green-800);
+  }
+
+  .doc-header h1 {
+    font-size: 2.25rem;
+    font-weight: 800;
+    line-height: 1.15;
+    color: var(--green-900);
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+  }
+
+  .doc-meta {
+    font-size: 0.88rem;
+    color: var(--gray-500);
+    line-height: 1.6;
+  }
+
+  .doc-meta strong { color: var(--gray-700); }
+
+  /* --- SECTIONS --- */
+  section { margin-bottom: 3rem; }
+
+  section h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--green-900);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--green-100);
+    letter-spacing: -0.01em;
+  }
+
+  section h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--green-800);
+    margin-top: 1.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p { margin-bottom: 1rem; max-width: 65ch; }
+
+  .subtitle {
+    font-style: italic;
+    color: var(--gray-500);
+    margin-bottom: 1.25rem;
+    font-size: 0.95rem;
+  }
+
+  /* --- BLOCKQUOTES --- */
+  blockquote {
+    border-left: 4px solid var(--green-800);
+    background: var(--green-50);
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 6px 6px 0;
+  }
+
+  blockquote p {
+    color: var(--gray-700);
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+  }
+
+  blockquote p:last-child { margin-bottom: 0; }
+
+  /* --- LISTS --- */
+  ul, ol {
+    margin: 0.75rem 0 1.25rem 1.25rem;
+    max-width: 65ch;
+  }
+
+  li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+
+  li strong {
+    color: var(--green-800);
+  }
+
+  /* --- CALLOUT CARDS --- */
+  .callout {
+    background: var(--green-50);
+    border: 1px solid var(--green-100);
+    border-left: 4px solid var(--green-800);
+    border-radius: 0 8px 8px 0;
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+  }
+
+  .callout-title {
+    font-weight: 700;
+    color: var(--green-800);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .callout p {
+    font-size: 0.9rem;
+    color: var(--gray-600);
+  }
+
+  /* --- CARD GRIDS --- */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-top: 3px solid var(--green-800);
+    border-radius: 0 0 8px 8px;
+    padding: 1.25rem;
+  }
+
+  .card-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--green-700);
+    margin-bottom: 0.35rem;
+  }
+
+  .card-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: 0.35rem;
+  }
+
+  .card-body {
+    font-size: 0.85rem;
+    color: var(--gray-600);
+    line-height: 1.5;
+  }
+
+  .card-full {
+    grid-column: 1 / -1;
+  }
+
+  /* --- SEPARATOR --- */
+  hr {
+    border: none;
+    height: 1px;
+    background: var(--green-100);
+    margin: 2.5rem 0;
+  }
+
+  /* --- FOOTER --- */
+  .doc-footer {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 2px solid var(--green-100);
+  }
+
+  .doc-footer h2 {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 1rem;
+  }
+
+  .source-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .source-list li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--gray-100);
+    font-size: 0.88rem;
+    color: var(--gray-600);
+  }
+
+  .source-list li:last-child { border-bottom: none; }
+
+  /* --- NOTE TEXT --- */
+  .note {
+    font-size: 0.88rem;
+    color: var(--gray-500);
+    font-style: italic;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    max-width: 65ch;
+  }
+
+  /* --- MOBILE --- */
+  @media (max-width: 768px) {
+    .sidebar {
+      transform: translateX(-100%);
+      transition: transform 0.25s ease;
+      width: 260px;
     }
-    h1 { border-bottom: 2px solid #e0e0e0; padding-bottom: 0.5rem; }
-    .placeholder {
-      background: #f5f5f5;
-      border: 1px dashed #ccc;
-      padding: 2rem;
-      text-align: center;
-      color: #666;
-      border-radius: 8px;
-      margin-top: 2rem;
+
+    .sidebar.open { transform: translateX(0); }
+
+    .sidebar-toggle { display: block; }
+
+    .main {
+      margin-left: 0;
+      padding: 4rem 1.25rem 3rem;
     }
-  </style>
+
+    .doc-header h1 { font-size: 1.6rem; }
+
+    .card-grid {
+      grid-template-columns: 1fr;
+    }
+
+    section h2 { font-size: 1.25rem; }
+  }
+
+  /* --- PRINT --- */
+  @media print {
+    .sidebar, .sidebar-toggle { display: none !important; }
+
+    .main {
+      margin-left: 0;
+      padding: 0;
+      max-width: 100%;
+    }
+
+    body { font-size: 11pt; }
+
+    .doc-header h1 { font-size: 20pt; }
+
+    blockquote {
+      border-left: 3pt solid #2d5a3d;
+      background: none;
+      padding: 0.5rem 0 0.5rem 1rem;
+    }
+
+    .card {
+      break-inside: avoid;
+      border: 1pt solid #ccc;
+      border-top: 2pt solid #2d5a3d;
+    }
+
+    .card-grid { gap: 0.5rem; }
+
+    section { break-inside: avoid; }
+
+    h2, h3 { break-after: avoid; }
+
+    hr { background: #ccc; }
+
+    a { color: var(--gray-900); text-decoration: none; }
+
+    .doc-footer { break-before: page; }
+  }
+</style>
 </head>
 <body>
-  <h1>Kodeplatform Dokumentation</h1>
-  <div class="placeholder">
-    <p>Dette er en placeholder. Indholdet kommer senere.</p>
-  </div>
+
+<!-- Mobile toggle -->
+<button class="sidebar-toggle" onclick="document.querySelector('.sidebar').classList.toggle('open')" aria-label="Menu">☰ Indhold</button>
+
+<!-- Sidebar -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-title">Indhold</div>
+  <nav>
+    <ul>
+      <li><a href="#sammenfatning">Sammenfatning</a></li>
+      <li><a href="#hvad-kan-os2-opnaa">Hvad kan OS² opnå?</a></li>
+      <li><a href="#okoonomisk" class="nav-sub">Økonomisk forudsigelighed</a></li>
+      <li><a href="#driftsstabilitet" class="nav-sub">Driftsstabilitet</a></li>
+      <li><a href="#kontrol-og-ejerskab" class="nav-sub">Kontrol og ejerskab</a></li>
+      <li><a href="#adgangsstyring" class="nav-sub">Styrket adgangsstyring</a></li>
+      <li><a href="#organisering">Organisering og kompetencer</a></li>
+      <li><a href="#principper">Grundlæggende principper</a></li>
+      <li><a href="#kapabiliteter" class="nav-sub">Platformens kapabiliteter</a></li>
+      <li><a href="#timing" class="nav-sub">Timing og bidrag</a></li>
+      <li><a href="#kilder">Kilder</a></li>
+    </ul>
+  </nav>
+</aside>
+
+<!-- Main content -->
+<div class="main">
+
+  <!-- Document Header -->
+  <header class="doc-header" id="top">
+    <h1>Åben platform til samarbejde og kildekode</h1>
+    <div class="doc-meta">
+      <strong>Forfatter:</strong> Jan Maack Kjerbye, Enterprise Arkitekt - OS²<br>
+      <strong>Dato:</strong> September 2026
+    </div>
+  </header>
+
+  <!-- Sammenfatning -->
+  <section id="sammenfatning">
+    <h2>Sammenfatning</h2>
+    <p>Dette bilag afdækker <a href="#hvad-kan-os2-opnaa">hvilke konkrete gevinster og behovsdækning</a> OS² som forening kan få helt eller delvist dækket ved at udskifte sine nuværende aktiviteter på Microsofts GitHub til et Digitalt Suverænt alternativ baseret på Open Source. Bilaget danner et fagligt grundlag for bestyrelsesdiskussionen om OS2's fremtidige platform for kildekode og samarbejde og fastlægger de krav og principper platformen bør opfylde inden for digital suverænitet, open source, ejerskab, exit-strategi og funktionalitet for at kunne levere de mulige gevinster.</p>
+  </section>
+
+  <hr>
+
+  <!-- Hvad kan OS2 opnå? -->
+  <section id="hvad-kan-os2-opnaa">
+    <h2>Hvad kan OS² opnå?</h2>
+    <p class="subtitle">Nuværende udfordringer, begrænsninger samt forbedringspotentialer.</p>
+
+    <blockquote>
+      <p>En fuldt implementeret åben samarbejdsplatform kan give OS² suverænitet over data og kildekode, ejerskab over vilkår og pris, øget troværdighed som offentlig Open Source aktør, og gøre foreningen mere uafhængig af proprietære licensforhold.</p>
+      <p>OS2's medlemmer og produkter har i dag deres kildekode og dokumentation på GitHub, en amerikansk properitær platform ejet af Microsoft. Alle medlemmer anvender GitHub Free, et gratis produkt uden support eller garanti for driftskontinuitet. Flere områder kan styrkes væsentligt ved overgang til en alternativ digitalt suveræn platform.</p>
+    </blockquote>
+
+    <!-- Økonomisk forudsigelighed -->
+    <h4 id="okoonomisk">Økonomisk forudsigelighed og gennemsigtighed</h4>
+    <p>Med en uafhængig platform kan OS² og medlemskommunerne opnå fuld økonomisk forudsigelighed. I dag er Microsofts prisstruktur uforudsigelig med gentagne ændringer, ofte med kort varsel. Selv hvis adgange nedskaleres til kun "kernebrugere" som koordinationsgrupper og leverandører, kan licensudgifter efter blot små prisstigninger løbe op i 5-cifrede beløb pr. år i licensbetalinger. En fælles, gennemsigtig finansieringsmodel vil forbedre denne usikre situation og levere stabile og forudsigelige omkostninger. <em>[Se bilag 3]</em></p>
+
+    <!-- Driftsstabilitet -->
+    <h4 id="driftsstabilitet">Driftsstabilitet og oppetidsgaranti</h4>
+    <p>En selvstyret platform kan levere driftsstabilitet med kontraktlige oppetidsgarantier. I perioden maj 2025 til april 2026 oplevede GitHub 257 hændelser, herunder 48 store nedbrud med en samlet nedetid på over 112 timer. Gennemsnitlig genoprettelsestid var over 6 timer.</p>
+    <p>OS² og medlemskommunerne anvender i dag gratis, personlige GitHub konti. Med denne kontotype gælder følgende vilkår:</p>
+    <ul>
+      <li><strong>Ingen garanti for oppetid:</strong> Microsoft har ingen kontraktlig forpligtelse til at holde platformen kørende eller stabil. Ved nedbrud er der ingen erstatning eller kompensation med personlige konti.</li>
+      <li><strong>Ingen direkte support:</strong> Fejlfinding ved nedbrud bliver uforholdsmæssigt tidskrævende og i mange tilfælde for teknisk for vores medlemmer. Der er ingen direkte supportkanal. Hjælp skal søges via søgning og opslag i de internationale community-forums, hvor svartider kan være på uger, og i mange tilfælde forbliver henvendelserne helt uden respons.</li>
+      <li><strong>Ingen sikring af data:</strong> Der er ingen kontraktlig garanti for at data kan gendannes ved fejl eller nedbrud.</li>
+      <li><strong>Ingen mulighed for audit:</strong> Sikkerheds- og logningsfunktioner der kræves for at kunne levere lovformelighed til vores medlemmer er ikke understøttet på personlige konti.</li>
+    </ul>
+    <p>Med en transition til en alternativ platform under OS²s kontrol kan der stilles konkrete og fleksible garantier for oppetid, support, sikkerhed og compliance der matcher myndighedernes behov. <em>[Se bilag 4]</em></p>
+
+    <!-- Kontrol og ejerskab -->
+    <h4 id="kontrol-og-ejerskab">Øget kontrol og ejerskab</h4>
+    <p>Med organisationskonti og central adgangsstyring kan kontrol og ejerskab sikres på tværs af organisationer. GitHub suspenderer personlige konti uden varsel. I perioden 2022 til 2026 er der dokumenteret flere tilfælde hvor brugere har mistet adgangen til projekter på tværs af flere organisationer, uden forklaring eller mulighed for øjeblikkelig genoprettelse. Dette medfører en række udfordringer for det daglige arbejde.</p>
+    <ul>
+      <li><strong>Ingen advarsler før suspension:</strong> Konti kan lukkes øjeblikkeligt uden forudgående varsel eller forklaring.</li>
+      <li><strong>Ingen organisationskontrol:</strong> Kontoen ejes af brugeren, ikke organisationen, og kan ikke overføres eller spærres centralt.</li>
+      <li><strong>Ingen garanti for projektilgængelighed:</strong> Tilknyttede projekter kan pludseligt blive utilgængelige ved en suspension.</li>
+      <li><strong>Ingen direkte support:</strong> Der er ingen supportkanal til at genoprette adgang. Hjælp søges via community-forums med svartider på uger.</li>
+    </ul>
+    <p>En platform med organisationskonti og verificerede, styrede SSO-integrationer til en vifte af identitetsudbydere, eliminerer disse sårbarheder og sikrer at OS² projekternes kildekode forbliver tilgængelige uafhængigt af enkeltpersoners kontostatus. <em>[Se bilag 2]</em></p>
+
+    <!-- Styrket adgangsstyring -->
+    <h4 id="adgangsstyring">Styrket adgangsstyring</h4>
+    <p>Anvendelsen af GitHub i OS2 og medlemskommunerne er i dag kendetegnet ved to grundlæggende udfordringer, som en ny platform kan forbedre:</p>
+
+    <div class="callout">
+      <div class="callout-title">1. Decentral adgangsstyring</div>
+      <p>Adgangsstyring kan centraliseres, automatiseres og gøres gennemsigtig ved at integrere en fremtidig platform med en OS² kontrolleret adgangskomponent. I dag er opgaven omstændig, tidskrævende og personbunden, og medarbejderes adgange fjernes ofte ikke eller først lang tid efter fratrædelse. Dette gør det vanskeligt at styre adgange og deremed kunne dokumentere lovformelighed.</p>
+    </div>
+
+    <div class="callout">
+      <div class="callout-title">2. Manglende kontrol</div>
+      <p>GitHub-kontoer er personlige og tilhører brugeren, ikke organisationen. Myndigheden og/eller OS² kan derfor ikke se historik på logins, overføre adgange til nye medarbejdere, underlægge konti egne politikker eller spærre konti centralt ved misbrug. En ny platform med organisationskonti og SSO-integration vil kunne forbedre dette og gøre det muligt at leve op til lovformelighed på adgangsstyrings og compliance området.</p>
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- Organisering og kompetencer -->
+  <section id="organisering">
+    <h2>Organisering og kompetencer</h2>
+    <p>En overgang til en digitalt suveræn platform kræver en vis grad af formaliseret organisering. Det omfatter bl.a. driftsansvar, identitetsstyring, support og sikkerhed, samt koordinering på tværs af medlemskommunerne. De konkrete krav til organisering og kompetencer er i øjeblikket under udarbejdelse i den fællesoffentlige arbejdsgruppe under KL, og er planlagt som en del af den samlede leverance. Herunder en bruttoliste som arbejdet tager udgangspunkt i:</p>
+
+    <h4>Roller og tidsforbrug</h4>
+    <p class="note">Estimerede operationelle kapabiliteter der skal dækkes for at drive en samarbejdsplatform. Alle roller kan dækkes af leverandører eller interne ressourcer der besidder verificerede specialkompetencer på de kapabiliteter de får ansvar for.</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-label">Kapabilitet</div>
+        <div class="card-title">Platform drift</div>
+        <div class="card-body">Driftsansvarlige</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Kapabilitet</div>
+        <div class="card-title">Identitetsstyring</div>
+        <div class="card-body">IAM-konsulenter</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Kapabilitet</div>
+        <div class="card-title">Support</div>
+        <div class="card-body">IT-konsulenter</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Kapabilitet</div>
+        <div class="card-title">Leverancekæde</div>
+        <div class="card-body">CI/CD-specialister</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Kapabilitet</div>
+        <div class="card-title">Sikkerhed</div>
+        <div class="card-body">IT-sikkerhedsansvarlige</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Kapabilitet</div>
+        <div class="card-title">Dokumentation</div>
+        <div class="card-body">Tekniske redaktører</div>
+      </div>
+    </div>
+
+    <p class="note">Bemærk: Ovenstående liste er et antal roller og ikke et udtryk for hvor mange personer der skal tilknyttes projektet eller hvor mange timer der skal beregnes. Nogle leverandører vil kunne dække flere kapabiliteter og med de rette verificerede kompetencer til stede internt i myndigheden vil nogle kapabiliteter kunne hjemtages.</p>
+  </section>
+
+  <hr>
+
+  <!-- Grundlæggende principper -->
+  <section id="principper">
+    <h2>Grundlæggende principper</h2>
+    <p>Etableringen af en fremtidig alternativ platform bør opfylde følgende fundamentale krav:</p>
+
+    <h4>Digital suverænitet</h4>
+    <ul>
+      <li>Data og kildekode skal placeres under EU-jurisdiktion</li>
+      <li>Ingen sårbarhed over for CLOUD Act eller utydelige tredjelandsadgange</li>
+    </ul>
+
+    <h4>Ejerskab</h4>
+    <ul>
+      <li>OS² og medlemskommunerne skal kunne håndhæve ejerskab over egne data og metadata</li>
+      <li>Myndighederne skal selv kunne bestemme ejerskabs- og servicevilkår, uafhængigt af platforms- eller serviceleverandørers forretningsmodeller eller politikker</li>
+    </ul>
+
+    <h4>Exitstrategi fra dag 1</h4>
+    <ul>
+      <li>Data skal kunne flyttes uden omkostninger og forsinkelser der skaber de-facto lock-in</li>
+      <li>Indbygget portabilitet i form af både menneskelige og maskinlæsbar dokumentation er et krav</li>
+      <li>Der skal fra starten være en plan for hvordan man kommer væk, hvis det bliver nødvendigt</li>
+    </ul>
+
+    <h4>Open source som middel</h4>
+    <ul>
+      <li>Platformen skal levere digital suverænitet ved genbrug af OSI-godkendt open source software.</li>
+      <li>Et skifte til en anden løsning leveret under proprietære vilkår eller utydelige non-OSI licenser løser ikke ejerskabs- eller lock-in-problematikkerne og skal derfor undgås.</li>
+    </ul>
+
+    <!-- Platformens kapabiliteter -->
+    <h3 id="kapabiliteter">Platformens kapabiliteter</h3>
+    <p>En fuldt implementeret samarbejdsplatform skal kunne matche de opgaver der i dag bliver løst og meget gerne levere yderligere værdi. Som et fremtidigt GitHub-alternativ skal platform i fuld produktion kunne understøtte:</p>
+
+    <h4>Basis funktionalitet</h4>
+    <ul>
+      <li><strong>Repositories:</strong> Versioneret kildekodeopbevaring med fuld Git-funktionalitet</li>
+      <li><strong>Issues:</strong> Fejlrapportering og opgavestyring</li>
+      <li><strong>Pull requests:</strong> Code review og samarbejdsprocesser</li>
+      <li><strong>CI/CD:</strong> Automatiseret test og bygning af software og dokumentation, med isolerede runners der kan afvikles i isolerede sikre sandboxes.</li>
+      <li><strong>Package registries:</strong> Opbevaring og deling af afhængigheder og pakker</li>
+      <li><strong>Dokumentation:</strong> Integreret og tilgængelig dokumentation der svarer overens med virkeligheden</li>
+    </ul>
+
+    <h4>Forbedret funktionalitet</h4>
+    <ul>
+      <li><strong>Protection Gateway Architecture (PGA):</strong> Beskyttelseslag der filtrerer uønsket trafik, bots og AI-agenter før de når frem til kildekoden</li>
+      <li><strong>Observabilitet:</strong> Logfiler, metrics og anden sporbarhed der gør det muligt at overvåge platformens tilstand og dokumentere aktiviteter og aktivitetsniveau.</li>
+      <li><strong>Identitetsintegration:</strong> Identiteter fra flere kilder (FKA, STIL, leverandørers IDP'er) kan anvendes med SSO-oplevelse og livscyklus kontrol i overensstemmelse med gældende nationale sikringsniveauer.</li>
+      <li><strong>Centraliseret adgangsstyring:</strong> Adgangsstyring skal kunne underlægges de fællesoffentlige politikker og levere dokumentation og deraf lovformelighed</li>
+      <li><strong>Skalérbarhed:</strong> Platformen skal kunne håndtere voksende antal brugere og repositorier uden degradation, og undgå manuel skalering</li>
+    </ul>
+
+    <p>Afklaring af en køreplan for hvornår de forskellige kapabiliteter kan tilføjes og implementeres og hvilke kompetencer leverandører skal besidde for at kunne levere ligger i den sidste Leverance 5 i KL arbejdsgruppen.</p>
+
+    <!-- Timing og bidrag -->
+    <h3 id="timing">Timing og bidrag</h3>
+    <p>Europa bygger nationale kodeplatforme lige nu. Danmark har ingen tilsvarende løsning endnu, men OS² kan bidrage ind i en dansk fælles indsats ved at anvise genbrugelighed og industri-standarder.</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-label">Tyskland</div>
+        <div class="card-title">Løsningskatalog (opencode.de)</div>
+        <div class="card-body"><strong>Ejer:</strong> ZenDiS / forbundsindenrigsministeriet<br>Software: Egenudviklet katalog oven på egen hosted GitLab</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Holland</div>
+        <div class="card-title">Samarbejds- og kodeplatform</div>
+        <div class="card-body"><strong>Ejer:</strong> Indenrigsministeriet i Holland<br>Software: Forgejo<br><em>code.overheid.nl</em></div>
+      </div>
+      <div class="card">
+        <div class="card-label">EU-Kommissionen</div>
+        <div class="card-title">Samarbejds- og kodeplatform</div>
+        <div class="card-body"><strong>Ejer:</strong> EC's open source-programme<br>Software: Forgejo<br><em>code.europa.eu</em></div>
+      </div>
+      <div class="card">
+        <div class="card-label">Frankrig</div>
+        <div class="card-title">Løsningskatalog (code.gouv.fr)</div>
+        <div class="card-body"><strong>Ejer:</strong> Spredte ministerier<br>Software: Egenudviklet katalog uden ensartede forbindelser til kode</div>
+      </div>
+    </div>
+
+    <p>OS² kan deltage i og genbruge arbejdet fra den fællesoffentlige arbejdsgruppe med KL, Statens IT og Digitaliseringsstyrelsen, samt de europæiske erfaringer med Forgejo-baserede platforme i Holland og EU-Kommissionen. Dette muliggør en løsning der er bygget på færdigudviklede, gennemprøvede komponenter i stedet for at starte fra bunden.</p>
+  </section>
+
+  <hr>
+
+  <!-- Kilder -->
+  <footer class="doc-footer" id="kilder">
+    <h2>Kilder</h2>
+    <ul class="source-list">
+      <li>NSIS (National Standard for Identiteters Sikringsniveauer, 30. juni 2024)</li>
+      <li>NIS2-loven (Lov 434, maj 2025)</li>
+      <li>SAMSIK's spørgeramme for kommunerne (2026)</li>
+      <li>RISE-rapporten "Software Reuse through Open Source Software in the Public Sector" (Linåker &amp; Muto, Digitaliseringsstyrelsen)</li>
+      <li>GitHub ToS, Community Discussions, Availability Reports (2024-2026)</li>
+      <li>Microsoft FAQ, CNBC, The Verge, SAMexpert, UC Today (2025-2026)</li>
+      <li>IncidentHub: GitHub Reliability Analysis 2025-2026</li>
+    </ul>
+  </footer>
+
+</div>
+
+<!-- Active nav highlighting -->
+<script>
+(function() {
+  const links = document.querySelectorAll('.sidebar nav a');
+  const sections = [];
+  links.forEach(function(link) {
+    var id = link.getAttribute('href').replace('#', '');
+    var el = document.getElementById(id);
+    if (el) sections.push({ id: id, el: el, link: link });
+  });
+
+  function update() {
+    var scrollY = window.scrollY + 120;
+    var current = sections[0];
+    for (var i = 0; i < sections.length; i++) {
+      if (sections[i].el.offsetTop <= scrollY) {
+        current = sections[i];
+      }
+    }
+    links.forEach(function(l) { l.classList.remove('active'); });
+    if (current) current.link.classList.add('active');
+  }
+
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+
+  // Close sidebar on mobile after click
+  links.forEach(function(link) {
+    link.addEventListener('click', function() {
+      if (window.innerWidth <= 768) {
+        document.querySelector('.sidebar').classList.remove('open');
+      }
+    });
+  });
+})();
+</script>
+
 </body>
 </html>
