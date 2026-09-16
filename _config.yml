@@ -16,3 +16,6 @@ mermaid:
 callouts:
   default:
     color: green
+
+exclude:
+  - dokumentation/kodeplatform.html
