@@ -14,7 +14,6 @@
     --green-900: #14352a;
     --green-800: #1f5338;
     --green-700: #2e7a4c;
-    --green-600: #3d9a5e;
     --green-100: #e2f0e6;
     --green-50: #f0f8f2;
     --green-25: #f6fbf7;
@@ -28,17 +27,11 @@
     --gray-100: #eff1f3;
     --gray-50: #f7f8f9;
     --white: #ffffff;
-    --amber-50: #fffbeb;
-    --amber-100: #fef3c7;
-    --amber-700: #b45309;
-    --red-50: #fef2f2;
-    --red-100: #fee2e2;
-    --red-700: #b91c1c;
     --font-serif: "Source Serif 4", "Georgia", "Times New Roman", serif;
     --font-sans: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     --font-mono: "SF Mono", "Cascadia Code", "Fira Code", Consolas, monospace;
-    --sidebar-width: 280px;
-    --content-max: 780px;
+    --sidebar-width: 240px;
+    --content-max: 720px;
   }
 
   html { scroll-behavior: smooth; scroll-padding-top: 2rem; }
@@ -47,47 +40,49 @@
     font-family: var(--font-sans);
     color: var(--gray-900);
     background: var(--white);
-    line-height: 1.7;
-    font-size: 16px;
+    line-height: 1.65;
+    font-size: 15px;
     -webkit-font-smoothing: antialiased;
   }
 
-  /* --- SIDEBAR NAV --- */
+  /* --- SIDEBAR --- */
   .sidebar {
     position: fixed;
     top: 0;
     left: 0;
     width: var(--sidebar-width);
     height: 100vh;
-    background: var(--green-25);
-    border-right: 1px solid var(--green-100);
-    padding: 2rem 1.25rem;
+    background: var(--gray-50);
+    border-right: 1px solid var(--gray-200);
+    padding: 1.5rem 1rem;
     overflow-y: auto;
     z-index: 100;
   }
 
   .sidebar-title {
     font-family: var(--font-serif);
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 600;
-    color: var(--green-800);
-    margin-bottom: 1.25rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 2px solid var(--green-800);
+    color: var(--gray-700);
+    margin-bottom: 1rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--gray-200);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
   }
 
   .sidebar nav ul { list-style: none; }
 
-  .sidebar nav ul li { margin-bottom: 0.15rem; }
+  .sidebar nav ul li { margin-bottom: 0.1rem; }
 
   .sidebar nav ul li a {
     display: block;
-    padding: 0.35rem 0.6rem;
+    padding: 0.3rem 0.5rem;
     color: var(--gray-600);
     text-decoration: none;
-    font-size: 0.82rem;
+    font-size: 0.8rem;
     line-height: 1.4;
-    border-radius: 4px;
+    border-radius: 3px;
     transition: background 0.15s, color 0.15s;
   }
 
@@ -98,8 +93,8 @@
   }
 
   .sidebar nav ul li a.nav-sub {
-    padding-left: 1.4rem;
-    font-size: 0.78rem;
+    padding-left: 1.2rem;
+    font-size: 0.75rem;
     color: var(--gray-500);
   }
 
@@ -108,49 +103,48 @@
     color: var(--green-700);
   }
 
-  /* Mobile hamburger */
   .sidebar-toggle {
     display: none;
     position: fixed;
-    top: 1rem;
-    left: 1rem;
+    top: 0.75rem;
+    left: 0.75rem;
     z-index: 200;
     background: var(--green-800);
     color: var(--white);
     border: none;
-    border-radius: 6px;
-    padding: 0.5rem 0.75rem;
-    font-size: 0.85rem;
+    border-radius: 4px;
+    padding: 0.4rem 0.65rem;
+    font-size: 0.8rem;
     cursor: pointer;
     font-family: var(--font-sans);
   }
 
-  /* --- MAIN CONTENT --- */
+  /* --- MAIN --- */
   .main {
     margin-left: var(--sidebar-width);
     max-width: calc(var(--content-max) + 4rem);
-    padding: 3rem 2rem 4rem;
+    padding: 2.5rem 2rem 3.5rem;
   }
 
-  /* --- DOCUMENT HEADER --- */
+  /* --- DOC HEADER --- */
   .doc-header {
-    margin-bottom: 3rem;
-    padding-bottom: 2rem;
-    border-bottom: 3px solid var(--green-800);
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid var(--gray-900);
   }
 
   .doc-header h1 {
     font-family: var(--font-serif);
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 700;
-    line-height: 1.12;
-    color: var(--green-900);
+    line-height: 1.15;
+    color: var(--gray-900);
     letter-spacing: -0.01em;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
   }
 
   .doc-meta {
-    font-size: 0.88rem;
+    font-size: 0.82rem;
     color: var(--gray-500);
     line-height: 1.6;
   }
@@ -158,239 +152,86 @@
   .doc-meta strong { color: var(--gray-700); }
 
   /* --- SECTIONS --- */
-  section { margin-bottom: 3.5rem; }
+  section { margin-bottom: 2.5rem; }
 
   section h2 {
     font-family: var(--font-serif);
-    font-size: 1.6rem;
+    font-size: 1.35rem;
     font-weight: 600;
-    color: var(--green-900);
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid var(--green-100);
-    letter-spacing: -0.005em;
+    color: var(--gray-900);
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--gray-200);
   }
 
   section h3 {
     font-family: var(--font-serif);
-    font-size: 1.2rem;
+    font-size: 1.05rem;
     font-weight: 600;
     color: var(--gray-900);
-    margin-top: 2rem;
-    margin-bottom: 0.75rem;
-  }
-
-  h4 {
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--green-800);
-    margin-top: 1.75rem;
+    margin-top: 1.5rem;
     margin-bottom: 0.5rem;
   }
 
-  p { margin-bottom: 1rem; max-width: 65ch; }
-
-  .subtitle {
-    font-style: italic;
-    color: var(--gray-500);
-    margin-bottom: 1.25rem;
-    font-size: 0.95rem;
+  h4 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--green-800);
+    margin-top: 1.25rem;
+    margin-bottom: 0.35rem;
   }
 
-  /* --- BLOCKQUOTES --- */
+  p { margin-bottom: 0.75rem; max-width: 65ch; }
+
+  /* --- BLOCKQUOTE --- */
   blockquote {
-    border-left: 5px solid var(--green-800);
-    background: var(--green-50);
-    padding: 1.25rem 1.5rem;
-    margin: 1.5rem 0;
-    border-radius: 0 6px 6px 0;
+    border-left: 3px solid var(--gray-300);
+    padding: 0.5rem 0 0.5rem 1rem;
+    margin: 1rem 0 1.5rem;
   }
 
   blockquote p {
-    color: var(--gray-700);
-    font-size: 0.95rem;
-    margin-bottom: 0.75rem;
+    color: var(--gray-600);
+    font-size: 0.9rem;
+    font-style: italic;
+    margin-bottom: 0;
   }
 
-  blockquote p:last-child { margin-bottom: 0; }
-
   /* --- LISTS --- */
-  ul, ol {
-    margin: 0.75rem 0 1.25rem 1.25rem;
+  ul {
+    margin: 0.4rem 0 0.75rem 1.25rem;
     max-width: 65ch;
   }
 
   li {
-    margin-bottom: 0.5rem;
-    line-height: 1.6;
-    font-size: 0.95rem;
+    margin-bottom: 0.3rem;
+    line-height: 1.55;
+    font-size: 0.92rem;
   }
 
-  li strong {
-    color: var(--green-800);
-  }
-
-  /* --- CALLOUT CARDS --- */
-  .callout {
-    background: var(--green-50);
-    border: 1px solid var(--green-100);
-    border-left: 4px solid var(--green-800);
-    border-radius: 0 8px 8px 0;
-    padding: 1.25rem 1.5rem;
-    margin: 1.5rem 0;
-  }
-
-  .callout-title {
-    font-weight: 700;
-    color: var(--green-800);
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .callout p {
-    font-size: 0.9rem;
-    color: var(--gray-600);
-  }
-
-  .callout.warning {
-    background: var(--amber-50);
-    border-color: var(--amber-100);
-    border-left-color: var(--amber-700);
-  }
-
-  .callout.warning .callout-title {
-    color: var(--amber-700);
-  }
-
-  .callout.critical {
-    background: var(--red-50);
-    border-color: var(--red-100);
-    border-left-color: var(--red-700);
-  }
-
-  .callout.critical .callout-title {
-    color: var(--red-700);
-  }
-
-  /* --- CARD GRIDS --- */
-  .card-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    margin: 1.5rem 0;
-  }
-
-  .card {
-    background: var(--white);
-    border: 1px solid var(--gray-200);
-    border-top: 3px solid var(--green-800);
-    border-radius: 0 0 8px 8px;
-    padding: 1.25rem;
-  }
-
-  .card-label {
-    font-size: 0.7rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--green-700);
-    margin-bottom: 0.35rem;
-  }
-
-  .card-title {
-    font-family: var(--font-serif);
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--gray-900);
-    margin-bottom: 0.35rem;
-  }
-
-  .card-body {
-    font-size: 0.85rem;
-    color: var(--gray-600);
-    line-height: 1.5;
-  }
-
-  .card-full {
-    grid-column: 1 / -1;
-  }
-
-  /* --- INLINE CODE --- */
+  /* --- CODE --- */
   code {
     font-family: var(--font-mono);
-    font-size: 0.85em;
+    font-size: 0.82em;
     background: var(--gray-100);
-    border: 1px solid var(--gray-200);
-    border-radius: 3px;
-    padding: 0.1em 0.35em;
+    border-radius: 2px;
+    padding: 0.1em 0.3em;
     color: var(--gray-700);
   }
 
-  /* --- EMPHASIS TEXT --- */
-  em {
-    color: var(--gray-600);
-  }
-
-  /* --- SEPARATOR --- */
+  /* --- HR --- */
   hr {
     border: none;
     height: 1px;
-    background: var(--green-100);
-    margin: 2.5rem 0;
+    background: var(--gray-200);
+    margin: 2rem 0;
   }
 
   /* --- FOOTER --- */
   .doc-footer {
-    margin-top: 3rem;
-    padding-top: 2rem;
-    border-top: 2px solid var(--green-100);
-  }
-
-  .doc-footer h2 {
-    border-bottom: none;
-    padding-bottom: 0;
-    margin-bottom: 1rem;
-  }
-
-  /* --- NOTE TEXT --- */
-  .note {
-    font-size: 0.88rem;
-    color: var(--gray-500);
-    font-style: italic;
-    margin-top: 0.5rem;
-    margin-bottom: 1rem;
-    max-width: 65ch;
-  }
-
-  /* --- ISSUE TAG --- */
-  .issue-tag {
-    display: inline-block;
-    font-size: 0.65rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    padding: 0.15em 0.5em;
-    border-radius: 3px;
-    margin-left: 0.4em;
-    vertical-align: middle;
-  }
-
-  .issue-tag.missing {
-    background: var(--amber-100);
-    color: var(--amber-700);
-  }
-
-  .issue-tag.unclear {
-    background: var(--red-100);
-    color: var(--red-700);
-  }
-
-  /* --- SEPARATOR LINE --- */
-  .section-rule {
-    border: none;
-    height: 1px;
-    background: var(--green-100);
-    margin: 3rem 0;
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--gray-200);
   }
 
   /* --- MOBILE --- */
@@ -398,7 +239,7 @@
     .sidebar {
       transform: translateX(-100%);
       transition: transform 0.25s ease;
-      width: 260px;
+      width: 240px;
     }
 
     .sidebar.open { transform: translateX(0); }
@@ -407,16 +248,11 @@
 
     .main {
       margin-left: 0;
-      padding: 4rem 1.25rem 3rem;
+      padding: 3.5rem 1.25rem 2.5rem;
     }
 
-    .doc-header h1 { font-size: 1.75rem; }
-
-    .card-grid {
-      grid-template-columns: 1fr;
-    }
-
-    section h2 { font-size: 1.35rem; }
+    .doc-header h1 { font-size: 1.5rem; }
+    section h2 { font-size: 1.2rem; }
   }
 
   /* --- PRINT --- */
@@ -429,278 +265,193 @@
       max-width: 100%;
     }
 
-    body { font-size: 11pt; font-family: var(--font-sans); }
+    body { font-size: 11pt; }
 
-    .doc-header h1 { font-size: 20pt; font-family: var(--font-serif); }
-
-    section h2 { font-family: var(--font-serif); }
-    section h3 { font-family: var(--font-serif); }
+    .doc-header h1 { font-size: 18pt; }
 
     blockquote {
-      border-left: 3pt solid #2d5a3d;
-      background: none;
-      padding: 0.5rem 0 0.5rem 1rem;
+      border-left: 2pt solid #999;
+      padding-left: 0.75rem;
     }
-
-    .card {
-      break-inside: avoid;
-      border: 1pt solid #ccc;
-      border-top: 2pt solid #2d5a3d;
-    }
-
-    .card-grid { gap: 0.5rem; }
 
     section { break-inside: avoid; }
-
     h2, h3 { break-after: avoid; }
-
-    hr { background: #ccc; }
-
-    a { color: var(--gray-900); text-decoration: none; }
-
-    .doc-footer { break-before: page; }
   }
 </style>
 </head>
 <body>
 
-<!-- Mobile toggle -->
-<button class="sidebar-toggle" onclick="document.querySelector('.sidebar').classList.toggle('open')" aria-label="Menu">☰ Indhold</button>
+<button class="sidebar-toggle" onclick="document.querySelector('.sidebar').classList.toggle('open')" aria-label="Menu">☰</button>
 
-<!-- Sidebar -->
 <aside class="sidebar" id="sidebar">
   <div class="sidebar-title">Indhold</div>
   <nav>
     <ul>
       <li><a href="#indledning">1. Indledning</a></li>
-      <li><a href="#mangler">2. Mangler eller uklarheder</a></li>
-      <li><a href="#teknisk-kontekst" class="nav-sub">2.1 Teknisk kontekst</a></li>
-      <li><a href="#datafordeler" class="nav-sub">2.2 Datafordeler-services</a></li>
-      <li><a href="#kombit-integration" class="nav-sub">2.3 KOMBIT-integration</a></li>
-      <li><a href="#begreber" class="nav-sub">2.4 Præcisering af begreber</a></li>
-      <li><a href="#testmiljoe" class="nav-sub">2.5 Testmiljøer og testdata</a></li>
-      <li><a href="#parallel" class="nav-sub">2.6 Parallel afvikling</a></li>
-      <li><a href="#tidsplan" class="nav-sub">2.7 Tidsplan og milestones</a></li>
-      <li><a href="#sikkerhed" class="nav-sub">2.8 Sikkerhed og certifikater</a></li>
-      <li><a href="#struktur">3. Strukturelle forhold</a></li>
-      <li><a href="#gentagelser" class="nav-sub">3.1 Gentagelser</a></li>
+      <li><a href="#struktur">2. Strukturelle og formelle forhold</a></li>
+      <li><a href="#ejerskab" class="nav-sub">2.1 Ejerskab og ansvar</a></li>
+      <li><a href="#konsolidering" class="nav-sub">2.2 Konsolidering af parallelle krav</a></li>
+      <li><a href="#begreber" class="nav-sub">2.3 Præcisering af begreber</a></li>
+      <li><a href="#tekst" class="nav-top">3. Teknisk gennemgang</a></li>
+      <li><a href="#losning" class="nav-sub">3.1 Løsningsarkitektur</a></li>
+      <li><a href="#services" class="nav-sub">3.2 Services og datamodeller</a></li>
+      <li><a href="#integrationer" class="nav-sub">3.3 Eksisterende integrationer</a></li>
+      <li><a href="#test" class="nav-sub">3.4 Testmiljøer</a></li>
+      <li><a href="#parallel" class="nav-sub">3.5 Parallel afvikling</a></li>
+      <li><a href="#sikkerhed" class="nav-sub">3.6 Sikkerhedskrav</a></li>
+      <li><a href="#konklusion">4. Konklusion</a></li>
     </ul>
   </nav>
 </aside>
 
-<!-- Main content -->
 <div class="main">
 
-  <!-- Document Header -->
   <header class="doc-header" id="top">
     <h1>Kvalitetssikring af kravspecifikation</h1>
     <div class="doc-meta">
-      <strong>Forfatter:</strong> Jan Mack Kjerbye, Enterprise Arkitekt OS²<br>
+      <strong>Forfatter:</strong> Jan Mack Kjerbye, Enterprise Arkitekt OS² &nbsp;·&nbsp;
       <strong>Dato:</strong> September 2026
     </div>
   </header>
 
-  <!-- Introductory note -->
   <blockquote>
     <p>Gennemgang og vurdering af kravspecifikation for migration af CPR-integration i OS2valghalla med henblik på udbud til leverandører</p>
   </blockquote>
 
-  <!-- 1. Indledning -->
+  <!-- 1 -->
   <section id="indledning">
     <h2>1. Indledning</h2>
-    <p>Vurderingen er udført alene på baggrund af det udleverede kravspecifikationsdokument (KS).</p>
-    <p>For at sikre et fair, konkurrencedygtigt og transparent udbud skal KS være selvstændigt udførligt dokument. Leverandører kan alene forventes at kende forhold der fremgår af det udbudte materiale. Uformel viden eller antagelser om kendskab til tidligere korrespondance, aftaler eller lign. indgår derfor ikke i denne vurdering.</p>
+    <p>Da leverandører alene kan forventes at kende forhold der fremgår af fremsendt materiale, er denne vurdering udført alene på baggrund af det udleverede kravspecifikationsdokument (KS).</p>
+    <p>Uformel eller tavs viden, antagelser om kendskab til tidligere korrespondance eller aftaler nævnt andetsteds er dermed ikke en del af denne vurdering.</p>
   </section>
 
-  <hr class="section-rule">
+  <hr>
 
-  <!-- 2. Mangler eller uklarheder -->
-  <section id="mangler">
-    <h2>2. Mangler eller uklarheder</h2>
+  <!-- 2 -->
+  <section id="struktur">
+    <h2>2. Strukturelle og formelle forhold</h2>
+    <p>Flere af de berørte emner er generelle for softwareleverancer og kan med fordel henvises til eksterne bilag og principper fra autoritative kilder (DIGST, OS², KL m.fl.)</p>
 
-    <!-- 2.1 Teknisk kontekst -->
-    <h3 id="teknisk-kontekst">2.1 Teknisk kontekst <span class="issue-tag missing">Mangler</span></h3>
-    <p>Dokumentet nævner eller henviser ikke til den løsningsarkitektur, OS2valghalla er bygget på.</p>
-    <p>En ny leverandør vil bl.a. have brug for viden om:</p>
+    <h3 id="ejerskab">2.1 Ejerskab og ansvar</h3>
+    <p>Manglende klarhed over roller, ansvar og ejerskab vil have afgørende betydning for en leverandørs endelige estimater. Følgende forhold mangler specificering:</p>
     <ul>
-      <li>Begrundet valg af programmeringssprog, framework.</li>
-      <li>Database og dataformater</li>
-      <li>Eksisterende integrationsarkitekturer, komponenter, libs, protokoller etc.</li>
-      <li>Softwarens build-pipeline og deploymentsstruktur og hvilken ci/cd der anvendes.</li>
+      <li><strong>Beslutningsejerskab:</strong> KS nævner analyse, arkitektur og implementering, men mangler formel afklaring af hvem der ejer de tekniske beslutninger og hvordan de dokumenteres. F.eks bør det afklares hvem der afgører om fallback er "teknisk muligt".</li>
+      <li><strong>Ejerskab af leverancekæde:</strong> KS nævner at kildekode skal leveres til OS2valghallas repository, men henviser ikke til governance-dokumentation (CONTRIBUTING.md, CODEOWNERS) der beskriver hvilken proces og kontrol kodebidrag, ændringsstyring og review-processer er underlagt.</li>
+      <li><strong>Leverandøruafhængighed:</strong> Kravspecifikationen nævner generelt at løsningen skal kunne videreudvikles af andre leverandører, men der mangler konkrete krav til at udarbejdelse af dokumentation for arkitekturvalg og tydelig afkobling af leverandørspecifikke komponenter skal foreligge som en del af et tilbud.</li>
     </ul>
 
-    <!-- 2.2 Datafordeler -->
-    <h3 id="datafordeler">2.2 Specifikation af Datafordeler-services og datamodeller <span class="issue-tag missing">Mangler</span></h3>
-    <p>Dokumentet nævner "Datafordeleren (DAF)" generelt, men specificerer ikke:</p>
+    <h3 id="konsolidering">2.2 Konsolidering af parallelle krav</h3>
+    <p>Konsolidering forbedrer læsevenlighed og kan minimere modstridende fortolkninger.</p>
+    <p>Konkrete muligheder for konsolidering:</p>
+    <ul>
+      <li><strong>Genbrug</strong> (F3, O2) – samles ét sted med henvisning til DIGSTs principper og OS²s styringsmodel, så kravet ikke gentages unødigt.</li>
+      <li><strong>Fejlhåndtering</strong> (F7, NF2) – samles i én sektion der beskriver den samlede fejlhåndteringsstrategi.</li>
+      <li><strong>Test</strong> (F8, F9) – integreres til én teststrategi der dækker funktionel test, integrationstest og end-to-end-test.</li>
+      <li><strong>Dokumentation</strong> (F9, O5, NF5) – samles ét sted med klart afgrænset ansvar og format.</li>
+      <li><strong>Leverandøruafhængighed</strong> (NF5, O6) – beskrives samlet for at sikre ensartet fortolkning.</li>
+      <li><strong>Release</strong> (F5, Fase 7) – samles til én samlet release-proces med tydelige milepæle.</li>
+    </ul>
 
-    <div class="callout">
-      <div class="callout-title">Services</div>
-      <ul>
-        <li>Hvilke konkrete services der skal anvendes (f.eks. CPR Hent Person, CPR Søg Person, o.a)</li>
-        <li>API-version og endpoint-struktur</li>
-      </ul>
-    </div>
+    <h3 id="begreber">2.3 Præcisering af begreber</h3>
+    <p>KS anvender flere steder begreber som "tilfredsstillende resultat" og "stabil", der ikke er konkrete eller målbare.</p>
+    <ul>
+      <li><strong>Uklarheder:</strong>
+        <ul>
+          <li>Hvornår test betragtes som bestået.</li>
+          <li>Hvornår "aftalt stabiliseringsperiode" betragtes som afsluttet.</li>
+          <li>Hvad der definerer "tilfredsstillende" i forhold til test og performance.</li>
+        </ul>
+      </li>
+      <li><strong>Præciseringer:</strong>
+        <ul>
+          <li>"med rimelighed" i fast pris bør defineres.</li>
+          <li>"unødige leverandørspecifikke afhængigheder" bør konkretiseres.</li>
+          <li>"væsentlige oplysninger" bør præciseres med en checkliste.</li>
+          <li>"gældende aftaler om support" bør uddybes.</li>
+          <li>Udsagn om "relevante forhold" mangler konkrete referencer.</li>
+          <li>"hvis relevant" bør erstattes med konkret afgrænsninger for relevans.</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
 
-    <div class="callout">
-      <div class="callout-title">Datamodeller</div>
-      <ul>
-        <li>Datamodeller for CPR-opslag (nuværende og kommende)</li>
-        <li>Datamodeller for den eksisterende KOMBIT-integration</li>
-        <li>Forventede datafelter og svarformater fra DAF</li>
-      </ul>
-    </div>
+  <hr>
 
-    <!-- 2.3 KOMBIT-integration -->
-    <h3 id="kombit-integration">2.3 Eksisterende KOMBIT-integration – tekniske detaljer <span class="issue-tag missing">Mangler</span></h3>
+  <!-- 3 -->
+  <section id="tekst">
+    <h2>3. Teknisk gennemgang</h2>
+
+    <h3 id="losning">3.1 Løsningsarkitektur</h3>
+    <p>KS mangler henvisninger den autoritative beskrivelse af OS²valghallas løsningsarkitektur. For at levere et fast tilbud vil en leverandør bl.a. have brug for detaljeret viden om:</p>
+    <ul>
+      <li>Begrundet valg af programmeringssprog, frameworks.</li>
+      <li>Databasevalg og dataformater.</li>
+      <li>Eksisterende integrationsarkitekturer, komponenter, libs, protokoller etc.</li>
+      <li>Softwarens build-pipeline og deploymentsstruktur og hvilken ci/cd der forventes anvendt.</li>
+    </ul>
+
+    <h3 id="services">3.2 Services og datamodeller</h3>
+    <p>Dokumentet nævner "Datafordeleren (DAF)" generelt, men specificerer ikke hvilke konkrete services eller datamodeller der forventes anvendt. Det bør afklares:</p>
+    <ul>
+      <li><strong>Services:</strong> Hvilke konkrete services (f.eks. CPR Hent Person, CPR Søg Person), API-version og endpoint-struktur.</li>
+      <li><strong>Datamodeller:</strong> Datamodeller for CPR-opslag (nuværende og kommende), for den eksisterende KOMBIT-integration og forventede datafelter/svarformater fra DAF.</li>
+    </ul>
+
+    <h3 id="integrationer">3.3 Eksisterende integrationer</h3>
     <p>Dokumentet nævner kort <code>PersonBaseDataExtendedService v.5 (SF1520 – CPR replika opslag)</code>, men linker ikke til dokumentation for:</p>
     <ul>
-      <li>Hvilke felter og data OS2valghalla faktisk bruger fra denne service</li>
-      <li>Hvor ofte opslag foretages (volumen)</li>
-      <li>Om der er tale om abonnementer, hændelser eller batchkørsler</li>
-      <li>Fejlhåndtering og timeout i den eksisterende integration</li>
+      <li>Hvilke felter og data OS2valghalla faktisk bruger fra denne service.</li>
+      <li>Hvor ofte opslag foretages (volumen).</li>
+      <li>Om der er tale om abonnementer, hændelser eller batchkørsler.</li>
+      <li>Fejlhåndtering og timeout i den eksisterende integration.</li>
     </ul>
 
-    <!-- 2.4 Præcisering af begreber -->
-    <h3 id="begreber">2.4 Præcisering af begreber <span class="issue-tag unclear">Uklar</span></h3>
-    <p>Dokumentet bruger flere steder formuleringer som <em>"tilfredsstillende resultat"</em> og <em>"stabil"</em>, der ikke er konkrete eller målbare. F.eks er det uklart:</p>
-    <ul>
-      <li>Hvornår test betragtes som bestået</li>
-      <li>Hvornår stabiliseringsperioden betragtes som afsluttet</li>
-      <li>Hvad der definerer "tilfredsstillende" i forhold til test og performance</li>
-    </ul>
-
-    <div class="callout warning">
-      <div class="callout-title">Tidsmæssige rammer</div>
-      <ul>
-        <li>Varigheden af "aftalt stabiliseringsperiode" og "aftalt overgangsperiode" bør specificeres, da disse vil have direkte indflydelse på tilbuddet</li>
-        <li>Hvem der kan afgøre om fallback er "teknisk muligt" bør afklares</li>
-      </ul>
-    </div>
-
-    <div class="callout warning">
-      <div class="callout-title">Præcisering af begreber</div>
-      <ul>
-        <li><em>"med rimelighed"</em> i fast pris bør defineres</li>
-        <li><em>"unødige leverandørspecifikke afhængigheder"</em> bør konkretiseres</li>
-        <li><em>"væsentlige oplysninger"</em> bør præciseres med en checkliste</li>
-        <li><em>"gældende aftaler om support"</em> bør uddybes</li>
-      </ul>
-    </div>
-
-    <div class="callout warning">
-      <div class="callout-title">Afgrænsning af omfang</div>
-      <ul>
-        <li><em>"hvis relevant"</em> for batchkørsler og abonnementer bør erstattes med en fælles forståelse af hvad der skal migreres</li>
-        <li>Ansvaret for at definere afgrænsningerne bør placeres konkret.</li>
-      </ul>
-    </div>
-
-    <!-- 2.5 Testmiljøer -->
-    <h3 id="testmiljoe">2.5 Testmiljøer og testdata <span class="issue-tag missing">Mangler</span></h3>
+    <h3 id="test">3.4 Testmiljøer</h3>
     <p>Dokumentet nævner "adgang til test- og produktionsmiljøer", men specificerer ikke:</p>
     <ul>
       <li>Hvis ansvar det er at etablere og drive testmiljøer, og om et fælles test snitflade stilles til rådighed fra KOMBIT med anvendelig test-data.</li>
-      <li>Hordan sådan evt. testdata tilgås og kvalitetssikres</li>
+      <li>Hvordan sådan evt. testdata tilgås og kvalitetssikres.</li>
       <li>Om det kan blive nødvendigt med Mock-services for at kunne automatisere tests og nå deadline?</li>
     </ul>
 
-    <!-- 2.6 Parallel afvikling -->
-    <h3 id="parallel">2.6 Parallel afvikling – teknisk implementering <span class="issue-tag unclear">Uklar</span></h3>
+    <h3 id="parallel">3.5 Parallel afvikling</h3>
     <p>Dokumentet nævner parallel afvikling som ønskværdigt, men mangler beskrivelser af:</p>
     <ul>
-      <li>Hvordan dette teknisk skal implementeres (feature flags, routing-logik, etc.)</li>
-      <li>Hvornår parallel afvikling er relevant (og hvornår den ikke er)</li>
-      <li>Hvordan sammenligning af svar skal gennemføres i praksis</li>
+      <li>Hvordan dette teknisk skal implementeres (feature flags, routing-logik, etc.).</li>
+      <li>Hvornår parallel afvikling er relevant (og hvornår den ikke er).</li>
+      <li>Hvordan sammenligning af svar skal gennemføres i praksis.</li>
       <li>Hvordan driftansvar placeres hvis der skal drives to parallelle instanser.</li>
       <li>Hvornår og efter hvilke kriterier parallel drift kan ophøre?</li>
     </ul>
 
-    <!-- 2.7 Tidsplan -->
-    <h3 id="tidsplan">2.7 Tidsplan og milestones <span class="issue-tag missing">Mangler</span></h3>
-    <p>Dokumentet angiver deadline (Q3 2027), men ikke:</p>
-    <ul>
-      <li>Milestones for de enkelte faser</li>
-      <li>Forventet varighed af hver fase</li>
-      <li>Hvordan afhængigheder til eksterne hændelser (f.eks. Datafordelerens releaseplan) skal håndteres i tidsplanen?</li>
-    </ul>
-
-    <!-- 2.8 Sikkerhed -->
-    <h3 id="sikkerhed">2.8 Sikkerhed og certifikater <span class="issue-tag critical">Kritisk</span></h3>
+    <h3 id="sikkerhed">3.6 Sikkerhedskrav</h3>
     <p>Dokumentet nævner sikkerhedskrav generelt, men ikke:</p>
     <ul>
-      <li>Typen af certifikater der skal anvendes (TLS, klientcertifikater, OAuth osv.)</li>
+      <li>Typen af certifikater der skal anvendes (TLS, klientcertifikater, OAuth osv.).</li>
       <li>Hvem udsteder certifikaterne, hvordan integreres de?</li>
-      <li>Om der er specifikke krav til secret / certifikat management</li>
+      <li>Om der er specifikke krav til secret / certifikat management.</li>
+      <li>Krav om databeskyttelse og lovformelighed:
+        <ul>
+          <li>Om leverandørerne har behov for adgange til eller behandling af persondata med deraffølgende krav om databehandleraftaler.</li>
+          <li>Datamapping for CPR-data med angivelse af hvilke felter der behandles for at sikre dataminimering.</li>
+          <li>Hvilke krypteringskrav for CPR-data (in transit / at rest).</li>
+          <li>Hvilke adgangskontroller og audit trails på transport af persondata.</li>
+          <li>Begrundede beslutninger om dataopbevaringstider og slettepolitikker for CPR-data.</li>
+        </ul>
+      </li>
     </ul>
-
-    <div class="callout critical">
-      <div class="callout-title">Krav om databeskyttelse og lovformelighed</div>
-      <ul>
-        <li>Om leverandørerne har behov for adgange til eller behandling af persondata med deraffølgende krav om databehandleraftaler</li>
-        <li>Datamapping for CPR-data med angivelse af hvilke felter der behandles for at sikre dataminimering.</li>
-        <li>Hvilke krypteringskrav for CPR-data (in transit / at rest)</li>
-        <li>Hvilke adgangskontroller og audit trails på transport af persondata</li>
-        <li>Begrundede beslutninger om dataopbevaringstider og slettepolitikker for CPR-data</li>
-      </ul>
-    </div>
   </section>
 
-  <hr class="section-rule">
+  <hr>
 
-  <!-- 3. Strukturelle og formelle forhold -->
-  <section id="struktur">
-    <h2>3. Strukturelle og formelle forhold</h2>
-    <p>Flere af de berørte emner er generelle for softwareleverancer, og der kan derfor med fordel henvises til bilag og principper i stedet for at genbeskrive dem direkte i denne specifikke KS.</p>
-
-    <!-- 3.1 Gentagelser -->
-    <h3 id="gentagelser">3.1 Gentagelser</h3>
-    <p>Dokumentet gentager sig selv flere steder, især:</p>
-
-    <div class="card-grid">
-      <div class="card">
-        <div class="card-label">F3, O2</div>
-        <div class="card-title">Genbrug</div>
-        <div class="card-body">Kan samles til ét sted med henvisning til DIGST principper og OS²s styringsmodel</div>
-      </div>
-      <div class="card">
-        <div class="card-label">F7, NF2</div>
-        <div class="card-title">Fejlhåndtering</div>
-        <div class="card-body">Kan samles i én sektion</div>
-      </div>
-      <div class="card">
-        <div class="card-label">F8, F9</div>
-        <div class="card-title">Test-krav</div>
-        <div class="card-body">Overlapper og kan samles</div>
-      </div>
-      <div class="card">
-        <div class="card-label">F9, O5, NF5</div>
-        <div class="card-title">Dokumentationskrav</div>
-        <div class="card-body">Er spredt over tre steder med overlap</div>
-      </div>
-      <div class="card">
-        <div class="card-label">NF5, O6</div>
-        <div class="card-title">Leverandøruafhængighed</div>
-        <div class="card-body">Kan beskrives ét sted istedet for to</div>
-      </div>
-      <div class="card">
-        <div class="card-label">F5, Fase 7</div>
-        <div class="card-title">Release-processen</div>
-        <div class="card-body">Nævnes to steder og kan samles i et punkt</div>
-      </div>
-    </div>
-
-    <div class="callout">
-      <div class="callout-title">Øvrige overflødige punkter</div>
-      <ul>
-        <li>Beskrivelsen af at et faktisk valg ikke er en forudsætning gentages flere gange</li>
-        <li>Generelle udsagn om "relevante forhold" uden konkret indhold kan undværes</li>
-      </ul>
-    </div>
+  <!-- 4 -->
+  <section id="konklusion">
+    <h2>4. Konklusion</h2>
+    <p>KS indeholder en grundlæggende god faglig forståelse af domænet og de tekniske udfordringer. Punkterne herover kan medvirke til at styrke specifikationen inden udbud, så både projektet og kommende leverandør har et klart og fælles grundlag. Disse afklaringer om roller, ejerskab og tekniske forudsætninger, kan påvirke både tidsplan, omfang og pris og bør foretages inden der indgås aftaler med en udviklingsleverandør.</p>
   </section>
 
 </div>
 
-<!-- Active nav highlighting -->
 <script>
 (function() {
   var links = document.querySelectorAll('.sidebar nav a');
